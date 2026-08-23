@@ -114,7 +114,7 @@ SELECT
         WHEN 'yes' THEN TRUE
         WHEN 'no'  THEN FALSE
     END AS needed,
-    TRY_CAST(AA AS INTEGER) + TRY_CAST(AB AS INTEGER) AS headcount_per_group
+    COALESCE(TRY_CAST(AA AS INTEGER), 0) + COALESCE(TRY_CAST(AB AS INTEGER), 0) * 0.5 AS headcount_per_group   
     --TRY_CAST(AB AS INTEGER) AS headcount_per_group_start_child,
     --TRY_CAST(AC AS INTEGER) AS headcount_per_group_end_adult,
     --TRY_CAST(AD AS INTEGER) AS headcount_per_group_end_child,
@@ -137,7 +137,8 @@ SELECT * from year_2022;
 -------------------
 -- 2023 Cleaning
 ------------------
--- Columns now include a start and end headcount figure. End likely to be dropped in analysis
+-- Columns now include a start and end headcount figure. End likely to be dropped in analysis.
+-- Counts also split into adults and kids. Kids need to be handled, perhaps count as 0.5
 
 CREATE OR REPLACE TABLE year_2023 AS
 SELECT
@@ -148,10 +149,11 @@ SELECT
         WHEN 'yes' THEN TRUE
         WHEN 'no'  THEN FALSE
     END AS needed,
-    TRY_CAST(AJ AS INTEGER) AS headcount_per_group_start_adult,
-    TRY_CAST(AK AS INTEGER) AS headcount_per_group_start_child,
-    TRY_CAST(AL AS INTEGER) AS headcount_per_group_end_adult,
-    TRY_CAST(AM AS INTEGER) AS headcount_per_group_end_child,
+    COALESCE(TRY_CAST(AJ AS INTEGER), 0) + COALESCE(TRY_CAST(AK AS INTEGER), 0) * 0.5 AS headcount_per_group
+    --TRY_CAST(AJ AS INTEGER) AS headcount_per_group_start_adult,
+    --TRY_CAST(AK AS INTEGER) AS headcount_per_group_start_child,
+    --TRY_CAST(AL AS INTEGER) AS headcount_per_group_end_adult,
+    --TRY_CAST(AM AS INTEGER) AS headcount_per_group_end_child,
 FROM read_xlsx(
     'data/raw/numbers_raw.xlsx',
     header      = false,
@@ -172,8 +174,12 @@ UNION ALL
 SELECT * FROM year_2019
 UNION ALL
 SELECT * FROM year_2020
---UNION ALL
---SELECT * FROM year_2022
---UNION ALL
---SELECT * FROM year_2023
---UNION ALL;
+UNION ALL
+SELECT * FROM year_2022
+UNION ALL
+SELECT * FROM year_2023
+UNION ALL;
+
+SELECT tour_date, SUM(headcount_per_group)
+FROM all_years
+GROUP BY tour_date;
