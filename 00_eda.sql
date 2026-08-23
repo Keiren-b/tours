@@ -10,3 +10,38 @@ all_varchar = true);
 -- Column headers are inconsistently named
 -- 2018: Multiple rows per day, 2 different tours a day, multiple guides with a binary yes/no if they're needed. Number of people per guide not total
 
+
+-------------------
+-- 2018 Cleaning
+-------------------
+
+CREATE OR REPLACE TABLE year_2018 AS
+SELECT *
+FROM read_xlsx(
+    'data/raw/numbers_raw.xlsx',
+    header      = false,
+    sheet       = 'SS Info dump',
+    range       = 'B3:F',
+    all_varchar = true
+);
+
+
+SELECT * FROM year_2018
+-- Any rows that failed to convert?
+--SELECT count(*) AS total, count(tour_date) AS parsed FROM year_2018;
+
+-- Do the dates fall in the year you expect?
+--SELECT min(tour_date), max(tour_date) FROM year_2018;
+
+
+
+
+--CREATE or REPLACE TABLE year_2019 AS
+--SELECT * FROM read_xlsx(
+--    'data/raw/numbers_raw.xlsx', 
+--header = false, 
+--sheet = 'SS Info dump',
+--range = 'I3:N', 
+--all_varchar = true);
+
+
