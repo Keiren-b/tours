@@ -179,6 +179,9 @@ SELECT * FROM year_2022
 UNION ALL
 SELECT * FROM year_2023;
 
+SELECT * 
+FROM all_years;
+
 SELECT tour_date, SUM(headcount_per_group)
 FROM all_years
 GROUP BY tour_date;
@@ -191,16 +194,19 @@ SELECT count(*) FROM all_years WHERE needed IS NOT TRUE;
 -- multiple tours run per day, need to separate out
 -- values for NO TOUR need to be dropped
 -- For initial training just do morning tours, drop afternoon
------------------------------------------------------
------------------------------------------------------
 -- remove rows where guide not needed
------------------------------------------------------
-
+-- calculate number of guides needed
 CREATE OR REPLACE TABLE all_years_morning AS
-SELECT *
+SELECT
+tour_date,
+count (*) as num_guides,
+SUM (headcount_per_group) as headcount
 FROM all_years
-WHERE tour_type = 'Sydney Sights 10:30am' AND needed IS TRUE;
+WHERE tour_type = 'Sydney Sights 10:30am' AND needed IS TRUE
+GROUP BY tour_date;
 
+SELECT * 
+FROM all_years_morning
 
 
 
