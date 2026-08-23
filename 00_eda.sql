@@ -69,7 +69,7 @@ SELECT * from year_2019;
 -------------------
 -- 2020 Cleaning
 ------------------
--- Columns now include a start and end headcount figure. End likely to be dropped in analysis
+-- Columns now include a start and end headcount figure. End likely to be dropped in analysis. End likely to be dropped in analysis. End (col U now dropped as redundant)
 
 CREATE OR REPLACE TABLE year_2020 AS
 SELECT
@@ -81,12 +81,14 @@ SELECT
         WHEN 'no'  THEN FALSE
     END AS needed,
     TRY_CAST(T AS INTEGER) AS headcount_per_group_start,
-    TRY_CAST(U AS INTEGER) AS headcount_per_group_end
+    --TRY_CAST(U AS INTEGER) AS headcount_per_group_end
 FROM read_xlsx(
     'data/raw/numbers_raw.xlsx',
     header      = false,
     sheet       = 'SS Info dump',
-    range       = 'P3:U',
+    --range       = 'P3:U',
+    range       = 'P3:T',
+
     all_varchar = true
 )
 WHERE P IS NOT NULL;
@@ -112,10 +114,12 @@ SELECT
         WHEN 'yes' THEN TRUE
         WHEN 'no'  THEN FALSE
     END AS needed,
-    TRY_CAST(AA AS INTEGER) AS headcount_per_group_start_adult,
-    TRY_CAST(AB AS INTEGER) AS headcount_per_group_start_child,
-    TRY_CAST(AC AS INTEGER) AS headcount_per_group_end_adult,
-    TRY_CAST(AD AS INTEGER) AS headcount_per_group_end_child,
+    TRY_CAST(AA AS INTEGER) + TRY_CAST(AB AS INTEGER) AS headcount_per_group
+    --TRY_CAST(AB AS INTEGER) AS headcount_per_group_start_child,
+    --TRY_CAST(AC AS INTEGER) AS headcount_per_group_end_adult,
+    --TRY_CAST(AD AS INTEGER) AS headcount_per_group_end_child,
+
+
 FROM read_xlsx(
     'data/raw/numbers_raw.xlsx',
     header      = false,
@@ -124,6 +128,9 @@ FROM read_xlsx(
     all_varchar = true
 )
 WHERE W IS NOT NULL;
+
+
+
 
 SELECT * from year_2022;
 
