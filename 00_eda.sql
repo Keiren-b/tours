@@ -183,10 +183,24 @@ SELECT tour_date, SUM(headcount_per_group)
 FROM all_years
 GROUP BY tour_date;
 
+SELECT DISTINCT tour_type
+FROM all_years;
+
+SELECT count(*) FROM all_years WHERE needed IS NOT TRUE;
 -----------------------------------------------------
 -- multiple tours run per day, need to separate out
 -- values for NO TOUR need to be dropped
 -- For initial training just do morning tours, drop afternoon
 -----------------------------------------------------
-SELECT DISTINCT tour_type
+-----------------------------------------------------
+-- remove rows where guide not needed
+-----------------------------------------------------
+
+CREATE OR REPLACE TABLE all_years_morning AS
+SELECT *
 FROM all_years
+WHERE tour_type = 'Sydney Sights 10:30am' AND needed IS TRUE;
+
+
+
+
