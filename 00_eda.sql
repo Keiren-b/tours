@@ -16,14 +16,23 @@ all_varchar = true);
 -------------------
 
 CREATE OR REPLACE TABLE year_2018 AS
-SELECT *
+SELECT
+    DATE '1899-12-30' + TRY_CAST(B AS INTEGER) AS tour_date,
+    CAST(C AS TEXT) AS tour_type,
+    CAST(D AS TEXT) AS guide,
+    CASE lower(trim(E))
+        WHEN 'yes' THEN TRUE
+        WHEN 'no'  THEN FALSE
+    END AS needed,
+    TRY_CAST(F AS INTEGER) AS headcount_per_group
 FROM read_xlsx(
     'data/raw/numbers_raw.xlsx',
     header      = false,
     sheet       = 'SS Info dump',
     range       = 'B3:F',
     all_varchar = true
-);
+)
+WHERE B IS NOT NULL;
 
 
 SELECT * FROM year_2018
