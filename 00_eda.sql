@@ -196,11 +196,15 @@ SELECT count(*) FROM all_years WHERE needed IS NOT TRUE;
 -- For initial training just do morning tours, drop afternoon
 -- remove rows where guide not needed
 -- calculate number of guides needed
+-- add year and month for later analysis
 CREATE OR REPLACE TABLE all_years_morning AS
 SELECT
 tour_date,
-count (*) as num_guides,
-SUM (headcount_per_group) as headcount
+YEAR(tour_date) AS tour_year,
+MONTH(tour_date) as tour_month
+count(*) AS num_guides,
+SUM(headcount_per_group) AS headcount,
+
 FROM all_years
 WHERE tour_type = 'Sydney Sights 10:30am' AND needed IS TRUE
 GROUP BY tour_date;
