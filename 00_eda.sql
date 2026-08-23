@@ -177,9 +177,16 @@ SELECT * FROM year_2020
 UNION ALL
 SELECT * FROM year_2022
 UNION ALL
-SELECT * FROM year_2023
-UNION ALL;
+SELECT * FROM year_2023;
 
 SELECT tour_date, SUM(headcount_per_group)
 FROM all_years
 GROUP BY tour_date;
+
+-----------------------------------------------------
+-- multiple tours run per day, need to separate out
+-- values for NO TOUR need to be dropped
+-- For initial training just do morning tours, drop afternoon
+-----------------------------------------------------
+SELECT DISTINCT tour_type
+FROM all_years
