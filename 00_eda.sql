@@ -40,7 +40,7 @@ SELECT * FROM year_2018;
 -------------------
 -- 2019 Cleaning
 ------------------
--- Columns now include a start and end headcount figure. End likely to be dropped in analysis
+-- Columns now include a start and end headcount figure. End likely to be dropped in analysis. End (col N now dropped as redundant)
 
 CREATE OR REPLACE TABLE year_2019 AS
 SELECT
@@ -51,13 +51,14 @@ SELECT
         WHEN 'yes' THEN TRUE
         WHEN 'no'  THEN FALSE
     END AS needed,
-    TRY_CAST(M AS INTEGER) AS headcount_per_group_start,
-    TRY_CAST(N AS INTEGER) AS headcount_per_group_end
+    TRY_CAST(M AS INTEGER) AS headcount_per_group
+    --TRY_CAST(N AS INTEGER) AS headcount_per_group_end
 FROM read_xlsx(
     'data/raw/numbers_raw.xlsx',
     header      = false,
     sheet       = 'SS Info dump',
-    range       = 'I3:N',
+    range = 'I3:M',
+    --range       = 'I3:N',
     all_varchar = true
 )
 WHERE I IS NOT NULL;
@@ -99,7 +100,8 @@ SELECT * from year_2020;
 -------------------
 -- 2022 Cleaning
 ------------------
--- Columns now include a start and end headcount figure. End likely to be dropped in analysis
+-- Columns now include a start and end headcount figure. End likely to be dropped in analysis.
+-- Counts also split into adults and kids. Kids need to be handled, perhaps count as 0.5
 
 CREATE OR REPLACE TABLE year_2022 AS
 SELECT
@@ -163,8 +165,8 @@ UNION ALL
 SELECT * FROM year_2019
 UNION ALL
 SELECT * FROM year_2020
-UNION ALL
-SELECT * FROM year_2022
-UNION ALL
-SELECT * FROM year_2023
-UNION ALL;
+--UNION ALL
+--SELECT * FROM year_2022
+--UNION ALL
+--SELECT * FROM year_2023
+--UNION ALL;
