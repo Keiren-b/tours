@@ -62,13 +62,153 @@ FROM read_xlsx(
 )
 WHERE I IS NOT NULL;
 
-SELECT * from year_2019
---CREATE or REPLACE TABLE year_2019 AS
---SELECT * FROM read_xlsx(
---    'data/raw/numbers_raw.xlsx', 
---header = false, 
---sheet = 'SS Info dump',
---range = 'I3:N', 
---all_varchar = true);
+SELECT * from year_2019;
 
 
+-------------------
+-- 2020 Cleaning
+------------------
+-- Columns now include a start and end headcount figure. End likely to be dropped in analysis
+
+CREATE OR REPLACE TABLE year_2020 AS
+SELECT
+    DATE '1899-12-30' + TRY_CAST(P AS INTEGER) AS tour_date,
+    CAST(Q AS TEXT) AS tour_type,
+    CAST(R AS TEXT) AS guide,
+    CASE lower(trim(S))
+        WHEN 'yes' THEN TRUE
+        WHEN 'no'  THEN FALSE
+    END AS needed,
+    TRY_CAST(T AS INTEGER) AS headcount_per_group_start,
+    TRY_CAST(U AS INTEGER) AS headcount_per_group_end
+FROM read_xlsx(
+    'data/raw/numbers_raw.xlsx',
+    header      = false,
+    sheet       = 'SS Info dump',
+    range       = 'P3:U',
+    all_varchar = true
+)
+WHERE P IS NOT NULL;
+
+SELECT * from year_2020;
+
+---------------------------------------------------------
+-- 2021 Cleaning: Data not available because of COVID
+---------------------------------------------------------
+
+-------------------
+-- 2022 Cleaning
+------------------
+-- Columns now include a start and end headcount figure. End likely to be dropped in analysis
+
+CREATE OR REPLACE TABLE year_2022 AS
+SELECT
+    DATE '1899-12-30' + TRY_CAST(W AS INTEGER) AS tour_date,
+    CAST(X AS TEXT) AS tour_type,
+    CAST(Y AS TEXT) AS guide,
+    CASE lower(trim(Z))
+        WHEN 'yes' THEN TRUE
+        WHEN 'no'  THEN FALSE
+    END AS needed,
+    TRY_CAST(AA AS INTEGER) AS headcount_per_group_start_adult,
+    TRY_CAST(AB AS INTEGER) AS headcount_per_group_start_child,
+    TRY_CAST(AC AS INTEGER) AS headcount_per_group_end_adult,
+    TRY_CAST(AD AS INTEGER) AS headcount_per_group_end_child,
+FROM read_xlsx(
+    'data/raw/numbers_raw.xlsx',
+    header      = false,
+    sheet       = 'SS Info dump',
+    range       = 'W3:AD',
+    all_varchar = true
+)
+WHERE W IS NOT NULL;
+
+SELECT * from year_2022;
+
+-------------------
+-- 2022 Cleaning
+------------------
+-- Columns now include a start and end headcount figure. End likely to be dropped in analysis
+
+CREATE OR REPLACE TABLE year_2022 AS
+SELECT
+    DATE '1899-12-30' + TRY_CAST(W AS INTEGER) AS tour_date,
+    CAST(X AS TEXT) AS tour_type,
+    CAST(Y AS TEXT) AS guide,
+    CASE lower(trim(Z))
+        WHEN 'yes' THEN TRUE
+        WHEN 'no'  THEN FALSE
+    END AS needed,
+    TRY_CAST(AA AS INTEGER) AS headcount_per_group_start_adult,
+    TRY_CAST(AB AS INTEGER) AS headcount_per_group_start_child,
+    TRY_CAST(AC AS INTEGER) AS headcount_per_group_end_adult,
+    TRY_CAST(AD AS INTEGER) AS headcount_per_group_end_child,
+FROM read_xlsx(
+    'data/raw/numbers_raw.xlsx',
+    header      = false,
+    sheet       = 'SS Info dump',
+    range       = 'W3:AD',
+    all_varchar = true
+)
+WHERE W IS NOT NULL;
+
+SELECT * from year_2022;
+
+-------------------
+-- 2022 Cleaning
+------------------
+-- Columns now include a start and end headcount figure. End likely to be dropped in analysis
+
+CREATE OR REPLACE TABLE year_2022 AS
+SELECT
+    DATE '1899-12-30' + TRY_CAST(W AS INTEGER) AS tour_date,
+    CAST(X AS TEXT) AS tour_type,
+    CAST(Y AS TEXT) AS guide,
+    CASE lower(trim(Z))
+        WHEN 'yes' THEN TRUE
+        WHEN 'no'  THEN FALSE
+    END AS needed,
+    TRY_CAST(AA AS INTEGER) AS headcount_per_group_start_adult,
+    TRY_CAST(AB AS INTEGER) AS headcount_per_group_start_child,
+    TRY_CAST(AC AS INTEGER) AS headcount_per_group_end_adult,
+    TRY_CAST(AD AS INTEGER) AS headcount_per_group_end_child,
+FROM read_xlsx(
+    'data/raw/numbers_raw.xlsx',
+    header      = false,
+    sheet       = 'SS Info dump',
+    range       = 'W3:AD',
+    all_varchar = true
+)
+WHERE W IS NOT NULL;
+
+SELECT * from year_2022;
+
+
+-------------------
+-- 2023 Cleaning
+------------------
+-- Columns now include a start and end headcount figure. End likely to be dropped in analysis
+
+CREATE OR REPLACE TABLE year_2023 AS
+SELECT
+    DATE '1899-12-30' + TRY_CAST(AF AS INTEGER) AS tour_date,
+    CAST(AG AS TEXT) AS tour_type,
+    CAST(AH AS TEXT) AS guide,
+    CASE lower(trim(AI))
+        WHEN 'yes' THEN TRUE
+        WHEN 'no'  THEN FALSE
+    END AS needed,
+    TRY_CAST(AJ AS INTEGER) AS headcount_per_group_start_adult,
+    TRY_CAST(AK AS INTEGER) AS headcount_per_group_start_child,
+    TRY_CAST(AL AS INTEGER) AS headcount_per_group_end_adult,
+    TRY_CAST(AM AS INTEGER) AS headcount_per_group_end_child,
+FROM read_xlsx(
+    'data/raw/numbers_raw.xlsx',
+    header      = false,
+    sheet       = 'SS Info dump',
+    range       = 'AF3:AM',
+    all_varchar = true
+)
+WHERE AF IS NOT NULL;
+
+SELECT * from year_2023;
