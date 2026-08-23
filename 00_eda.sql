@@ -126,65 +126,6 @@ WHERE W IS NOT NULL;
 SELECT * from year_2022;
 
 -------------------
--- 2022 Cleaning
-------------------
--- Columns now include a start and end headcount figure. End likely to be dropped in analysis
-
-CREATE OR REPLACE TABLE year_2022 AS
-SELECT
-    DATE '1899-12-30' + TRY_CAST(W AS INTEGER) AS tour_date,
-    CAST(X AS TEXT) AS tour_type,
-    CAST(Y AS TEXT) AS guide,
-    CASE lower(trim(Z))
-        WHEN 'yes' THEN TRUE
-        WHEN 'no'  THEN FALSE
-    END AS needed,
-    TRY_CAST(AA AS INTEGER) AS headcount_per_group_start_adult,
-    TRY_CAST(AB AS INTEGER) AS headcount_per_group_start_child,
-    TRY_CAST(AC AS INTEGER) AS headcount_per_group_end_adult,
-    TRY_CAST(AD AS INTEGER) AS headcount_per_group_end_child,
-FROM read_xlsx(
-    'data/raw/numbers_raw.xlsx',
-    header      = false,
-    sheet       = 'SS Info dump',
-    range       = 'W3:AD',
-    all_varchar = true
-)
-WHERE W IS NOT NULL;
-
-SELECT * from year_2022;
-
--------------------
--- 2022 Cleaning
-------------------
--- Columns now include a start and end headcount figure. End likely to be dropped in analysis
-
-CREATE OR REPLACE TABLE year_2022 AS
-SELECT
-    DATE '1899-12-30' + TRY_CAST(W AS INTEGER) AS tour_date,
-    CAST(X AS TEXT) AS tour_type,
-    CAST(Y AS TEXT) AS guide,
-    CASE lower(trim(Z))
-        WHEN 'yes' THEN TRUE
-        WHEN 'no'  THEN FALSE
-    END AS needed,
-    TRY_CAST(AA AS INTEGER) AS headcount_per_group_start_adult,
-    TRY_CAST(AB AS INTEGER) AS headcount_per_group_start_child,
-    TRY_CAST(AC AS INTEGER) AS headcount_per_group_end_adult,
-    TRY_CAST(AD AS INTEGER) AS headcount_per_group_end_child,
-FROM read_xlsx(
-    'data/raw/numbers_raw.xlsx',
-    header      = false,
-    sheet       = 'SS Info dump',
-    range       = 'W3:AD',
-    all_varchar = true
-)
-WHERE W IS NOT NULL;
-
-SELECT * from year_2022;
-
-
--------------------
 -- 2023 Cleaning
 ------------------
 -- Columns now include a start and end headcount figure. End likely to be dropped in analysis
@@ -212,3 +153,18 @@ FROM read_xlsx(
 WHERE AF IS NOT NULL;
 
 SELECT * from year_2023;
+
+--------------------------------------------
+-- Join all years into long table
+--------------------------------------------
+CREATE OR REPLACE TABLE all_years AS
+SELECT * FROM year_2018
+UNION ALL
+SELECT * FROM year_2019
+UNION ALL
+SELECT * FROM year_2020
+UNION ALL
+SELECT * FROM year_2022
+UNION ALL
+SELECT * FROM year_2023
+UNION ALL;
