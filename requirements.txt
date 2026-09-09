@@ -4,4 +4,8 @@ python-dotenv
 ruff
 tqdm
 typer
+datetime
+dataclasses
+pathlib
+tdqm
 -e .
