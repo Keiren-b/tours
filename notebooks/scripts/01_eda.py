@@ -25,8 +25,20 @@ from tours import config
 
 
 # %%
-def load_clean_data(data):
-    return pd.read_csv(data)
+def load_clean_data():
+    df = pd.read_csv(
+        config.PROCESSED_DATA_DIR / "morning.csv",
+        parse_dates=[config.DATE_COL],
+    )
+    df = df.sort_values(config.DATE_COL).set_index(config.DATE_COL, drop=True)
+    return df.asfreq("D")
+x = load_clean_data()
 
-clean_df = load_clean_data(config.PROCESSED_DATA_DIR / "morning.csv")
-clean_df.head(10)
+
+# %%
+def cutoff_series(df):
+    df = df.loc[:config.CUTOFF_DATE]
+    assert df.index.max() == config.CUTOFF_DATE, f"data ends {df.index.max()}, expected {config.CUTOFF_DATE}"    
+    return df
+x = cutoff_series(x)
+x

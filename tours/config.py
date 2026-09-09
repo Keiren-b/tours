@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 from loguru import logger
 import datetime as dt
 from dataclasses import dataclass
+import pandas as pd
 
 # Load environment variables from .env file if it exists
 load_dotenv()
@@ -25,6 +26,9 @@ MODELS_DIR = PROJECT_ROOT / "models"
 
 REPORTS_DIR = PROJECT_ROOT / "reports"
 FIGURES_DIR = REPORTS_DIR / "figures"
+
+DATE_COL = "tour_date"
+CUTOFF_DATE = pd.Timestamp("2026-08-01")
 
 # If tqdm is installed, configure loguru with tqdm.write
 # https://github.com/Delgan/loguru/issues/135
