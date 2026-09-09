@@ -4,7 +4,6 @@ from dotenv import load_dotenv
 from loguru import logger
 import datetime as dt
 from dataclasses import dataclass
-from pathlib import Path
 
 # Load environment variables from .env file if it exists
 load_dotenv()
