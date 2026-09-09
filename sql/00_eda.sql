@@ -197,6 +197,12 @@ FROM read_xlsx('data/raw/all_bookings_raw_22on.xlsx',
 header = true,
 all_varchar = true);
 
+SELECT DISTINCT
+"Valid For Time"
+FROM read_xlsx('data/raw/all_bookings_raw_22on.xlsx',
+header = true,
+all_varchar = true);
+
 CREATE OR REPLACE TABLE raw_22on AS
 WITH src AS (
     SELECT
@@ -205,6 +211,7 @@ WITH src AS (
         TRY_CAST("Tier 2 Size" AS INTEGER) AS tier2
     FROM read_xlsx('data/raw/all_bookings_raw_22on.xlsx', header = true, all_varchar = true)
     WHERE Product = 'Sydney Sights'
+          AND ROUND(TRY_CAST("Valid For Time" AS DOUBLE) * 1440) = 630
 )
 SELECT
     tour_date,
@@ -278,9 +285,10 @@ YEAR(tour_date) AS tour_year,
 MONTH(tour_date) as tour_month,
 count(*) AS num_guides,
 SUM(headcount_per_group) AS headcount,
+source
 FROM all_years
 WHERE tour_type = 'Sydney Sights 10:30am' AND needed IS TRUE
-GROUP BY tour_date;
+GROUP BY tour_date, source;
 
 CREATE OR REPLACE TABLE date_spine AS
 SELECT r.ts::DATE AS date_day
@@ -311,7 +319,8 @@ SELECT
     COALESCE(m.num_guides, 0)   AS num_guides,
     COALESCE(m.headcount, 0)    AS headcount,
     s.date_day BETWEEN DATE '2020-03-23' AND DATE '2021-12-31' AS covid_flag,
-    MONTH(s.date_day) = 12 AND DAY(s.date_day) = 25 AS xmas_flag
+    MONTH(s.date_day) = 12 AND DAY(s.date_day) = 25 AS xmas_flag,
+    m.source                    AS source
 FROM date_spine s
 LEFT JOIN all_years_morning m ON m.tour_date = s.date_day
 ORDER BY s.date_day;
@@ -338,3 +347,4 @@ SELECT MAX(tour_date) AS latest_date FROM all_years_morning;
 -- fit a seasonal naive first: predict each day as the same weekday last week. 
 -- It takes two lines and it's a shockingly strong baseline on daily operational data. 
 --Every subsequent model gets judged against it
+
