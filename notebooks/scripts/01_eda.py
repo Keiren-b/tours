@@ -57,9 +57,35 @@ train = df[df.tour_year < 2025]
 val = df[df.tour_year == 2025]
 test = df[df.tour_year == 2026]
 
-print(f'full df num rows: {num_rows}\n train num rows: {len(train)}\ntrain perc: {len(train)/num_rows*100}')\n
-print(f'full df num rows: {num_rows}\n val num rows: {len(val)}\val perc: {len(val)/num_rows*100}')
+print(f'full df num rows: {num_rows}\n train num rows: {len(train)}\ntrain perc: {len(train)/num_rows*100}\n')
+print(f'full df num rows: {num_rows}\n val num rows: {len(val)}\n val perc: {len(val)/num_rows*100}\n')
 print(f'full df num rows: {num_rows}\n test num rows: {len(test)}\n test perc: {len(test)/num_rows*100}')
+
+
+# %%
+# TRAIN_RANGE = [config.START_DATE, "2023-12-31"]
+# VAL_RANGE = ["2024-01-01", "2025-04-30"]
+# TEST_RANGE = ["2025-05-01", config.CUTOFF_DATE]
+import logging
+logger = logging.getLogger(__name__)
+
+
+def split_data(df):
+    train_df = df.loc[config.TRAIN_RANGE[0]: config.TRAIN_RANGE[1]]
+    val_df = df.loc[config.VAL_RANGE[0]: config.VAL_RANGE[1]]
+    test_df = df.loc[config.TEST_RANGE[0]: config.TEST_RANGE[1]]
+
+    logger.info("Train df runs from %s to %s", train_df.index[0], train_df.index[-1]) 
+    logger.info("Val df runs from %s to %s", val_df.index[0], val_df.index[-1]) 
+    logger.info("Test df runs from %s to %s", test_df.index[0], test_df.index[-1]) 
+
+
+    return (train_df, val_df, test_df)
+
+train, val, test = split_data(df)
+train.head()
+val.head()
+test.head()
 
 
 # %%

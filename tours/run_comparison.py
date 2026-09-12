@@ -1,11 +1,10 @@
-from tours.dataset import load_clean_data, cutoff_series
+from tours.dataset import load_clean_data, cutoff_series, split_data
 
 
 def main():
     df = load_clean_data()
     df = cutoff_series(df)
-    print(df.shape)
-    print(df.index.min(), df.index.max())
+    train_df, val_df, test_df = split_data(df)
 
 
 if __name__ == "__main__":
