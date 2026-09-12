@@ -37,6 +37,7 @@ WHERE B IS NOT NULL;
 
 
 SELECT * FROM year_2018;
+SELECT MIN(tour_date) from year_2018;
 
 -------------------
 -- 2019 Cleaning
@@ -320,15 +321,15 @@ SELECT
     COALESCE(m.headcount, 0)    AS headcount,
     s.date_day BETWEEN DATE '2020-03-23' AND DATE '2021-12-31' AS covid_flag,
     MONTH(s.date_day) = 12 AND DAY(s.date_day) = 25 AS xmas_flag,
-    m.source                    AS source
+    COALESCE(m.source, 'date spine')                AS source
 FROM date_spine s
 LEFT JOIN all_years_morning m ON m.tour_date = s.date_day
 ORDER BY s.date_day;
 
 SELECT * FROM all_years_morning WHERE tour_date = DATE('2023-04-20');
-SELECT * from alt_data WHERE tour_date = DATE('2023-04-20');
+SELECT * FROM all_years_morning;
 
-COPY all_years_morning TO 'data/cleaned/morning.csv' (HEADER, DELIMITER ',');
+COPY all_years_morning TO 'data/processed/morning.csv' (HEADER, DELIMITER ',');
 
 CREATE or REPLACE TABLE weather_hourly AS
 SELECT * FROM read_xlsx(
@@ -348,3 +349,26 @@ SELECT MAX(tour_date) AS latest_date FROM all_years_morning;
 -- It takes two lines and it's a shockingly strong baseline on daily operational data. 
 --Every subsequent model gets judged against it
 
+SELECT * FROM all_years_morning;
+
+CREATE OR REPLACE TABLE o_2022 AS
+SELECT
+    DATE '1899-12-30' + TRY_CAST(W AS INTEGER) AS tour_date,
+    X AS tour_type,
+    SUM(COALESCE(TRY_CAST(AA AS DOUBLE), 0) + COALESCE(TRY_CAST(AB AS DOUBLE), 0) * 0.5) AS headcount,
+    'SS dump' AS source   
+    --TRY_CAST(AB AS INTEGER) AS headcount_per_group_start_child,
+    --TRY_CAST(AC AS INTEGER) AS headcount_per_group_end_adult,
+    --TRY_CAST(AD AS INTEGER) AS headcount_per_group_end_child,
+FROM read_xlsx(
+    'data/raw/numbers_raw.xlsx',
+    header      = false,
+    sheet       = 'SS Info dump',
+    range       = 'W3:AD',
+    all_varchar = true
+)
+WHERE W IS NOT NULL and lower(trim(Z)) IN ('yes', 'scheduled?') and lower(trim(X)) = 'sydney sights 10:30am'
+GROUP BY DATE '1899-12-30' + TRY_CAST(W AS INTEGER), X; 
+
+
+SELECT * from o_2022;

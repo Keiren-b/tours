@@ -28,7 +28,12 @@ REPORTS_DIR = PROJECT_ROOT / "reports"
 FIGURES_DIR = REPORTS_DIR / "figures"
 
 DATE_COL = "tour_date"
+START_DATE = pd.Timestamp("2018-01-01")
 CUTOFF_DATE = pd.Timestamp("2026-08-01")
+
+TRAIN_RANGE = [START_DATE, "2023-12-31"]
+VAL_RANGE = ["2024-01-01", "2025-04-30"]
+TEST_RANGE = ["2025-05-01", CUTOFF_DATE]
 
 # If tqdm is installed, configure loguru with tqdm.write
 # https://github.com/Delgan/loguru/issues/135

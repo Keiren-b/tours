@@ -357,7 +357,7 @@ tour_date,tour_year,tour_month,tour_day,day_name,day_of_week,num_guides,headcoun
 2018-12-22,2018,12,22,Saturday,6,3,78.0,false,false,SS dump
 2018-12-23,2018,12,23,Sunday,0,2,94.0,false,false,SS dump
 2018-12-24,2018,12,24,Monday,1,3,81.0,false,false,SS dump
-2018-12-25,2018,12,25,Tuesday,2,0,0.0,false,true,
+2018-12-25,2018,12,25,Tuesday,2,0,0.0,false,true,date spine
 2018-12-26,2018,12,26,Wednesday,3,4,132.0,false,false,SS dump
 2018-12-27,2018,12,27,Thursday,4,6,226.0,false,false,SS dump
 2018-12-28,2018,12,28,Friday,5,7,214.0,false,false,SS dump
@@ -722,7 +722,7 @@ tour_date,tour_year,tour_month,tour_day,day_name,day_of_week,num_guides,headcoun
 2019-12-22,2019,12,22,Sunday,0,3,74.0,false,false,SS dump
 2019-12-23,2019,12,23,Monday,1,4,115.5,false,false,SS dump
 2019-12-24,2019,12,24,Tuesday,2,3,112.5,false,false,SS dump
-2019-12-25,2019,12,25,Wednesday,3,0,0.0,false,true,
+2019-12-25,2019,12,25,Wednesday,3,0,0.0,false,true,date spine
 2019-12-26,2019,12,26,Thursday,4,3,91.0,false,false,SS dump
 2019-12-27,2019,12,27,Friday,5,7,186.5,false,false,SS dump
 2019-12-28,2019,12,28,Saturday,6,6,181.5,false,false,SS dump
@@ -811,911 +811,911 @@ tour_date,tour_year,tour_month,tour_day,day_name,day_of_week,num_guides,headcoun
 2020-03-20,2020,3,20,Friday,5,1,11.0,false,false,SS dump
 2020-03-21,2020,3,21,Saturday,6,1,8.0,false,false,SS dump
 2020-03-22,2020,3,22,Sunday,0,1,10.0,false,false,SS dump
-2020-03-23,2020,3,23,Monday,1,0,0.0,true,false,
-2020-03-24,2020,3,24,Tuesday,2,0,0.0,true,false,
-2020-03-25,2020,3,25,Wednesday,3,0,0.0,true,false,
-2020-03-26,2020,3,26,Thursday,4,0,0.0,true,false,
-2020-03-27,2020,3,27,Friday,5,0,0.0,true,false,
-2020-03-28,2020,3,28,Saturday,6,0,0.0,true,false,
-2020-03-29,2020,3,29,Sunday,0,0,0.0,true,false,
-2020-03-30,2020,3,30,Monday,1,0,0.0,true,false,
-2020-03-31,2020,3,31,Tuesday,2,0,0.0,true,false,
-2020-04-01,2020,4,1,Wednesday,3,0,0.0,true,false,
-2020-04-02,2020,4,2,Thursday,4,0,0.0,true,false,
-2020-04-03,2020,4,3,Friday,5,0,0.0,true,false,
-2020-04-04,2020,4,4,Saturday,6,0,0.0,true,false,
-2020-04-05,2020,4,5,Sunday,0,0,0.0,true,false,
-2020-04-06,2020,4,6,Monday,1,0,0.0,true,false,
-2020-04-07,2020,4,7,Tuesday,2,0,0.0,true,false,
-2020-04-08,2020,4,8,Wednesday,3,0,0.0,true,false,
-2020-04-09,2020,4,9,Thursday,4,0,0.0,true,false,
-2020-04-10,2020,4,10,Friday,5,0,0.0,true,false,
-2020-04-11,2020,4,11,Saturday,6,0,0.0,true,false,
-2020-04-12,2020,4,12,Sunday,0,0,0.0,true,false,
-2020-04-13,2020,4,13,Monday,1,0,0.0,true,false,
-2020-04-14,2020,4,14,Tuesday,2,0,0.0,true,false,
-2020-04-15,2020,4,15,Wednesday,3,0,0.0,true,false,
-2020-04-16,2020,4,16,Thursday,4,0,0.0,true,false,
-2020-04-17,2020,4,17,Friday,5,0,0.0,true,false,
-2020-04-18,2020,4,18,Saturday,6,0,0.0,true,false,
-2020-04-19,2020,4,19,Sunday,0,0,0.0,true,false,
-2020-04-20,2020,4,20,Monday,1,0,0.0,true,false,
-2020-04-21,2020,4,21,Tuesday,2,0,0.0,true,false,
-2020-04-22,2020,4,22,Wednesday,3,0,0.0,true,false,
-2020-04-23,2020,4,23,Thursday,4,0,0.0,true,false,
-2020-04-24,2020,4,24,Friday,5,0,0.0,true,false,
-2020-04-25,2020,4,25,Saturday,6,0,0.0,true,false,
-2020-04-26,2020,4,26,Sunday,0,0,0.0,true,false,
-2020-04-27,2020,4,27,Monday,1,0,0.0,true,false,
-2020-04-28,2020,4,28,Tuesday,2,0,0.0,true,false,
-2020-04-29,2020,4,29,Wednesday,3,0,0.0,true,false,
-2020-04-30,2020,4,30,Thursday,4,0,0.0,true,false,
-2020-05-01,2020,5,1,Friday,5,0,0.0,true,false,
-2020-05-02,2020,5,2,Saturday,6,0,0.0,true,false,
-2020-05-03,2020,5,3,Sunday,0,0,0.0,true,false,
-2020-05-04,2020,5,4,Monday,1,0,0.0,true,false,
-2020-05-05,2020,5,5,Tuesday,2,0,0.0,true,false,
-2020-05-06,2020,5,6,Wednesday,3,0,0.0,true,false,
-2020-05-07,2020,5,7,Thursday,4,0,0.0,true,false,
-2020-05-08,2020,5,8,Friday,5,0,0.0,true,false,
-2020-05-09,2020,5,9,Saturday,6,0,0.0,true,false,
-2020-05-10,2020,5,10,Sunday,0,0,0.0,true,false,
-2020-05-11,2020,5,11,Monday,1,0,0.0,true,false,
-2020-05-12,2020,5,12,Tuesday,2,0,0.0,true,false,
-2020-05-13,2020,5,13,Wednesday,3,0,0.0,true,false,
-2020-05-14,2020,5,14,Thursday,4,0,0.0,true,false,
-2020-05-15,2020,5,15,Friday,5,0,0.0,true,false,
-2020-05-16,2020,5,16,Saturday,6,0,0.0,true,false,
-2020-05-17,2020,5,17,Sunday,0,0,0.0,true,false,
-2020-05-18,2020,5,18,Monday,1,0,0.0,true,false,
-2020-05-19,2020,5,19,Tuesday,2,0,0.0,true,false,
-2020-05-20,2020,5,20,Wednesday,3,0,0.0,true,false,
-2020-05-21,2020,5,21,Thursday,4,0,0.0,true,false,
-2020-05-22,2020,5,22,Friday,5,0,0.0,true,false,
-2020-05-23,2020,5,23,Saturday,6,0,0.0,true,false,
-2020-05-24,2020,5,24,Sunday,0,0,0.0,true,false,
-2020-05-25,2020,5,25,Monday,1,0,0.0,true,false,
-2020-05-26,2020,5,26,Tuesday,2,0,0.0,true,false,
-2020-05-27,2020,5,27,Wednesday,3,0,0.0,true,false,
-2020-05-28,2020,5,28,Thursday,4,0,0.0,true,false,
-2020-05-29,2020,5,29,Friday,5,0,0.0,true,false,
-2020-05-30,2020,5,30,Saturday,6,0,0.0,true,false,
-2020-05-31,2020,5,31,Sunday,0,0,0.0,true,false,
-2020-06-01,2020,6,1,Monday,1,0,0.0,true,false,
-2020-06-02,2020,6,2,Tuesday,2,0,0.0,true,false,
-2020-06-03,2020,6,3,Wednesday,3,0,0.0,true,false,
-2020-06-04,2020,6,4,Thursday,4,0,0.0,true,false,
-2020-06-05,2020,6,5,Friday,5,0,0.0,true,false,
-2020-06-06,2020,6,6,Saturday,6,0,0.0,true,false,
-2020-06-07,2020,6,7,Sunday,0,0,0.0,true,false,
-2020-06-08,2020,6,8,Monday,1,0,0.0,true,false,
-2020-06-09,2020,6,9,Tuesday,2,0,0.0,true,false,
-2020-06-10,2020,6,10,Wednesday,3,0,0.0,true,false,
-2020-06-11,2020,6,11,Thursday,4,0,0.0,true,false,
-2020-06-12,2020,6,12,Friday,5,0,0.0,true,false,
-2020-06-13,2020,6,13,Saturday,6,0,0.0,true,false,
-2020-06-14,2020,6,14,Sunday,0,0,0.0,true,false,
-2020-06-15,2020,6,15,Monday,1,0,0.0,true,false,
-2020-06-16,2020,6,16,Tuesday,2,0,0.0,true,false,
-2020-06-17,2020,6,17,Wednesday,3,0,0.0,true,false,
-2020-06-18,2020,6,18,Thursday,4,0,0.0,true,false,
-2020-06-19,2020,6,19,Friday,5,0,0.0,true,false,
-2020-06-20,2020,6,20,Saturday,6,0,0.0,true,false,
-2020-06-21,2020,6,21,Sunday,0,0,0.0,true,false,
-2020-06-22,2020,6,22,Monday,1,0,0.0,true,false,
-2020-06-23,2020,6,23,Tuesday,2,0,0.0,true,false,
-2020-06-24,2020,6,24,Wednesday,3,0,0.0,true,false,
-2020-06-25,2020,6,25,Thursday,4,0,0.0,true,false,
-2020-06-26,2020,6,26,Friday,5,0,0.0,true,false,
-2020-06-27,2020,6,27,Saturday,6,0,0.0,true,false,
-2020-06-28,2020,6,28,Sunday,0,0,0.0,true,false,
-2020-06-29,2020,6,29,Monday,1,0,0.0,true,false,
-2020-06-30,2020,6,30,Tuesday,2,0,0.0,true,false,
-2020-07-01,2020,7,1,Wednesday,3,0,0.0,true,false,
-2020-07-02,2020,7,2,Thursday,4,0,0.0,true,false,
-2020-07-03,2020,7,3,Friday,5,0,0.0,true,false,
-2020-07-04,2020,7,4,Saturday,6,0,0.0,true,false,
-2020-07-05,2020,7,5,Sunday,0,0,0.0,true,false,
-2020-07-06,2020,7,6,Monday,1,0,0.0,true,false,
-2020-07-07,2020,7,7,Tuesday,2,0,0.0,true,false,
-2020-07-08,2020,7,8,Wednesday,3,0,0.0,true,false,
-2020-07-09,2020,7,9,Thursday,4,0,0.0,true,false,
-2020-07-10,2020,7,10,Friday,5,0,0.0,true,false,
-2020-07-11,2020,7,11,Saturday,6,0,0.0,true,false,
-2020-07-12,2020,7,12,Sunday,0,0,0.0,true,false,
-2020-07-13,2020,7,13,Monday,1,0,0.0,true,false,
-2020-07-14,2020,7,14,Tuesday,2,0,0.0,true,false,
-2020-07-15,2020,7,15,Wednesday,3,0,0.0,true,false,
-2020-07-16,2020,7,16,Thursday,4,0,0.0,true,false,
-2020-07-17,2020,7,17,Friday,5,0,0.0,true,false,
-2020-07-18,2020,7,18,Saturday,6,0,0.0,true,false,
-2020-07-19,2020,7,19,Sunday,0,0,0.0,true,false,
-2020-07-20,2020,7,20,Monday,1,0,0.0,true,false,
-2020-07-21,2020,7,21,Tuesday,2,0,0.0,true,false,
-2020-07-22,2020,7,22,Wednesday,3,0,0.0,true,false,
-2020-07-23,2020,7,23,Thursday,4,0,0.0,true,false,
-2020-07-24,2020,7,24,Friday,5,0,0.0,true,false,
-2020-07-25,2020,7,25,Saturday,6,0,0.0,true,false,
-2020-07-26,2020,7,26,Sunday,0,0,0.0,true,false,
-2020-07-27,2020,7,27,Monday,1,0,0.0,true,false,
-2020-07-28,2020,7,28,Tuesday,2,0,0.0,true,false,
-2020-07-29,2020,7,29,Wednesday,3,0,0.0,true,false,
-2020-07-30,2020,7,30,Thursday,4,0,0.0,true,false,
-2020-07-31,2020,7,31,Friday,5,0,0.0,true,false,
-2020-08-01,2020,8,1,Saturday,6,0,0.0,true,false,
-2020-08-02,2020,8,2,Sunday,0,0,0.0,true,false,
-2020-08-03,2020,8,3,Monday,1,0,0.0,true,false,
-2020-08-04,2020,8,4,Tuesday,2,0,0.0,true,false,
-2020-08-05,2020,8,5,Wednesday,3,0,0.0,true,false,
-2020-08-06,2020,8,6,Thursday,4,0,0.0,true,false,
-2020-08-07,2020,8,7,Friday,5,0,0.0,true,false,
-2020-08-08,2020,8,8,Saturday,6,0,0.0,true,false,
-2020-08-09,2020,8,9,Sunday,0,0,0.0,true,false,
-2020-08-10,2020,8,10,Monday,1,0,0.0,true,false,
-2020-08-11,2020,8,11,Tuesday,2,0,0.0,true,false,
-2020-08-12,2020,8,12,Wednesday,3,0,0.0,true,false,
-2020-08-13,2020,8,13,Thursday,4,0,0.0,true,false,
-2020-08-14,2020,8,14,Friday,5,0,0.0,true,false,
-2020-08-15,2020,8,15,Saturday,6,0,0.0,true,false,
-2020-08-16,2020,8,16,Sunday,0,0,0.0,true,false,
-2020-08-17,2020,8,17,Monday,1,0,0.0,true,false,
-2020-08-18,2020,8,18,Tuesday,2,0,0.0,true,false,
-2020-08-19,2020,8,19,Wednesday,3,0,0.0,true,false,
-2020-08-20,2020,8,20,Thursday,4,0,0.0,true,false,
-2020-08-21,2020,8,21,Friday,5,0,0.0,true,false,
-2020-08-22,2020,8,22,Saturday,6,0,0.0,true,false,
-2020-08-23,2020,8,23,Sunday,0,0,0.0,true,false,
-2020-08-24,2020,8,24,Monday,1,0,0.0,true,false,
-2020-08-25,2020,8,25,Tuesday,2,0,0.0,true,false,
-2020-08-26,2020,8,26,Wednesday,3,0,0.0,true,false,
-2020-08-27,2020,8,27,Thursday,4,0,0.0,true,false,
-2020-08-28,2020,8,28,Friday,5,0,0.0,true,false,
-2020-08-29,2020,8,29,Saturday,6,0,0.0,true,false,
-2020-08-30,2020,8,30,Sunday,0,0,0.0,true,false,
-2020-08-31,2020,8,31,Monday,1,0,0.0,true,false,
-2020-09-01,2020,9,1,Tuesday,2,0,0.0,true,false,
-2020-09-02,2020,9,2,Wednesday,3,0,0.0,true,false,
-2020-09-03,2020,9,3,Thursday,4,0,0.0,true,false,
-2020-09-04,2020,9,4,Friday,5,0,0.0,true,false,
-2020-09-05,2020,9,5,Saturday,6,0,0.0,true,false,
-2020-09-06,2020,9,6,Sunday,0,0,0.0,true,false,
-2020-09-07,2020,9,7,Monday,1,0,0.0,true,false,
-2020-09-08,2020,9,8,Tuesday,2,0,0.0,true,false,
-2020-09-09,2020,9,9,Wednesday,3,0,0.0,true,false,
-2020-09-10,2020,9,10,Thursday,4,0,0.0,true,false,
-2020-09-11,2020,9,11,Friday,5,0,0.0,true,false,
-2020-09-12,2020,9,12,Saturday,6,0,0.0,true,false,
-2020-09-13,2020,9,13,Sunday,0,0,0.0,true,false,
-2020-09-14,2020,9,14,Monday,1,0,0.0,true,false,
-2020-09-15,2020,9,15,Tuesday,2,0,0.0,true,false,
-2020-09-16,2020,9,16,Wednesday,3,0,0.0,true,false,
-2020-09-17,2020,9,17,Thursday,4,0,0.0,true,false,
-2020-09-18,2020,9,18,Friday,5,0,0.0,true,false,
-2020-09-19,2020,9,19,Saturday,6,0,0.0,true,false,
-2020-09-20,2020,9,20,Sunday,0,0,0.0,true,false,
-2020-09-21,2020,9,21,Monday,1,0,0.0,true,false,
-2020-09-22,2020,9,22,Tuesday,2,0,0.0,true,false,
-2020-09-23,2020,9,23,Wednesday,3,0,0.0,true,false,
-2020-09-24,2020,9,24,Thursday,4,0,0.0,true,false,
-2020-09-25,2020,9,25,Friday,5,0,0.0,true,false,
-2020-09-26,2020,9,26,Saturday,6,0,0.0,true,false,
-2020-09-27,2020,9,27,Sunday,0,0,0.0,true,false,
-2020-09-28,2020,9,28,Monday,1,0,0.0,true,false,
-2020-09-29,2020,9,29,Tuesday,2,0,0.0,true,false,
-2020-09-30,2020,9,30,Wednesday,3,0,0.0,true,false,
-2020-10-01,2020,10,1,Thursday,4,0,0.0,true,false,
-2020-10-02,2020,10,2,Friday,5,0,0.0,true,false,
-2020-10-03,2020,10,3,Saturday,6,0,0.0,true,false,
-2020-10-04,2020,10,4,Sunday,0,0,0.0,true,false,
-2020-10-05,2020,10,5,Monday,1,0,0.0,true,false,
-2020-10-06,2020,10,6,Tuesday,2,0,0.0,true,false,
-2020-10-07,2020,10,7,Wednesday,3,0,0.0,true,false,
-2020-10-08,2020,10,8,Thursday,4,0,0.0,true,false,
-2020-10-09,2020,10,9,Friday,5,0,0.0,true,false,
-2020-10-10,2020,10,10,Saturday,6,0,0.0,true,false,
-2020-10-11,2020,10,11,Sunday,0,0,0.0,true,false,
-2020-10-12,2020,10,12,Monday,1,0,0.0,true,false,
-2020-10-13,2020,10,13,Tuesday,2,0,0.0,true,false,
-2020-10-14,2020,10,14,Wednesday,3,0,0.0,true,false,
-2020-10-15,2020,10,15,Thursday,4,0,0.0,true,false,
-2020-10-16,2020,10,16,Friday,5,0,0.0,true,false,
-2020-10-17,2020,10,17,Saturday,6,0,0.0,true,false,
-2020-10-18,2020,10,18,Sunday,0,0,0.0,true,false,
-2020-10-19,2020,10,19,Monday,1,0,0.0,true,false,
-2020-10-20,2020,10,20,Tuesday,2,0,0.0,true,false,
-2020-10-21,2020,10,21,Wednesday,3,0,0.0,true,false,
-2020-10-22,2020,10,22,Thursday,4,0,0.0,true,false,
-2020-10-23,2020,10,23,Friday,5,0,0.0,true,false,
-2020-10-24,2020,10,24,Saturday,6,0,0.0,true,false,
-2020-10-25,2020,10,25,Sunday,0,0,0.0,true,false,
-2020-10-26,2020,10,26,Monday,1,0,0.0,true,false,
-2020-10-27,2020,10,27,Tuesday,2,0,0.0,true,false,
-2020-10-28,2020,10,28,Wednesday,3,0,0.0,true,false,
-2020-10-29,2020,10,29,Thursday,4,0,0.0,true,false,
-2020-10-30,2020,10,30,Friday,5,0,0.0,true,false,
-2020-10-31,2020,10,31,Saturday,6,0,0.0,true,false,
-2020-11-01,2020,11,1,Sunday,0,0,0.0,true,false,
-2020-11-02,2020,11,2,Monday,1,0,0.0,true,false,
-2020-11-03,2020,11,3,Tuesday,2,0,0.0,true,false,
-2020-11-04,2020,11,4,Wednesday,3,0,0.0,true,false,
-2020-11-05,2020,11,5,Thursday,4,0,0.0,true,false,
-2020-11-06,2020,11,6,Friday,5,0,0.0,true,false,
-2020-11-07,2020,11,7,Saturday,6,0,0.0,true,false,
-2020-11-08,2020,11,8,Sunday,0,0,0.0,true,false,
-2020-11-09,2020,11,9,Monday,1,0,0.0,true,false,
-2020-11-10,2020,11,10,Tuesday,2,0,0.0,true,false,
-2020-11-11,2020,11,11,Wednesday,3,0,0.0,true,false,
-2020-11-12,2020,11,12,Thursday,4,0,0.0,true,false,
-2020-11-13,2020,11,13,Friday,5,0,0.0,true,false,
-2020-11-14,2020,11,14,Saturday,6,0,0.0,true,false,
-2020-11-15,2020,11,15,Sunday,0,0,0.0,true,false,
-2020-11-16,2020,11,16,Monday,1,0,0.0,true,false,
-2020-11-17,2020,11,17,Tuesday,2,0,0.0,true,false,
-2020-11-18,2020,11,18,Wednesday,3,0,0.0,true,false,
-2020-11-19,2020,11,19,Thursday,4,0,0.0,true,false,
-2020-11-20,2020,11,20,Friday,5,0,0.0,true,false,
-2020-11-21,2020,11,21,Saturday,6,0,0.0,true,false,
-2020-11-22,2020,11,22,Sunday,0,0,0.0,true,false,
-2020-11-23,2020,11,23,Monday,1,0,0.0,true,false,
-2020-11-24,2020,11,24,Tuesday,2,0,0.0,true,false,
-2020-11-25,2020,11,25,Wednesday,3,0,0.0,true,false,
-2020-11-26,2020,11,26,Thursday,4,0,0.0,true,false,
-2020-11-27,2020,11,27,Friday,5,0,0.0,true,false,
-2020-11-28,2020,11,28,Saturday,6,0,0.0,true,false,
-2020-11-29,2020,11,29,Sunday,0,0,0.0,true,false,
-2020-11-30,2020,11,30,Monday,1,0,0.0,true,false,
-2020-12-01,2020,12,1,Tuesday,2,0,0.0,true,false,
-2020-12-02,2020,12,2,Wednesday,3,0,0.0,true,false,
-2020-12-03,2020,12,3,Thursday,4,0,0.0,true,false,
-2020-12-04,2020,12,4,Friday,5,0,0.0,true,false,
-2020-12-05,2020,12,5,Saturday,6,0,0.0,true,false,
-2020-12-06,2020,12,6,Sunday,0,0,0.0,true,false,
-2020-12-07,2020,12,7,Monday,1,0,0.0,true,false,
-2020-12-08,2020,12,8,Tuesday,2,0,0.0,true,false,
-2020-12-09,2020,12,9,Wednesday,3,0,0.0,true,false,
-2020-12-10,2020,12,10,Thursday,4,0,0.0,true,false,
-2020-12-11,2020,12,11,Friday,5,0,0.0,true,false,
-2020-12-12,2020,12,12,Saturday,6,0,0.0,true,false,
-2020-12-13,2020,12,13,Sunday,0,0,0.0,true,false,
-2020-12-14,2020,12,14,Monday,1,0,0.0,true,false,
-2020-12-15,2020,12,15,Tuesday,2,0,0.0,true,false,
-2020-12-16,2020,12,16,Wednesday,3,0,0.0,true,false,
-2020-12-17,2020,12,17,Thursday,4,0,0.0,true,false,
-2020-12-18,2020,12,18,Friday,5,0,0.0,true,false,
-2020-12-19,2020,12,19,Saturday,6,0,0.0,true,false,
-2020-12-20,2020,12,20,Sunday,0,0,0.0,true,false,
-2020-12-21,2020,12,21,Monday,1,0,0.0,true,false,
-2020-12-22,2020,12,22,Tuesday,2,0,0.0,true,false,
-2020-12-23,2020,12,23,Wednesday,3,0,0.0,true,false,
-2020-12-24,2020,12,24,Thursday,4,0,0.0,true,false,
-2020-12-25,2020,12,25,Friday,5,0,0.0,true,true,
-2020-12-26,2020,12,26,Saturday,6,0,0.0,true,false,
-2020-12-27,2020,12,27,Sunday,0,0,0.0,true,false,
-2020-12-28,2020,12,28,Monday,1,0,0.0,true,false,
-2020-12-29,2020,12,29,Tuesday,2,0,0.0,true,false,
-2020-12-30,2020,12,30,Wednesday,3,0,0.0,true,false,
-2020-12-31,2020,12,31,Thursday,4,0,0.0,true,false,
-2021-01-01,2021,1,1,Friday,5,0,0.0,true,false,
-2021-01-02,2021,1,2,Saturday,6,0,0.0,true,false,
-2021-01-03,2021,1,3,Sunday,0,0,0.0,true,false,
-2021-01-04,2021,1,4,Monday,1,0,0.0,true,false,
-2021-01-05,2021,1,5,Tuesday,2,0,0.0,true,false,
-2021-01-06,2021,1,6,Wednesday,3,0,0.0,true,false,
-2021-01-07,2021,1,7,Thursday,4,0,0.0,true,false,
-2021-01-08,2021,1,8,Friday,5,0,0.0,true,false,
-2021-01-09,2021,1,9,Saturday,6,0,0.0,true,false,
-2021-01-10,2021,1,10,Sunday,0,0,0.0,true,false,
-2021-01-11,2021,1,11,Monday,1,0,0.0,true,false,
-2021-01-12,2021,1,12,Tuesday,2,0,0.0,true,false,
-2021-01-13,2021,1,13,Wednesday,3,0,0.0,true,false,
-2021-01-14,2021,1,14,Thursday,4,0,0.0,true,false,
-2021-01-15,2021,1,15,Friday,5,0,0.0,true,false,
-2021-01-16,2021,1,16,Saturday,6,0,0.0,true,false,
-2021-01-17,2021,1,17,Sunday,0,0,0.0,true,false,
-2021-01-18,2021,1,18,Monday,1,0,0.0,true,false,
-2021-01-19,2021,1,19,Tuesday,2,0,0.0,true,false,
-2021-01-20,2021,1,20,Wednesday,3,0,0.0,true,false,
-2021-01-21,2021,1,21,Thursday,4,0,0.0,true,false,
-2021-01-22,2021,1,22,Friday,5,0,0.0,true,false,
-2021-01-23,2021,1,23,Saturday,6,0,0.0,true,false,
-2021-01-24,2021,1,24,Sunday,0,0,0.0,true,false,
-2021-01-25,2021,1,25,Monday,1,0,0.0,true,false,
-2021-01-26,2021,1,26,Tuesday,2,0,0.0,true,false,
-2021-01-27,2021,1,27,Wednesday,3,0,0.0,true,false,
-2021-01-28,2021,1,28,Thursday,4,0,0.0,true,false,
-2021-01-29,2021,1,29,Friday,5,0,0.0,true,false,
-2021-01-30,2021,1,30,Saturday,6,0,0.0,true,false,
-2021-01-31,2021,1,31,Sunday,0,0,0.0,true,false,
-2021-02-01,2021,2,1,Monday,1,0,0.0,true,false,
-2021-02-02,2021,2,2,Tuesday,2,0,0.0,true,false,
-2021-02-03,2021,2,3,Wednesday,3,0,0.0,true,false,
-2021-02-04,2021,2,4,Thursday,4,0,0.0,true,false,
-2021-02-05,2021,2,5,Friday,5,0,0.0,true,false,
-2021-02-06,2021,2,6,Saturday,6,0,0.0,true,false,
-2021-02-07,2021,2,7,Sunday,0,0,0.0,true,false,
-2021-02-08,2021,2,8,Monday,1,0,0.0,true,false,
-2021-02-09,2021,2,9,Tuesday,2,0,0.0,true,false,
-2021-02-10,2021,2,10,Wednesday,3,0,0.0,true,false,
-2021-02-11,2021,2,11,Thursday,4,0,0.0,true,false,
-2021-02-12,2021,2,12,Friday,5,0,0.0,true,false,
-2021-02-13,2021,2,13,Saturday,6,0,0.0,true,false,
-2021-02-14,2021,2,14,Sunday,0,0,0.0,true,false,
-2021-02-15,2021,2,15,Monday,1,0,0.0,true,false,
-2021-02-16,2021,2,16,Tuesday,2,0,0.0,true,false,
-2021-02-17,2021,2,17,Wednesday,3,0,0.0,true,false,
-2021-02-18,2021,2,18,Thursday,4,0,0.0,true,false,
-2021-02-19,2021,2,19,Friday,5,0,0.0,true,false,
-2021-02-20,2021,2,20,Saturday,6,0,0.0,true,false,
-2021-02-21,2021,2,21,Sunday,0,0,0.0,true,false,
-2021-02-22,2021,2,22,Monday,1,0,0.0,true,false,
-2021-02-23,2021,2,23,Tuesday,2,0,0.0,true,false,
-2021-02-24,2021,2,24,Wednesday,3,0,0.0,true,false,
-2021-02-25,2021,2,25,Thursday,4,0,0.0,true,false,
-2021-02-26,2021,2,26,Friday,5,0,0.0,true,false,
-2021-02-27,2021,2,27,Saturday,6,0,0.0,true,false,
-2021-02-28,2021,2,28,Sunday,0,0,0.0,true,false,
-2021-03-01,2021,3,1,Monday,1,0,0.0,true,false,
-2021-03-02,2021,3,2,Tuesday,2,0,0.0,true,false,
-2021-03-03,2021,3,3,Wednesday,3,0,0.0,true,false,
-2021-03-04,2021,3,4,Thursday,4,0,0.0,true,false,
-2021-03-05,2021,3,5,Friday,5,0,0.0,true,false,
-2021-03-06,2021,3,6,Saturday,6,0,0.0,true,false,
-2021-03-07,2021,3,7,Sunday,0,0,0.0,true,false,
-2021-03-08,2021,3,8,Monday,1,0,0.0,true,false,
-2021-03-09,2021,3,9,Tuesday,2,0,0.0,true,false,
-2021-03-10,2021,3,10,Wednesday,3,0,0.0,true,false,
-2021-03-11,2021,3,11,Thursday,4,0,0.0,true,false,
-2021-03-12,2021,3,12,Friday,5,0,0.0,true,false,
-2021-03-13,2021,3,13,Saturday,6,0,0.0,true,false,
-2021-03-14,2021,3,14,Sunday,0,0,0.0,true,false,
-2021-03-15,2021,3,15,Monday,1,0,0.0,true,false,
-2021-03-16,2021,3,16,Tuesday,2,0,0.0,true,false,
-2021-03-17,2021,3,17,Wednesday,3,0,0.0,true,false,
-2021-03-18,2021,3,18,Thursday,4,0,0.0,true,false,
-2021-03-19,2021,3,19,Friday,5,0,0.0,true,false,
-2021-03-20,2021,3,20,Saturday,6,0,0.0,true,false,
-2021-03-21,2021,3,21,Sunday,0,0,0.0,true,false,
-2021-03-22,2021,3,22,Monday,1,0,0.0,true,false,
-2021-03-23,2021,3,23,Tuesday,2,0,0.0,true,false,
-2021-03-24,2021,3,24,Wednesday,3,0,0.0,true,false,
-2021-03-25,2021,3,25,Thursday,4,0,0.0,true,false,
-2021-03-26,2021,3,26,Friday,5,0,0.0,true,false,
-2021-03-27,2021,3,27,Saturday,6,0,0.0,true,false,
-2021-03-28,2021,3,28,Sunday,0,0,0.0,true,false,
-2021-03-29,2021,3,29,Monday,1,0,0.0,true,false,
-2021-03-30,2021,3,30,Tuesday,2,0,0.0,true,false,
-2021-03-31,2021,3,31,Wednesday,3,0,0.0,true,false,
-2021-04-01,2021,4,1,Thursday,4,0,0.0,true,false,
-2021-04-02,2021,4,2,Friday,5,0,0.0,true,false,
-2021-04-03,2021,4,3,Saturday,6,0,0.0,true,false,
-2021-04-04,2021,4,4,Sunday,0,0,0.0,true,false,
-2021-04-05,2021,4,5,Monday,1,0,0.0,true,false,
-2021-04-06,2021,4,6,Tuesday,2,0,0.0,true,false,
-2021-04-07,2021,4,7,Wednesday,3,0,0.0,true,false,
-2021-04-08,2021,4,8,Thursday,4,0,0.0,true,false,
-2021-04-09,2021,4,9,Friday,5,0,0.0,true,false,
-2021-04-10,2021,4,10,Saturday,6,0,0.0,true,false,
-2021-04-11,2021,4,11,Sunday,0,0,0.0,true,false,
-2021-04-12,2021,4,12,Monday,1,0,0.0,true,false,
-2021-04-13,2021,4,13,Tuesday,2,0,0.0,true,false,
-2021-04-14,2021,4,14,Wednesday,3,0,0.0,true,false,
-2021-04-15,2021,4,15,Thursday,4,0,0.0,true,false,
-2021-04-16,2021,4,16,Friday,5,0,0.0,true,false,
-2021-04-17,2021,4,17,Saturday,6,0,0.0,true,false,
-2021-04-18,2021,4,18,Sunday,0,0,0.0,true,false,
-2021-04-19,2021,4,19,Monday,1,0,0.0,true,false,
-2021-04-20,2021,4,20,Tuesday,2,0,0.0,true,false,
-2021-04-21,2021,4,21,Wednesday,3,0,0.0,true,false,
-2021-04-22,2021,4,22,Thursday,4,0,0.0,true,false,
-2021-04-23,2021,4,23,Friday,5,0,0.0,true,false,
-2021-04-24,2021,4,24,Saturday,6,0,0.0,true,false,
-2021-04-25,2021,4,25,Sunday,0,0,0.0,true,false,
-2021-04-26,2021,4,26,Monday,1,0,0.0,true,false,
-2021-04-27,2021,4,27,Tuesday,2,0,0.0,true,false,
-2021-04-28,2021,4,28,Wednesday,3,0,0.0,true,false,
-2021-04-29,2021,4,29,Thursday,4,0,0.0,true,false,
-2021-04-30,2021,4,30,Friday,5,0,0.0,true,false,
-2021-05-01,2021,5,1,Saturday,6,0,0.0,true,false,
-2021-05-02,2021,5,2,Sunday,0,0,0.0,true,false,
-2021-05-03,2021,5,3,Monday,1,0,0.0,true,false,
-2021-05-04,2021,5,4,Tuesday,2,0,0.0,true,false,
-2021-05-05,2021,5,5,Wednesday,3,0,0.0,true,false,
-2021-05-06,2021,5,6,Thursday,4,0,0.0,true,false,
-2021-05-07,2021,5,7,Friday,5,0,0.0,true,false,
-2021-05-08,2021,5,8,Saturday,6,0,0.0,true,false,
-2021-05-09,2021,5,9,Sunday,0,0,0.0,true,false,
-2021-05-10,2021,5,10,Monday,1,0,0.0,true,false,
-2021-05-11,2021,5,11,Tuesday,2,0,0.0,true,false,
-2021-05-12,2021,5,12,Wednesday,3,0,0.0,true,false,
-2021-05-13,2021,5,13,Thursday,4,0,0.0,true,false,
-2021-05-14,2021,5,14,Friday,5,0,0.0,true,false,
-2021-05-15,2021,5,15,Saturday,6,0,0.0,true,false,
-2021-05-16,2021,5,16,Sunday,0,0,0.0,true,false,
-2021-05-17,2021,5,17,Monday,1,0,0.0,true,false,
-2021-05-18,2021,5,18,Tuesday,2,0,0.0,true,false,
-2021-05-19,2021,5,19,Wednesday,3,0,0.0,true,false,
-2021-05-20,2021,5,20,Thursday,4,0,0.0,true,false,
-2021-05-21,2021,5,21,Friday,5,0,0.0,true,false,
-2021-05-22,2021,5,22,Saturday,6,0,0.0,true,false,
-2021-05-23,2021,5,23,Sunday,0,0,0.0,true,false,
-2021-05-24,2021,5,24,Monday,1,0,0.0,true,false,
-2021-05-25,2021,5,25,Tuesday,2,0,0.0,true,false,
-2021-05-26,2021,5,26,Wednesday,3,0,0.0,true,false,
-2021-05-27,2021,5,27,Thursday,4,0,0.0,true,false,
-2021-05-28,2021,5,28,Friday,5,0,0.0,true,false,
-2021-05-29,2021,5,29,Saturday,6,0,0.0,true,false,
-2021-05-30,2021,5,30,Sunday,0,0,0.0,true,false,
-2021-05-31,2021,5,31,Monday,1,0,0.0,true,false,
-2021-06-01,2021,6,1,Tuesday,2,0,0.0,true,false,
-2021-06-02,2021,6,2,Wednesday,3,0,0.0,true,false,
-2021-06-03,2021,6,3,Thursday,4,0,0.0,true,false,
-2021-06-04,2021,6,4,Friday,5,0,0.0,true,false,
-2021-06-05,2021,6,5,Saturday,6,0,0.0,true,false,
-2021-06-06,2021,6,6,Sunday,0,0,0.0,true,false,
-2021-06-07,2021,6,7,Monday,1,0,0.0,true,false,
-2021-06-08,2021,6,8,Tuesday,2,0,0.0,true,false,
-2021-06-09,2021,6,9,Wednesday,3,0,0.0,true,false,
-2021-06-10,2021,6,10,Thursday,4,0,0.0,true,false,
-2021-06-11,2021,6,11,Friday,5,0,0.0,true,false,
-2021-06-12,2021,6,12,Saturday,6,0,0.0,true,false,
-2021-06-13,2021,6,13,Sunday,0,0,0.0,true,false,
-2021-06-14,2021,6,14,Monday,1,0,0.0,true,false,
-2021-06-15,2021,6,15,Tuesday,2,0,0.0,true,false,
-2021-06-16,2021,6,16,Wednesday,3,0,0.0,true,false,
-2021-06-17,2021,6,17,Thursday,4,0,0.0,true,false,
-2021-06-18,2021,6,18,Friday,5,0,0.0,true,false,
-2021-06-19,2021,6,19,Saturday,6,0,0.0,true,false,
-2021-06-20,2021,6,20,Sunday,0,0,0.0,true,false,
-2021-06-21,2021,6,21,Monday,1,0,0.0,true,false,
-2021-06-22,2021,6,22,Tuesday,2,0,0.0,true,false,
-2021-06-23,2021,6,23,Wednesday,3,0,0.0,true,false,
-2021-06-24,2021,6,24,Thursday,4,0,0.0,true,false,
-2021-06-25,2021,6,25,Friday,5,0,0.0,true,false,
-2021-06-26,2021,6,26,Saturday,6,0,0.0,true,false,
-2021-06-27,2021,6,27,Sunday,0,0,0.0,true,false,
-2021-06-28,2021,6,28,Monday,1,0,0.0,true,false,
-2021-06-29,2021,6,29,Tuesday,2,0,0.0,true,false,
-2021-06-30,2021,6,30,Wednesday,3,0,0.0,true,false,
-2021-07-01,2021,7,1,Thursday,4,0,0.0,true,false,
-2021-07-02,2021,7,2,Friday,5,0,0.0,true,false,
-2021-07-03,2021,7,3,Saturday,6,0,0.0,true,false,
-2021-07-04,2021,7,4,Sunday,0,0,0.0,true,false,
-2021-07-05,2021,7,5,Monday,1,0,0.0,true,false,
-2021-07-06,2021,7,6,Tuesday,2,0,0.0,true,false,
-2021-07-07,2021,7,7,Wednesday,3,0,0.0,true,false,
-2021-07-08,2021,7,8,Thursday,4,0,0.0,true,false,
-2021-07-09,2021,7,9,Friday,5,0,0.0,true,false,
-2021-07-10,2021,7,10,Saturday,6,0,0.0,true,false,
-2021-07-11,2021,7,11,Sunday,0,0,0.0,true,false,
-2021-07-12,2021,7,12,Monday,1,0,0.0,true,false,
-2021-07-13,2021,7,13,Tuesday,2,0,0.0,true,false,
-2021-07-14,2021,7,14,Wednesday,3,0,0.0,true,false,
-2021-07-15,2021,7,15,Thursday,4,0,0.0,true,false,
-2021-07-16,2021,7,16,Friday,5,0,0.0,true,false,
-2021-07-17,2021,7,17,Saturday,6,0,0.0,true,false,
-2021-07-18,2021,7,18,Sunday,0,0,0.0,true,false,
-2021-07-19,2021,7,19,Monday,1,0,0.0,true,false,
-2021-07-20,2021,7,20,Tuesday,2,0,0.0,true,false,
-2021-07-21,2021,7,21,Wednesday,3,0,0.0,true,false,
-2021-07-22,2021,7,22,Thursday,4,0,0.0,true,false,
-2021-07-23,2021,7,23,Friday,5,0,0.0,true,false,
-2021-07-24,2021,7,24,Saturday,6,0,0.0,true,false,
-2021-07-25,2021,7,25,Sunday,0,0,0.0,true,false,
-2021-07-26,2021,7,26,Monday,1,0,0.0,true,false,
-2021-07-27,2021,7,27,Tuesday,2,0,0.0,true,false,
-2021-07-28,2021,7,28,Wednesday,3,0,0.0,true,false,
-2021-07-29,2021,7,29,Thursday,4,0,0.0,true,false,
-2021-07-30,2021,7,30,Friday,5,0,0.0,true,false,
-2021-07-31,2021,7,31,Saturday,6,0,0.0,true,false,
-2021-08-01,2021,8,1,Sunday,0,0,0.0,true,false,
-2021-08-02,2021,8,2,Monday,1,0,0.0,true,false,
-2021-08-03,2021,8,3,Tuesday,2,0,0.0,true,false,
-2021-08-04,2021,8,4,Wednesday,3,0,0.0,true,false,
-2021-08-05,2021,8,5,Thursday,4,0,0.0,true,false,
-2021-08-06,2021,8,6,Friday,5,0,0.0,true,false,
-2021-08-07,2021,8,7,Saturday,6,0,0.0,true,false,
-2021-08-08,2021,8,8,Sunday,0,0,0.0,true,false,
-2021-08-09,2021,8,9,Monday,1,0,0.0,true,false,
-2021-08-10,2021,8,10,Tuesday,2,0,0.0,true,false,
-2021-08-11,2021,8,11,Wednesday,3,0,0.0,true,false,
-2021-08-12,2021,8,12,Thursday,4,0,0.0,true,false,
-2021-08-13,2021,8,13,Friday,5,0,0.0,true,false,
-2021-08-14,2021,8,14,Saturday,6,0,0.0,true,false,
-2021-08-15,2021,8,15,Sunday,0,0,0.0,true,false,
-2021-08-16,2021,8,16,Monday,1,0,0.0,true,false,
-2021-08-17,2021,8,17,Tuesday,2,0,0.0,true,false,
-2021-08-18,2021,8,18,Wednesday,3,0,0.0,true,false,
-2021-08-19,2021,8,19,Thursday,4,0,0.0,true,false,
-2021-08-20,2021,8,20,Friday,5,0,0.0,true,false,
-2021-08-21,2021,8,21,Saturday,6,0,0.0,true,false,
-2021-08-22,2021,8,22,Sunday,0,0,0.0,true,false,
-2021-08-23,2021,8,23,Monday,1,0,0.0,true,false,
-2021-08-24,2021,8,24,Tuesday,2,0,0.0,true,false,
-2021-08-25,2021,8,25,Wednesday,3,0,0.0,true,false,
-2021-08-26,2021,8,26,Thursday,4,0,0.0,true,false,
-2021-08-27,2021,8,27,Friday,5,0,0.0,true,false,
-2021-08-28,2021,8,28,Saturday,6,0,0.0,true,false,
-2021-08-29,2021,8,29,Sunday,0,0,0.0,true,false,
-2021-08-30,2021,8,30,Monday,1,0,0.0,true,false,
-2021-08-31,2021,8,31,Tuesday,2,0,0.0,true,false,
-2021-09-01,2021,9,1,Wednesday,3,0,0.0,true,false,
-2021-09-02,2021,9,2,Thursday,4,0,0.0,true,false,
-2021-09-03,2021,9,3,Friday,5,0,0.0,true,false,
-2021-09-04,2021,9,4,Saturday,6,0,0.0,true,false,
-2021-09-05,2021,9,5,Sunday,0,0,0.0,true,false,
-2021-09-06,2021,9,6,Monday,1,0,0.0,true,false,
-2021-09-07,2021,9,7,Tuesday,2,0,0.0,true,false,
-2021-09-08,2021,9,8,Wednesday,3,0,0.0,true,false,
-2021-09-09,2021,9,9,Thursday,4,0,0.0,true,false,
-2021-09-10,2021,9,10,Friday,5,0,0.0,true,false,
-2021-09-11,2021,9,11,Saturday,6,0,0.0,true,false,
-2021-09-12,2021,9,12,Sunday,0,0,0.0,true,false,
-2021-09-13,2021,9,13,Monday,1,0,0.0,true,false,
-2021-09-14,2021,9,14,Tuesday,2,0,0.0,true,false,
-2021-09-15,2021,9,15,Wednesday,3,0,0.0,true,false,
-2021-09-16,2021,9,16,Thursday,4,0,0.0,true,false,
-2021-09-17,2021,9,17,Friday,5,0,0.0,true,false,
-2021-09-18,2021,9,18,Saturday,6,0,0.0,true,false,
-2021-09-19,2021,9,19,Sunday,0,0,0.0,true,false,
-2021-09-20,2021,9,20,Monday,1,0,0.0,true,false,
-2021-09-21,2021,9,21,Tuesday,2,0,0.0,true,false,
-2021-09-22,2021,9,22,Wednesday,3,0,0.0,true,false,
-2021-09-23,2021,9,23,Thursday,4,0,0.0,true,false,
-2021-09-24,2021,9,24,Friday,5,0,0.0,true,false,
-2021-09-25,2021,9,25,Saturday,6,0,0.0,true,false,
-2021-09-26,2021,9,26,Sunday,0,0,0.0,true,false,
-2021-09-27,2021,9,27,Monday,1,0,0.0,true,false,
-2021-09-28,2021,9,28,Tuesday,2,0,0.0,true,false,
-2021-09-29,2021,9,29,Wednesday,3,0,0.0,true,false,
-2021-09-30,2021,9,30,Thursday,4,0,0.0,true,false,
-2021-10-01,2021,10,1,Friday,5,0,0.0,true,false,
-2021-10-02,2021,10,2,Saturday,6,0,0.0,true,false,
-2021-10-03,2021,10,3,Sunday,0,0,0.0,true,false,
-2021-10-04,2021,10,4,Monday,1,0,0.0,true,false,
-2021-10-05,2021,10,5,Tuesday,2,0,0.0,true,false,
-2021-10-06,2021,10,6,Wednesday,3,0,0.0,true,false,
-2021-10-07,2021,10,7,Thursday,4,0,0.0,true,false,
-2021-10-08,2021,10,8,Friday,5,0,0.0,true,false,
-2021-10-09,2021,10,9,Saturday,6,0,0.0,true,false,
-2021-10-10,2021,10,10,Sunday,0,0,0.0,true,false,
-2021-10-11,2021,10,11,Monday,1,0,0.0,true,false,
-2021-10-12,2021,10,12,Tuesday,2,0,0.0,true,false,
-2021-10-13,2021,10,13,Wednesday,3,0,0.0,true,false,
-2021-10-14,2021,10,14,Thursday,4,0,0.0,true,false,
-2021-10-15,2021,10,15,Friday,5,0,0.0,true,false,
-2021-10-16,2021,10,16,Saturday,6,0,0.0,true,false,
-2021-10-17,2021,10,17,Sunday,0,0,0.0,true,false,
-2021-10-18,2021,10,18,Monday,1,0,0.0,true,false,
-2021-10-19,2021,10,19,Tuesday,2,0,0.0,true,false,
-2021-10-20,2021,10,20,Wednesday,3,0,0.0,true,false,
-2021-10-21,2021,10,21,Thursday,4,0,0.0,true,false,
-2021-10-22,2021,10,22,Friday,5,0,0.0,true,false,
-2021-10-23,2021,10,23,Saturday,6,0,0.0,true,false,
-2021-10-24,2021,10,24,Sunday,0,0,0.0,true,false,
-2021-10-25,2021,10,25,Monday,1,0,0.0,true,false,
-2021-10-26,2021,10,26,Tuesday,2,0,0.0,true,false,
-2021-10-27,2021,10,27,Wednesday,3,0,0.0,true,false,
-2021-10-28,2021,10,28,Thursday,4,0,0.0,true,false,
-2021-10-29,2021,10,29,Friday,5,0,0.0,true,false,
-2021-10-30,2021,10,30,Saturday,6,0,0.0,true,false,
-2021-10-31,2021,10,31,Sunday,0,0,0.0,true,false,
-2021-11-01,2021,11,1,Monday,1,0,0.0,true,false,
-2021-11-02,2021,11,2,Tuesday,2,0,0.0,true,false,
-2021-11-03,2021,11,3,Wednesday,3,0,0.0,true,false,
-2021-11-04,2021,11,4,Thursday,4,0,0.0,true,false,
-2021-11-05,2021,11,5,Friday,5,0,0.0,true,false,
-2021-11-06,2021,11,6,Saturday,6,0,0.0,true,false,
-2021-11-07,2021,11,7,Sunday,0,0,0.0,true,false,
-2021-11-08,2021,11,8,Monday,1,0,0.0,true,false,
-2021-11-09,2021,11,9,Tuesday,2,0,0.0,true,false,
-2021-11-10,2021,11,10,Wednesday,3,0,0.0,true,false,
-2021-11-11,2021,11,11,Thursday,4,0,0.0,true,false,
-2021-11-12,2021,11,12,Friday,5,0,0.0,true,false,
-2021-11-13,2021,11,13,Saturday,6,0,0.0,true,false,
-2021-11-14,2021,11,14,Sunday,0,0,0.0,true,false,
-2021-11-15,2021,11,15,Monday,1,0,0.0,true,false,
-2021-11-16,2021,11,16,Tuesday,2,0,0.0,true,false,
-2021-11-17,2021,11,17,Wednesday,3,0,0.0,true,false,
-2021-11-18,2021,11,18,Thursday,4,0,0.0,true,false,
-2021-11-19,2021,11,19,Friday,5,0,0.0,true,false,
-2021-11-20,2021,11,20,Saturday,6,0,0.0,true,false,
-2021-11-21,2021,11,21,Sunday,0,0,0.0,true,false,
-2021-11-22,2021,11,22,Monday,1,0,0.0,true,false,
-2021-11-23,2021,11,23,Tuesday,2,0,0.0,true,false,
-2021-11-24,2021,11,24,Wednesday,3,0,0.0,true,false,
-2021-11-25,2021,11,25,Thursday,4,0,0.0,true,false,
-2021-11-26,2021,11,26,Friday,5,0,0.0,true,false,
-2021-11-27,2021,11,27,Saturday,6,0,0.0,true,false,
-2021-11-28,2021,11,28,Sunday,0,0,0.0,true,false,
-2021-11-29,2021,11,29,Monday,1,0,0.0,true,false,
-2021-11-30,2021,11,30,Tuesday,2,0,0.0,true,false,
-2021-12-01,2021,12,1,Wednesday,3,0,0.0,true,false,
-2021-12-02,2021,12,2,Thursday,4,0,0.0,true,false,
-2021-12-03,2021,12,3,Friday,5,0,0.0,true,false,
-2021-12-04,2021,12,4,Saturday,6,0,0.0,true,false,
-2021-12-05,2021,12,5,Sunday,0,0,0.0,true,false,
-2021-12-06,2021,12,6,Monday,1,0,0.0,true,false,
-2021-12-07,2021,12,7,Tuesday,2,0,0.0,true,false,
-2021-12-08,2021,12,8,Wednesday,3,0,0.0,true,false,
-2021-12-09,2021,12,9,Thursday,4,0,0.0,true,false,
-2021-12-10,2021,12,10,Friday,5,0,0.0,true,false,
-2021-12-11,2021,12,11,Saturday,6,0,0.0,true,false,
-2021-12-12,2021,12,12,Sunday,0,0,0.0,true,false,
-2021-12-13,2021,12,13,Monday,1,0,0.0,true,false,
-2021-12-14,2021,12,14,Tuesday,2,0,0.0,true,false,
-2021-12-15,2021,12,15,Wednesday,3,0,0.0,true,false,
-2021-12-16,2021,12,16,Thursday,4,0,0.0,true,false,
-2021-12-17,2021,12,17,Friday,5,0,0.0,true,false,
-2021-12-18,2021,12,18,Saturday,6,0,0.0,true,false,
-2021-12-19,2021,12,19,Sunday,0,0,0.0,true,false,
-2021-12-20,2021,12,20,Monday,1,0,0.0,true,false,
-2021-12-21,2021,12,21,Tuesday,2,0,0.0,true,false,
-2021-12-22,2021,12,22,Wednesday,3,0,0.0,true,false,
-2021-12-23,2021,12,23,Thursday,4,0,0.0,true,false,
-2021-12-24,2021,12,24,Friday,5,0,0.0,true,false,
-2021-12-25,2021,12,25,Saturday,6,0,0.0,true,true,
-2021-12-26,2021,12,26,Sunday,0,0,0.0,true,false,
-2021-12-27,2021,12,27,Monday,1,0,0.0,true,false,
-2021-12-28,2021,12,28,Tuesday,2,0,0.0,true,false,
-2021-12-29,2021,12,29,Wednesday,3,0,0.0,true,false,
-2021-12-30,2021,12,30,Thursday,4,0,0.0,true,false,
-2021-12-31,2021,12,31,Friday,5,0,0.0,true,false,
-2022-01-01,2022,1,1,Saturday,6,0,0.0,false,false,
-2022-01-02,2022,1,2,Sunday,0,0,0.0,false,false,
-2022-01-03,2022,1,3,Monday,1,0,0.0,false,false,
-2022-01-04,2022,1,4,Tuesday,2,0,0.0,false,false,
+2020-03-23,2020,3,23,Monday,1,0,0.0,true,false,date spine
+2020-03-24,2020,3,24,Tuesday,2,0,0.0,true,false,date spine
+2020-03-25,2020,3,25,Wednesday,3,0,0.0,true,false,date spine
+2020-03-26,2020,3,26,Thursday,4,0,0.0,true,false,date spine
+2020-03-27,2020,3,27,Friday,5,0,0.0,true,false,date spine
+2020-03-28,2020,3,28,Saturday,6,0,0.0,true,false,date spine
+2020-03-29,2020,3,29,Sunday,0,0,0.0,true,false,date spine
+2020-03-30,2020,3,30,Monday,1,0,0.0,true,false,date spine
+2020-03-31,2020,3,31,Tuesday,2,0,0.0,true,false,date spine
+2020-04-01,2020,4,1,Wednesday,3,0,0.0,true,false,date spine
+2020-04-02,2020,4,2,Thursday,4,0,0.0,true,false,date spine
+2020-04-03,2020,4,3,Friday,5,0,0.0,true,false,date spine
+2020-04-04,2020,4,4,Saturday,6,0,0.0,true,false,date spine
+2020-04-05,2020,4,5,Sunday,0,0,0.0,true,false,date spine
+2020-04-06,2020,4,6,Monday,1,0,0.0,true,false,date spine
+2020-04-07,2020,4,7,Tuesday,2,0,0.0,true,false,date spine
+2020-04-08,2020,4,8,Wednesday,3,0,0.0,true,false,date spine
+2020-04-09,2020,4,9,Thursday,4,0,0.0,true,false,date spine
+2020-04-10,2020,4,10,Friday,5,0,0.0,true,false,date spine
+2020-04-11,2020,4,11,Saturday,6,0,0.0,true,false,date spine
+2020-04-12,2020,4,12,Sunday,0,0,0.0,true,false,date spine
+2020-04-13,2020,4,13,Monday,1,0,0.0,true,false,date spine
+2020-04-14,2020,4,14,Tuesday,2,0,0.0,true,false,date spine
+2020-04-15,2020,4,15,Wednesday,3,0,0.0,true,false,date spine
+2020-04-16,2020,4,16,Thursday,4,0,0.0,true,false,date spine
+2020-04-17,2020,4,17,Friday,5,0,0.0,true,false,date spine
+2020-04-18,2020,4,18,Saturday,6,0,0.0,true,false,date spine
+2020-04-19,2020,4,19,Sunday,0,0,0.0,true,false,date spine
+2020-04-20,2020,4,20,Monday,1,0,0.0,true,false,date spine
+2020-04-21,2020,4,21,Tuesday,2,0,0.0,true,false,date spine
+2020-04-22,2020,4,22,Wednesday,3,0,0.0,true,false,date spine
+2020-04-23,2020,4,23,Thursday,4,0,0.0,true,false,date spine
+2020-04-24,2020,4,24,Friday,5,0,0.0,true,false,date spine
+2020-04-25,2020,4,25,Saturday,6,0,0.0,true,false,date spine
+2020-04-26,2020,4,26,Sunday,0,0,0.0,true,false,date spine
+2020-04-27,2020,4,27,Monday,1,0,0.0,true,false,date spine
+2020-04-28,2020,4,28,Tuesday,2,0,0.0,true,false,date spine
+2020-04-29,2020,4,29,Wednesday,3,0,0.0,true,false,date spine
+2020-04-30,2020,4,30,Thursday,4,0,0.0,true,false,date spine
+2020-05-01,2020,5,1,Friday,5,0,0.0,true,false,date spine
+2020-05-02,2020,5,2,Saturday,6,0,0.0,true,false,date spine
+2020-05-03,2020,5,3,Sunday,0,0,0.0,true,false,date spine
+2020-05-04,2020,5,4,Monday,1,0,0.0,true,false,date spine
+2020-05-05,2020,5,5,Tuesday,2,0,0.0,true,false,date spine
+2020-05-06,2020,5,6,Wednesday,3,0,0.0,true,false,date spine
+2020-05-07,2020,5,7,Thursday,4,0,0.0,true,false,date spine
+2020-05-08,2020,5,8,Friday,5,0,0.0,true,false,date spine
+2020-05-09,2020,5,9,Saturday,6,0,0.0,true,false,date spine
+2020-05-10,2020,5,10,Sunday,0,0,0.0,true,false,date spine
+2020-05-11,2020,5,11,Monday,1,0,0.0,true,false,date spine
+2020-05-12,2020,5,12,Tuesday,2,0,0.0,true,false,date spine
+2020-05-13,2020,5,13,Wednesday,3,0,0.0,true,false,date spine
+2020-05-14,2020,5,14,Thursday,4,0,0.0,true,false,date spine
+2020-05-15,2020,5,15,Friday,5,0,0.0,true,false,date spine
+2020-05-16,2020,5,16,Saturday,6,0,0.0,true,false,date spine
+2020-05-17,2020,5,17,Sunday,0,0,0.0,true,false,date spine
+2020-05-18,2020,5,18,Monday,1,0,0.0,true,false,date spine
+2020-05-19,2020,5,19,Tuesday,2,0,0.0,true,false,date spine
+2020-05-20,2020,5,20,Wednesday,3,0,0.0,true,false,date spine
+2020-05-21,2020,5,21,Thursday,4,0,0.0,true,false,date spine
+2020-05-22,2020,5,22,Friday,5,0,0.0,true,false,date spine
+2020-05-23,2020,5,23,Saturday,6,0,0.0,true,false,date spine
+2020-05-24,2020,5,24,Sunday,0,0,0.0,true,false,date spine
+2020-05-25,2020,5,25,Monday,1,0,0.0,true,false,date spine
+2020-05-26,2020,5,26,Tuesday,2,0,0.0,true,false,date spine
+2020-05-27,2020,5,27,Wednesday,3,0,0.0,true,false,date spine
+2020-05-28,2020,5,28,Thursday,4,0,0.0,true,false,date spine
+2020-05-29,2020,5,29,Friday,5,0,0.0,true,false,date spine
+2020-05-30,2020,5,30,Saturday,6,0,0.0,true,false,date spine
+2020-05-31,2020,5,31,Sunday,0,0,0.0,true,false,date spine
+2020-06-01,2020,6,1,Monday,1,0,0.0,true,false,date spine
+2020-06-02,2020,6,2,Tuesday,2,0,0.0,true,false,date spine
+2020-06-03,2020,6,3,Wednesday,3,0,0.0,true,false,date spine
+2020-06-04,2020,6,4,Thursday,4,0,0.0,true,false,date spine
+2020-06-05,2020,6,5,Friday,5,0,0.0,true,false,date spine
+2020-06-06,2020,6,6,Saturday,6,0,0.0,true,false,date spine
+2020-06-07,2020,6,7,Sunday,0,0,0.0,true,false,date spine
+2020-06-08,2020,6,8,Monday,1,0,0.0,true,false,date spine
+2020-06-09,2020,6,9,Tuesday,2,0,0.0,true,false,date spine
+2020-06-10,2020,6,10,Wednesday,3,0,0.0,true,false,date spine
+2020-06-11,2020,6,11,Thursday,4,0,0.0,true,false,date spine
+2020-06-12,2020,6,12,Friday,5,0,0.0,true,false,date spine
+2020-06-13,2020,6,13,Saturday,6,0,0.0,true,false,date spine
+2020-06-14,2020,6,14,Sunday,0,0,0.0,true,false,date spine
+2020-06-15,2020,6,15,Monday,1,0,0.0,true,false,date spine
+2020-06-16,2020,6,16,Tuesday,2,0,0.0,true,false,date spine
+2020-06-17,2020,6,17,Wednesday,3,0,0.0,true,false,date spine
+2020-06-18,2020,6,18,Thursday,4,0,0.0,true,false,date spine
+2020-06-19,2020,6,19,Friday,5,0,0.0,true,false,date spine
+2020-06-20,2020,6,20,Saturday,6,0,0.0,true,false,date spine
+2020-06-21,2020,6,21,Sunday,0,0,0.0,true,false,date spine
+2020-06-22,2020,6,22,Monday,1,0,0.0,true,false,date spine
+2020-06-23,2020,6,23,Tuesday,2,0,0.0,true,false,date spine
+2020-06-24,2020,6,24,Wednesday,3,0,0.0,true,false,date spine
+2020-06-25,2020,6,25,Thursday,4,0,0.0,true,false,date spine
+2020-06-26,2020,6,26,Friday,5,0,0.0,true,false,date spine
+2020-06-27,2020,6,27,Saturday,6,0,0.0,true,false,date spine
+2020-06-28,2020,6,28,Sunday,0,0,0.0,true,false,date spine
+2020-06-29,2020,6,29,Monday,1,0,0.0,true,false,date spine
+2020-06-30,2020,6,30,Tuesday,2,0,0.0,true,false,date spine
+2020-07-01,2020,7,1,Wednesday,3,0,0.0,true,false,date spine
+2020-07-02,2020,7,2,Thursday,4,0,0.0,true,false,date spine
+2020-07-03,2020,7,3,Friday,5,0,0.0,true,false,date spine
+2020-07-04,2020,7,4,Saturday,6,0,0.0,true,false,date spine
+2020-07-05,2020,7,5,Sunday,0,0,0.0,true,false,date spine
+2020-07-06,2020,7,6,Monday,1,0,0.0,true,false,date spine
+2020-07-07,2020,7,7,Tuesday,2,0,0.0,true,false,date spine
+2020-07-08,2020,7,8,Wednesday,3,0,0.0,true,false,date spine
+2020-07-09,2020,7,9,Thursday,4,0,0.0,true,false,date spine
+2020-07-10,2020,7,10,Friday,5,0,0.0,true,false,date spine
+2020-07-11,2020,7,11,Saturday,6,0,0.0,true,false,date spine
+2020-07-12,2020,7,12,Sunday,0,0,0.0,true,false,date spine
+2020-07-13,2020,7,13,Monday,1,0,0.0,true,false,date spine
+2020-07-14,2020,7,14,Tuesday,2,0,0.0,true,false,date spine
+2020-07-15,2020,7,15,Wednesday,3,0,0.0,true,false,date spine
+2020-07-16,2020,7,16,Thursday,4,0,0.0,true,false,date spine
+2020-07-17,2020,7,17,Friday,5,0,0.0,true,false,date spine
+2020-07-18,2020,7,18,Saturday,6,0,0.0,true,false,date spine
+2020-07-19,2020,7,19,Sunday,0,0,0.0,true,false,date spine
+2020-07-20,2020,7,20,Monday,1,0,0.0,true,false,date spine
+2020-07-21,2020,7,21,Tuesday,2,0,0.0,true,false,date spine
+2020-07-22,2020,7,22,Wednesday,3,0,0.0,true,false,date spine
+2020-07-23,2020,7,23,Thursday,4,0,0.0,true,false,date spine
+2020-07-24,2020,7,24,Friday,5,0,0.0,true,false,date spine
+2020-07-25,2020,7,25,Saturday,6,0,0.0,true,false,date spine
+2020-07-26,2020,7,26,Sunday,0,0,0.0,true,false,date spine
+2020-07-27,2020,7,27,Monday,1,0,0.0,true,false,date spine
+2020-07-28,2020,7,28,Tuesday,2,0,0.0,true,false,date spine
+2020-07-29,2020,7,29,Wednesday,3,0,0.0,true,false,date spine
+2020-07-30,2020,7,30,Thursday,4,0,0.0,true,false,date spine
+2020-07-31,2020,7,31,Friday,5,0,0.0,true,false,date spine
+2020-08-01,2020,8,1,Saturday,6,0,0.0,true,false,date spine
+2020-08-02,2020,8,2,Sunday,0,0,0.0,true,false,date spine
+2020-08-03,2020,8,3,Monday,1,0,0.0,true,false,date spine
+2020-08-04,2020,8,4,Tuesday,2,0,0.0,true,false,date spine
+2020-08-05,2020,8,5,Wednesday,3,0,0.0,true,false,date spine
+2020-08-06,2020,8,6,Thursday,4,0,0.0,true,false,date spine
+2020-08-07,2020,8,7,Friday,5,0,0.0,true,false,date spine
+2020-08-08,2020,8,8,Saturday,6,0,0.0,true,false,date spine
+2020-08-09,2020,8,9,Sunday,0,0,0.0,true,false,date spine
+2020-08-10,2020,8,10,Monday,1,0,0.0,true,false,date spine
+2020-08-11,2020,8,11,Tuesday,2,0,0.0,true,false,date spine
+2020-08-12,2020,8,12,Wednesday,3,0,0.0,true,false,date spine
+2020-08-13,2020,8,13,Thursday,4,0,0.0,true,false,date spine
+2020-08-14,2020,8,14,Friday,5,0,0.0,true,false,date spine
+2020-08-15,2020,8,15,Saturday,6,0,0.0,true,false,date spine
+2020-08-16,2020,8,16,Sunday,0,0,0.0,true,false,date spine
+2020-08-17,2020,8,17,Monday,1,0,0.0,true,false,date spine
+2020-08-18,2020,8,18,Tuesday,2,0,0.0,true,false,date spine
+2020-08-19,2020,8,19,Wednesday,3,0,0.0,true,false,date spine
+2020-08-20,2020,8,20,Thursday,4,0,0.0,true,false,date spine
+2020-08-21,2020,8,21,Friday,5,0,0.0,true,false,date spine
+2020-08-22,2020,8,22,Saturday,6,0,0.0,true,false,date spine
+2020-08-23,2020,8,23,Sunday,0,0,0.0,true,false,date spine
+2020-08-24,2020,8,24,Monday,1,0,0.0,true,false,date spine
+2020-08-25,2020,8,25,Tuesday,2,0,0.0,true,false,date spine
+2020-08-26,2020,8,26,Wednesday,3,0,0.0,true,false,date spine
+2020-08-27,2020,8,27,Thursday,4,0,0.0,true,false,date spine
+2020-08-28,2020,8,28,Friday,5,0,0.0,true,false,date spine
+2020-08-29,2020,8,29,Saturday,6,0,0.0,true,false,date spine
+2020-08-30,2020,8,30,Sunday,0,0,0.0,true,false,date spine
+2020-08-31,2020,8,31,Monday,1,0,0.0,true,false,date spine
+2020-09-01,2020,9,1,Tuesday,2,0,0.0,true,false,date spine
+2020-09-02,2020,9,2,Wednesday,3,0,0.0,true,false,date spine
+2020-09-03,2020,9,3,Thursday,4,0,0.0,true,false,date spine
+2020-09-04,2020,9,4,Friday,5,0,0.0,true,false,date spine
+2020-09-05,2020,9,5,Saturday,6,0,0.0,true,false,date spine
+2020-09-06,2020,9,6,Sunday,0,0,0.0,true,false,date spine
+2020-09-07,2020,9,7,Monday,1,0,0.0,true,false,date spine
+2020-09-08,2020,9,8,Tuesday,2,0,0.0,true,false,date spine
+2020-09-09,2020,9,9,Wednesday,3,0,0.0,true,false,date spine
+2020-09-10,2020,9,10,Thursday,4,0,0.0,true,false,date spine
+2020-09-11,2020,9,11,Friday,5,0,0.0,true,false,date spine
+2020-09-12,2020,9,12,Saturday,6,0,0.0,true,false,date spine
+2020-09-13,2020,9,13,Sunday,0,0,0.0,true,false,date spine
+2020-09-14,2020,9,14,Monday,1,0,0.0,true,false,date spine
+2020-09-15,2020,9,15,Tuesday,2,0,0.0,true,false,date spine
+2020-09-16,2020,9,16,Wednesday,3,0,0.0,true,false,date spine
+2020-09-17,2020,9,17,Thursday,4,0,0.0,true,false,date spine
+2020-09-18,2020,9,18,Friday,5,0,0.0,true,false,date spine
+2020-09-19,2020,9,19,Saturday,6,0,0.0,true,false,date spine
+2020-09-20,2020,9,20,Sunday,0,0,0.0,true,false,date spine
+2020-09-21,2020,9,21,Monday,1,0,0.0,true,false,date spine
+2020-09-22,2020,9,22,Tuesday,2,0,0.0,true,false,date spine
+2020-09-23,2020,9,23,Wednesday,3,0,0.0,true,false,date spine
+2020-09-24,2020,9,24,Thursday,4,0,0.0,true,false,date spine
+2020-09-25,2020,9,25,Friday,5,0,0.0,true,false,date spine
+2020-09-26,2020,9,26,Saturday,6,0,0.0,true,false,date spine
+2020-09-27,2020,9,27,Sunday,0,0,0.0,true,false,date spine
+2020-09-28,2020,9,28,Monday,1,0,0.0,true,false,date spine
+2020-09-29,2020,9,29,Tuesday,2,0,0.0,true,false,date spine
+2020-09-30,2020,9,30,Wednesday,3,0,0.0,true,false,date spine
+2020-10-01,2020,10,1,Thursday,4,0,0.0,true,false,date spine
+2020-10-02,2020,10,2,Friday,5,0,0.0,true,false,date spine
+2020-10-03,2020,10,3,Saturday,6,0,0.0,true,false,date spine
+2020-10-04,2020,10,4,Sunday,0,0,0.0,true,false,date spine
+2020-10-05,2020,10,5,Monday,1,0,0.0,true,false,date spine
+2020-10-06,2020,10,6,Tuesday,2,0,0.0,true,false,date spine
+2020-10-07,2020,10,7,Wednesday,3,0,0.0,true,false,date spine
+2020-10-08,2020,10,8,Thursday,4,0,0.0,true,false,date spine
+2020-10-09,2020,10,9,Friday,5,0,0.0,true,false,date spine
+2020-10-10,2020,10,10,Saturday,6,0,0.0,true,false,date spine
+2020-10-11,2020,10,11,Sunday,0,0,0.0,true,false,date spine
+2020-10-12,2020,10,12,Monday,1,0,0.0,true,false,date spine
+2020-10-13,2020,10,13,Tuesday,2,0,0.0,true,false,date spine
+2020-10-14,2020,10,14,Wednesday,3,0,0.0,true,false,date spine
+2020-10-15,2020,10,15,Thursday,4,0,0.0,true,false,date spine
+2020-10-16,2020,10,16,Friday,5,0,0.0,true,false,date spine
+2020-10-17,2020,10,17,Saturday,6,0,0.0,true,false,date spine
+2020-10-18,2020,10,18,Sunday,0,0,0.0,true,false,date spine
+2020-10-19,2020,10,19,Monday,1,0,0.0,true,false,date spine
+2020-10-20,2020,10,20,Tuesday,2,0,0.0,true,false,date spine
+2020-10-21,2020,10,21,Wednesday,3,0,0.0,true,false,date spine
+2020-10-22,2020,10,22,Thursday,4,0,0.0,true,false,date spine
+2020-10-23,2020,10,23,Friday,5,0,0.0,true,false,date spine
+2020-10-24,2020,10,24,Saturday,6,0,0.0,true,false,date spine
+2020-10-25,2020,10,25,Sunday,0,0,0.0,true,false,date spine
+2020-10-26,2020,10,26,Monday,1,0,0.0,true,false,date spine
+2020-10-27,2020,10,27,Tuesday,2,0,0.0,true,false,date spine
+2020-10-28,2020,10,28,Wednesday,3,0,0.0,true,false,date spine
+2020-10-29,2020,10,29,Thursday,4,0,0.0,true,false,date spine
+2020-10-30,2020,10,30,Friday,5,0,0.0,true,false,date spine
+2020-10-31,2020,10,31,Saturday,6,0,0.0,true,false,date spine
+2020-11-01,2020,11,1,Sunday,0,0,0.0,true,false,date spine
+2020-11-02,2020,11,2,Monday,1,0,0.0,true,false,date spine
+2020-11-03,2020,11,3,Tuesday,2,0,0.0,true,false,date spine
+2020-11-04,2020,11,4,Wednesday,3,0,0.0,true,false,date spine
+2020-11-05,2020,11,5,Thursday,4,0,0.0,true,false,date spine
+2020-11-06,2020,11,6,Friday,5,0,0.0,true,false,date spine
+2020-11-07,2020,11,7,Saturday,6,0,0.0,true,false,date spine
+2020-11-08,2020,11,8,Sunday,0,0,0.0,true,false,date spine
+2020-11-09,2020,11,9,Monday,1,0,0.0,true,false,date spine
+2020-11-10,2020,11,10,Tuesday,2,0,0.0,true,false,date spine
+2020-11-11,2020,11,11,Wednesday,3,0,0.0,true,false,date spine
+2020-11-12,2020,11,12,Thursday,4,0,0.0,true,false,date spine
+2020-11-13,2020,11,13,Friday,5,0,0.0,true,false,date spine
+2020-11-14,2020,11,14,Saturday,6,0,0.0,true,false,date spine
+2020-11-15,2020,11,15,Sunday,0,0,0.0,true,false,date spine
+2020-11-16,2020,11,16,Monday,1,0,0.0,true,false,date spine
+2020-11-17,2020,11,17,Tuesday,2,0,0.0,true,false,date spine
+2020-11-18,2020,11,18,Wednesday,3,0,0.0,true,false,date spine
+2020-11-19,2020,11,19,Thursday,4,0,0.0,true,false,date spine
+2020-11-20,2020,11,20,Friday,5,0,0.0,true,false,date spine
+2020-11-21,2020,11,21,Saturday,6,0,0.0,true,false,date spine
+2020-11-22,2020,11,22,Sunday,0,0,0.0,true,false,date spine
+2020-11-23,2020,11,23,Monday,1,0,0.0,true,false,date spine
+2020-11-24,2020,11,24,Tuesday,2,0,0.0,true,false,date spine
+2020-11-25,2020,11,25,Wednesday,3,0,0.0,true,false,date spine
+2020-11-26,2020,11,26,Thursday,4,0,0.0,true,false,date spine
+2020-11-27,2020,11,27,Friday,5,0,0.0,true,false,date spine
+2020-11-28,2020,11,28,Saturday,6,0,0.0,true,false,date spine
+2020-11-29,2020,11,29,Sunday,0,0,0.0,true,false,date spine
+2020-11-30,2020,11,30,Monday,1,0,0.0,true,false,date spine
+2020-12-01,2020,12,1,Tuesday,2,0,0.0,true,false,date spine
+2020-12-02,2020,12,2,Wednesday,3,0,0.0,true,false,date spine
+2020-12-03,2020,12,3,Thursday,4,0,0.0,true,false,date spine
+2020-12-04,2020,12,4,Friday,5,0,0.0,true,false,date spine
+2020-12-05,2020,12,5,Saturday,6,0,0.0,true,false,date spine
+2020-12-06,2020,12,6,Sunday,0,0,0.0,true,false,date spine
+2020-12-07,2020,12,7,Monday,1,0,0.0,true,false,date spine
+2020-12-08,2020,12,8,Tuesday,2,0,0.0,true,false,date spine
+2020-12-09,2020,12,9,Wednesday,3,0,0.0,true,false,date spine
+2020-12-10,2020,12,10,Thursday,4,0,0.0,true,false,date spine
+2020-12-11,2020,12,11,Friday,5,0,0.0,true,false,date spine
+2020-12-12,2020,12,12,Saturday,6,0,0.0,true,false,date spine
+2020-12-13,2020,12,13,Sunday,0,0,0.0,true,false,date spine
+2020-12-14,2020,12,14,Monday,1,0,0.0,true,false,date spine
+2020-12-15,2020,12,15,Tuesday,2,0,0.0,true,false,date spine
+2020-12-16,2020,12,16,Wednesday,3,0,0.0,true,false,date spine
+2020-12-17,2020,12,17,Thursday,4,0,0.0,true,false,date spine
+2020-12-18,2020,12,18,Friday,5,0,0.0,true,false,date spine
+2020-12-19,2020,12,19,Saturday,6,0,0.0,true,false,date spine
+2020-12-20,2020,12,20,Sunday,0,0,0.0,true,false,date spine
+2020-12-21,2020,12,21,Monday,1,0,0.0,true,false,date spine
+2020-12-22,2020,12,22,Tuesday,2,0,0.0,true,false,date spine
+2020-12-23,2020,12,23,Wednesday,3,0,0.0,true,false,date spine
+2020-12-24,2020,12,24,Thursday,4,0,0.0,true,false,date spine
+2020-12-25,2020,12,25,Friday,5,0,0.0,true,true,date spine
+2020-12-26,2020,12,26,Saturday,6,0,0.0,true,false,date spine
+2020-12-27,2020,12,27,Sunday,0,0,0.0,true,false,date spine
+2020-12-28,2020,12,28,Monday,1,0,0.0,true,false,date spine
+2020-12-29,2020,12,29,Tuesday,2,0,0.0,true,false,date spine
+2020-12-30,2020,12,30,Wednesday,3,0,0.0,true,false,date spine
+2020-12-31,2020,12,31,Thursday,4,0,0.0,true,false,date spine
+2021-01-01,2021,1,1,Friday,5,0,0.0,true,false,date spine
+2021-01-02,2021,1,2,Saturday,6,0,0.0,true,false,date spine
+2021-01-03,2021,1,3,Sunday,0,0,0.0,true,false,date spine
+2021-01-04,2021,1,4,Monday,1,0,0.0,true,false,date spine
+2021-01-05,2021,1,5,Tuesday,2,0,0.0,true,false,date spine
+2021-01-06,2021,1,6,Wednesday,3,0,0.0,true,false,date spine
+2021-01-07,2021,1,7,Thursday,4,0,0.0,true,false,date spine
+2021-01-08,2021,1,8,Friday,5,0,0.0,true,false,date spine
+2021-01-09,2021,1,9,Saturday,6,0,0.0,true,false,date spine
+2021-01-10,2021,1,10,Sunday,0,0,0.0,true,false,date spine
+2021-01-11,2021,1,11,Monday,1,0,0.0,true,false,date spine
+2021-01-12,2021,1,12,Tuesday,2,0,0.0,true,false,date spine
+2021-01-13,2021,1,13,Wednesday,3,0,0.0,true,false,date spine
+2021-01-14,2021,1,14,Thursday,4,0,0.0,true,false,date spine
+2021-01-15,2021,1,15,Friday,5,0,0.0,true,false,date spine
+2021-01-16,2021,1,16,Saturday,6,0,0.0,true,false,date spine
+2021-01-17,2021,1,17,Sunday,0,0,0.0,true,false,date spine
+2021-01-18,2021,1,18,Monday,1,0,0.0,true,false,date spine
+2021-01-19,2021,1,19,Tuesday,2,0,0.0,true,false,date spine
+2021-01-20,2021,1,20,Wednesday,3,0,0.0,true,false,date spine
+2021-01-21,2021,1,21,Thursday,4,0,0.0,true,false,date spine
+2021-01-22,2021,1,22,Friday,5,0,0.0,true,false,date spine
+2021-01-23,2021,1,23,Saturday,6,0,0.0,true,false,date spine
+2021-01-24,2021,1,24,Sunday,0,0,0.0,true,false,date spine
+2021-01-25,2021,1,25,Monday,1,0,0.0,true,false,date spine
+2021-01-26,2021,1,26,Tuesday,2,0,0.0,true,false,date spine
+2021-01-27,2021,1,27,Wednesday,3,0,0.0,true,false,date spine
+2021-01-28,2021,1,28,Thursday,4,0,0.0,true,false,date spine
+2021-01-29,2021,1,29,Friday,5,0,0.0,true,false,date spine
+2021-01-30,2021,1,30,Saturday,6,0,0.0,true,false,date spine
+2021-01-31,2021,1,31,Sunday,0,0,0.0,true,false,date spine
+2021-02-01,2021,2,1,Monday,1,0,0.0,true,false,date spine
+2021-02-02,2021,2,2,Tuesday,2,0,0.0,true,false,date spine
+2021-02-03,2021,2,3,Wednesday,3,0,0.0,true,false,date spine
+2021-02-04,2021,2,4,Thursday,4,0,0.0,true,false,date spine
+2021-02-05,2021,2,5,Friday,5,0,0.0,true,false,date spine
+2021-02-06,2021,2,6,Saturday,6,0,0.0,true,false,date spine
+2021-02-07,2021,2,7,Sunday,0,0,0.0,true,false,date spine
+2021-02-08,2021,2,8,Monday,1,0,0.0,true,false,date spine
+2021-02-09,2021,2,9,Tuesday,2,0,0.0,true,false,date spine
+2021-02-10,2021,2,10,Wednesday,3,0,0.0,true,false,date spine
+2021-02-11,2021,2,11,Thursday,4,0,0.0,true,false,date spine
+2021-02-12,2021,2,12,Friday,5,0,0.0,true,false,date spine
+2021-02-13,2021,2,13,Saturday,6,0,0.0,true,false,date spine
+2021-02-14,2021,2,14,Sunday,0,0,0.0,true,false,date spine
+2021-02-15,2021,2,15,Monday,1,0,0.0,true,false,date spine
+2021-02-16,2021,2,16,Tuesday,2,0,0.0,true,false,date spine
+2021-02-17,2021,2,17,Wednesday,3,0,0.0,true,false,date spine
+2021-02-18,2021,2,18,Thursday,4,0,0.0,true,false,date spine
+2021-02-19,2021,2,19,Friday,5,0,0.0,true,false,date spine
+2021-02-20,2021,2,20,Saturday,6,0,0.0,true,false,date spine
+2021-02-21,2021,2,21,Sunday,0,0,0.0,true,false,date spine
+2021-02-22,2021,2,22,Monday,1,0,0.0,true,false,date spine
+2021-02-23,2021,2,23,Tuesday,2,0,0.0,true,false,date spine
+2021-02-24,2021,2,24,Wednesday,3,0,0.0,true,false,date spine
+2021-02-25,2021,2,25,Thursday,4,0,0.0,true,false,date spine
+2021-02-26,2021,2,26,Friday,5,0,0.0,true,false,date spine
+2021-02-27,2021,2,27,Saturday,6,0,0.0,true,false,date spine
+2021-02-28,2021,2,28,Sunday,0,0,0.0,true,false,date spine
+2021-03-01,2021,3,1,Monday,1,0,0.0,true,false,date spine
+2021-03-02,2021,3,2,Tuesday,2,0,0.0,true,false,date spine
+2021-03-03,2021,3,3,Wednesday,3,0,0.0,true,false,date spine
+2021-03-04,2021,3,4,Thursday,4,0,0.0,true,false,date spine
+2021-03-05,2021,3,5,Friday,5,0,0.0,true,false,date spine
+2021-03-06,2021,3,6,Saturday,6,0,0.0,true,false,date spine
+2021-03-07,2021,3,7,Sunday,0,0,0.0,true,false,date spine
+2021-03-08,2021,3,8,Monday,1,0,0.0,true,false,date spine
+2021-03-09,2021,3,9,Tuesday,2,0,0.0,true,false,date spine
+2021-03-10,2021,3,10,Wednesday,3,0,0.0,true,false,date spine
+2021-03-11,2021,3,11,Thursday,4,0,0.0,true,false,date spine
+2021-03-12,2021,3,12,Friday,5,0,0.0,true,false,date spine
+2021-03-13,2021,3,13,Saturday,6,0,0.0,true,false,date spine
+2021-03-14,2021,3,14,Sunday,0,0,0.0,true,false,date spine
+2021-03-15,2021,3,15,Monday,1,0,0.0,true,false,date spine
+2021-03-16,2021,3,16,Tuesday,2,0,0.0,true,false,date spine
+2021-03-17,2021,3,17,Wednesday,3,0,0.0,true,false,date spine
+2021-03-18,2021,3,18,Thursday,4,0,0.0,true,false,date spine
+2021-03-19,2021,3,19,Friday,5,0,0.0,true,false,date spine
+2021-03-20,2021,3,20,Saturday,6,0,0.0,true,false,date spine
+2021-03-21,2021,3,21,Sunday,0,0,0.0,true,false,date spine
+2021-03-22,2021,3,22,Monday,1,0,0.0,true,false,date spine
+2021-03-23,2021,3,23,Tuesday,2,0,0.0,true,false,date spine
+2021-03-24,2021,3,24,Wednesday,3,0,0.0,true,false,date spine
+2021-03-25,2021,3,25,Thursday,4,0,0.0,true,false,date spine
+2021-03-26,2021,3,26,Friday,5,0,0.0,true,false,date spine
+2021-03-27,2021,3,27,Saturday,6,0,0.0,true,false,date spine
+2021-03-28,2021,3,28,Sunday,0,0,0.0,true,false,date spine
+2021-03-29,2021,3,29,Monday,1,0,0.0,true,false,date spine
+2021-03-30,2021,3,30,Tuesday,2,0,0.0,true,false,date spine
+2021-03-31,2021,3,31,Wednesday,3,0,0.0,true,false,date spine
+2021-04-01,2021,4,1,Thursday,4,0,0.0,true,false,date spine
+2021-04-02,2021,4,2,Friday,5,0,0.0,true,false,date spine
+2021-04-03,2021,4,3,Saturday,6,0,0.0,true,false,date spine
+2021-04-04,2021,4,4,Sunday,0,0,0.0,true,false,date spine
+2021-04-05,2021,4,5,Monday,1,0,0.0,true,false,date spine
+2021-04-06,2021,4,6,Tuesday,2,0,0.0,true,false,date spine
+2021-04-07,2021,4,7,Wednesday,3,0,0.0,true,false,date spine
+2021-04-08,2021,4,8,Thursday,4,0,0.0,true,false,date spine
+2021-04-09,2021,4,9,Friday,5,0,0.0,true,false,date spine
+2021-04-10,2021,4,10,Saturday,6,0,0.0,true,false,date spine
+2021-04-11,2021,4,11,Sunday,0,0,0.0,true,false,date spine
+2021-04-12,2021,4,12,Monday,1,0,0.0,true,false,date spine
+2021-04-13,2021,4,13,Tuesday,2,0,0.0,true,false,date spine
+2021-04-14,2021,4,14,Wednesday,3,0,0.0,true,false,date spine
+2021-04-15,2021,4,15,Thursday,4,0,0.0,true,false,date spine
+2021-04-16,2021,4,16,Friday,5,0,0.0,true,false,date spine
+2021-04-17,2021,4,17,Saturday,6,0,0.0,true,false,date spine
+2021-04-18,2021,4,18,Sunday,0,0,0.0,true,false,date spine
+2021-04-19,2021,4,19,Monday,1,0,0.0,true,false,date spine
+2021-04-20,2021,4,20,Tuesday,2,0,0.0,true,false,date spine
+2021-04-21,2021,4,21,Wednesday,3,0,0.0,true,false,date spine
+2021-04-22,2021,4,22,Thursday,4,0,0.0,true,false,date spine
+2021-04-23,2021,4,23,Friday,5,0,0.0,true,false,date spine
+2021-04-24,2021,4,24,Saturday,6,0,0.0,true,false,date spine
+2021-04-25,2021,4,25,Sunday,0,0,0.0,true,false,date spine
+2021-04-26,2021,4,26,Monday,1,0,0.0,true,false,date spine
+2021-04-27,2021,4,27,Tuesday,2,0,0.0,true,false,date spine
+2021-04-28,2021,4,28,Wednesday,3,0,0.0,true,false,date spine
+2021-04-29,2021,4,29,Thursday,4,0,0.0,true,false,date spine
+2021-04-30,2021,4,30,Friday,5,0,0.0,true,false,date spine
+2021-05-01,2021,5,1,Saturday,6,0,0.0,true,false,date spine
+2021-05-02,2021,5,2,Sunday,0,0,0.0,true,false,date spine
+2021-05-03,2021,5,3,Monday,1,0,0.0,true,false,date spine
+2021-05-04,2021,5,4,Tuesday,2,0,0.0,true,false,date spine
+2021-05-05,2021,5,5,Wednesday,3,0,0.0,true,false,date spine
+2021-05-06,2021,5,6,Thursday,4,0,0.0,true,false,date spine
+2021-05-07,2021,5,7,Friday,5,0,0.0,true,false,date spine
+2021-05-08,2021,5,8,Saturday,6,0,0.0,true,false,date spine
+2021-05-09,2021,5,9,Sunday,0,0,0.0,true,false,date spine
+2021-05-10,2021,5,10,Monday,1,0,0.0,true,false,date spine
+2021-05-11,2021,5,11,Tuesday,2,0,0.0,true,false,date spine
+2021-05-12,2021,5,12,Wednesday,3,0,0.0,true,false,date spine
+2021-05-13,2021,5,13,Thursday,4,0,0.0,true,false,date spine
+2021-05-14,2021,5,14,Friday,5,0,0.0,true,false,date spine
+2021-05-15,2021,5,15,Saturday,6,0,0.0,true,false,date spine
+2021-05-16,2021,5,16,Sunday,0,0,0.0,true,false,date spine
+2021-05-17,2021,5,17,Monday,1,0,0.0,true,false,date spine
+2021-05-18,2021,5,18,Tuesday,2,0,0.0,true,false,date spine
+2021-05-19,2021,5,19,Wednesday,3,0,0.0,true,false,date spine
+2021-05-20,2021,5,20,Thursday,4,0,0.0,true,false,date spine
+2021-05-21,2021,5,21,Friday,5,0,0.0,true,false,date spine
+2021-05-22,2021,5,22,Saturday,6,0,0.0,true,false,date spine
+2021-05-23,2021,5,23,Sunday,0,0,0.0,true,false,date spine
+2021-05-24,2021,5,24,Monday,1,0,0.0,true,false,date spine
+2021-05-25,2021,5,25,Tuesday,2,0,0.0,true,false,date spine
+2021-05-26,2021,5,26,Wednesday,3,0,0.0,true,false,date spine
+2021-05-27,2021,5,27,Thursday,4,0,0.0,true,false,date spine
+2021-05-28,2021,5,28,Friday,5,0,0.0,true,false,date spine
+2021-05-29,2021,5,29,Saturday,6,0,0.0,true,false,date spine
+2021-05-30,2021,5,30,Sunday,0,0,0.0,true,false,date spine
+2021-05-31,2021,5,31,Monday,1,0,0.0,true,false,date spine
+2021-06-01,2021,6,1,Tuesday,2,0,0.0,true,false,date spine
+2021-06-02,2021,6,2,Wednesday,3,0,0.0,true,false,date spine
+2021-06-03,2021,6,3,Thursday,4,0,0.0,true,false,date spine
+2021-06-04,2021,6,4,Friday,5,0,0.0,true,false,date spine
+2021-06-05,2021,6,5,Saturday,6,0,0.0,true,false,date spine
+2021-06-06,2021,6,6,Sunday,0,0,0.0,true,false,date spine
+2021-06-07,2021,6,7,Monday,1,0,0.0,true,false,date spine
+2021-06-08,2021,6,8,Tuesday,2,0,0.0,true,false,date spine
+2021-06-09,2021,6,9,Wednesday,3,0,0.0,true,false,date spine
+2021-06-10,2021,6,10,Thursday,4,0,0.0,true,false,date spine
+2021-06-11,2021,6,11,Friday,5,0,0.0,true,false,date spine
+2021-06-12,2021,6,12,Saturday,6,0,0.0,true,false,date spine
+2021-06-13,2021,6,13,Sunday,0,0,0.0,true,false,date spine
+2021-06-14,2021,6,14,Monday,1,0,0.0,true,false,date spine
+2021-06-15,2021,6,15,Tuesday,2,0,0.0,true,false,date spine
+2021-06-16,2021,6,16,Wednesday,3,0,0.0,true,false,date spine
+2021-06-17,2021,6,17,Thursday,4,0,0.0,true,false,date spine
+2021-06-18,2021,6,18,Friday,5,0,0.0,true,false,date spine
+2021-06-19,2021,6,19,Saturday,6,0,0.0,true,false,date spine
+2021-06-20,2021,6,20,Sunday,0,0,0.0,true,false,date spine
+2021-06-21,2021,6,21,Monday,1,0,0.0,true,false,date spine
+2021-06-22,2021,6,22,Tuesday,2,0,0.0,true,false,date spine
+2021-06-23,2021,6,23,Wednesday,3,0,0.0,true,false,date spine
+2021-06-24,2021,6,24,Thursday,4,0,0.0,true,false,date spine
+2021-06-25,2021,6,25,Friday,5,0,0.0,true,false,date spine
+2021-06-26,2021,6,26,Saturday,6,0,0.0,true,false,date spine
+2021-06-27,2021,6,27,Sunday,0,0,0.0,true,false,date spine
+2021-06-28,2021,6,28,Monday,1,0,0.0,true,false,date spine
+2021-06-29,2021,6,29,Tuesday,2,0,0.0,true,false,date spine
+2021-06-30,2021,6,30,Wednesday,3,0,0.0,true,false,date spine
+2021-07-01,2021,7,1,Thursday,4,0,0.0,true,false,date spine
+2021-07-02,2021,7,2,Friday,5,0,0.0,true,false,date spine
+2021-07-03,2021,7,3,Saturday,6,0,0.0,true,false,date spine
+2021-07-04,2021,7,4,Sunday,0,0,0.0,true,false,date spine
+2021-07-05,2021,7,5,Monday,1,0,0.0,true,false,date spine
+2021-07-06,2021,7,6,Tuesday,2,0,0.0,true,false,date spine
+2021-07-07,2021,7,7,Wednesday,3,0,0.0,true,false,date spine
+2021-07-08,2021,7,8,Thursday,4,0,0.0,true,false,date spine
+2021-07-09,2021,7,9,Friday,5,0,0.0,true,false,date spine
+2021-07-10,2021,7,10,Saturday,6,0,0.0,true,false,date spine
+2021-07-11,2021,7,11,Sunday,0,0,0.0,true,false,date spine
+2021-07-12,2021,7,12,Monday,1,0,0.0,true,false,date spine
+2021-07-13,2021,7,13,Tuesday,2,0,0.0,true,false,date spine
+2021-07-14,2021,7,14,Wednesday,3,0,0.0,true,false,date spine
+2021-07-15,2021,7,15,Thursday,4,0,0.0,true,false,date spine
+2021-07-16,2021,7,16,Friday,5,0,0.0,true,false,date spine
+2021-07-17,2021,7,17,Saturday,6,0,0.0,true,false,date spine
+2021-07-18,2021,7,18,Sunday,0,0,0.0,true,false,date spine
+2021-07-19,2021,7,19,Monday,1,0,0.0,true,false,date spine
+2021-07-20,2021,7,20,Tuesday,2,0,0.0,true,false,date spine
+2021-07-21,2021,7,21,Wednesday,3,0,0.0,true,false,date spine
+2021-07-22,2021,7,22,Thursday,4,0,0.0,true,false,date spine
+2021-07-23,2021,7,23,Friday,5,0,0.0,true,false,date spine
+2021-07-24,2021,7,24,Saturday,6,0,0.0,true,false,date spine
+2021-07-25,2021,7,25,Sunday,0,0,0.0,true,false,date spine
+2021-07-26,2021,7,26,Monday,1,0,0.0,true,false,date spine
+2021-07-27,2021,7,27,Tuesday,2,0,0.0,true,false,date spine
+2021-07-28,2021,7,28,Wednesday,3,0,0.0,true,false,date spine
+2021-07-29,2021,7,29,Thursday,4,0,0.0,true,false,date spine
+2021-07-30,2021,7,30,Friday,5,0,0.0,true,false,date spine
+2021-07-31,2021,7,31,Saturday,6,0,0.0,true,false,date spine
+2021-08-01,2021,8,1,Sunday,0,0,0.0,true,false,date spine
+2021-08-02,2021,8,2,Monday,1,0,0.0,true,false,date spine
+2021-08-03,2021,8,3,Tuesday,2,0,0.0,true,false,date spine
+2021-08-04,2021,8,4,Wednesday,3,0,0.0,true,false,date spine
+2021-08-05,2021,8,5,Thursday,4,0,0.0,true,false,date spine
+2021-08-06,2021,8,6,Friday,5,0,0.0,true,false,date spine
+2021-08-07,2021,8,7,Saturday,6,0,0.0,true,false,date spine
+2021-08-08,2021,8,8,Sunday,0,0,0.0,true,false,date spine
+2021-08-09,2021,8,9,Monday,1,0,0.0,true,false,date spine
+2021-08-10,2021,8,10,Tuesday,2,0,0.0,true,false,date spine
+2021-08-11,2021,8,11,Wednesday,3,0,0.0,true,false,date spine
+2021-08-12,2021,8,12,Thursday,4,0,0.0,true,false,date spine
+2021-08-13,2021,8,13,Friday,5,0,0.0,true,false,date spine
+2021-08-14,2021,8,14,Saturday,6,0,0.0,true,false,date spine
+2021-08-15,2021,8,15,Sunday,0,0,0.0,true,false,date spine
+2021-08-16,2021,8,16,Monday,1,0,0.0,true,false,date spine
+2021-08-17,2021,8,17,Tuesday,2,0,0.0,true,false,date spine
+2021-08-18,2021,8,18,Wednesday,3,0,0.0,true,false,date spine
+2021-08-19,2021,8,19,Thursday,4,0,0.0,true,false,date spine
+2021-08-20,2021,8,20,Friday,5,0,0.0,true,false,date spine
+2021-08-21,2021,8,21,Saturday,6,0,0.0,true,false,date spine
+2021-08-22,2021,8,22,Sunday,0,0,0.0,true,false,date spine
+2021-08-23,2021,8,23,Monday,1,0,0.0,true,false,date spine
+2021-08-24,2021,8,24,Tuesday,2,0,0.0,true,false,date spine
+2021-08-25,2021,8,25,Wednesday,3,0,0.0,true,false,date spine
+2021-08-26,2021,8,26,Thursday,4,0,0.0,true,false,date spine
+2021-08-27,2021,8,27,Friday,5,0,0.0,true,false,date spine
+2021-08-28,2021,8,28,Saturday,6,0,0.0,true,false,date spine
+2021-08-29,2021,8,29,Sunday,0,0,0.0,true,false,date spine
+2021-08-30,2021,8,30,Monday,1,0,0.0,true,false,date spine
+2021-08-31,2021,8,31,Tuesday,2,0,0.0,true,false,date spine
+2021-09-01,2021,9,1,Wednesday,3,0,0.0,true,false,date spine
+2021-09-02,2021,9,2,Thursday,4,0,0.0,true,false,date spine
+2021-09-03,2021,9,3,Friday,5,0,0.0,true,false,date spine
+2021-09-04,2021,9,4,Saturday,6,0,0.0,true,false,date spine
+2021-09-05,2021,9,5,Sunday,0,0,0.0,true,false,date spine
+2021-09-06,2021,9,6,Monday,1,0,0.0,true,false,date spine
+2021-09-07,2021,9,7,Tuesday,2,0,0.0,true,false,date spine
+2021-09-08,2021,9,8,Wednesday,3,0,0.0,true,false,date spine
+2021-09-09,2021,9,9,Thursday,4,0,0.0,true,false,date spine
+2021-09-10,2021,9,10,Friday,5,0,0.0,true,false,date spine
+2021-09-11,2021,9,11,Saturday,6,0,0.0,true,false,date spine
+2021-09-12,2021,9,12,Sunday,0,0,0.0,true,false,date spine
+2021-09-13,2021,9,13,Monday,1,0,0.0,true,false,date spine
+2021-09-14,2021,9,14,Tuesday,2,0,0.0,true,false,date spine
+2021-09-15,2021,9,15,Wednesday,3,0,0.0,true,false,date spine
+2021-09-16,2021,9,16,Thursday,4,0,0.0,true,false,date spine
+2021-09-17,2021,9,17,Friday,5,0,0.0,true,false,date spine
+2021-09-18,2021,9,18,Saturday,6,0,0.0,true,false,date spine
+2021-09-19,2021,9,19,Sunday,0,0,0.0,true,false,date spine
+2021-09-20,2021,9,20,Monday,1,0,0.0,true,false,date spine
+2021-09-21,2021,9,21,Tuesday,2,0,0.0,true,false,date spine
+2021-09-22,2021,9,22,Wednesday,3,0,0.0,true,false,date spine
+2021-09-23,2021,9,23,Thursday,4,0,0.0,true,false,date spine
+2021-09-24,2021,9,24,Friday,5,0,0.0,true,false,date spine
+2021-09-25,2021,9,25,Saturday,6,0,0.0,true,false,date spine
+2021-09-26,2021,9,26,Sunday,0,0,0.0,true,false,date spine
+2021-09-27,2021,9,27,Monday,1,0,0.0,true,false,date spine
+2021-09-28,2021,9,28,Tuesday,2,0,0.0,true,false,date spine
+2021-09-29,2021,9,29,Wednesday,3,0,0.0,true,false,date spine
+2021-09-30,2021,9,30,Thursday,4,0,0.0,true,false,date spine
+2021-10-01,2021,10,1,Friday,5,0,0.0,true,false,date spine
+2021-10-02,2021,10,2,Saturday,6,0,0.0,true,false,date spine
+2021-10-03,2021,10,3,Sunday,0,0,0.0,true,false,date spine
+2021-10-04,2021,10,4,Monday,1,0,0.0,true,false,date spine
+2021-10-05,2021,10,5,Tuesday,2,0,0.0,true,false,date spine
+2021-10-06,2021,10,6,Wednesday,3,0,0.0,true,false,date spine
+2021-10-07,2021,10,7,Thursday,4,0,0.0,true,false,date spine
+2021-10-08,2021,10,8,Friday,5,0,0.0,true,false,date spine
+2021-10-09,2021,10,9,Saturday,6,0,0.0,true,false,date spine
+2021-10-10,2021,10,10,Sunday,0,0,0.0,true,false,date spine
+2021-10-11,2021,10,11,Monday,1,0,0.0,true,false,date spine
+2021-10-12,2021,10,12,Tuesday,2,0,0.0,true,false,date spine
+2021-10-13,2021,10,13,Wednesday,3,0,0.0,true,false,date spine
+2021-10-14,2021,10,14,Thursday,4,0,0.0,true,false,date spine
+2021-10-15,2021,10,15,Friday,5,0,0.0,true,false,date spine
+2021-10-16,2021,10,16,Saturday,6,0,0.0,true,false,date spine
+2021-10-17,2021,10,17,Sunday,0,0,0.0,true,false,date spine
+2021-10-18,2021,10,18,Monday,1,0,0.0,true,false,date spine
+2021-10-19,2021,10,19,Tuesday,2,0,0.0,true,false,date spine
+2021-10-20,2021,10,20,Wednesday,3,0,0.0,true,false,date spine
+2021-10-21,2021,10,21,Thursday,4,0,0.0,true,false,date spine
+2021-10-22,2021,10,22,Friday,5,0,0.0,true,false,date spine
+2021-10-23,2021,10,23,Saturday,6,0,0.0,true,false,date spine
+2021-10-24,2021,10,24,Sunday,0,0,0.0,true,false,date spine
+2021-10-25,2021,10,25,Monday,1,0,0.0,true,false,date spine
+2021-10-26,2021,10,26,Tuesday,2,0,0.0,true,false,date spine
+2021-10-27,2021,10,27,Wednesday,3,0,0.0,true,false,date spine
+2021-10-28,2021,10,28,Thursday,4,0,0.0,true,false,date spine
+2021-10-29,2021,10,29,Friday,5,0,0.0,true,false,date spine
+2021-10-30,2021,10,30,Saturday,6,0,0.0,true,false,date spine
+2021-10-31,2021,10,31,Sunday,0,0,0.0,true,false,date spine
+2021-11-01,2021,11,1,Monday,1,0,0.0,true,false,date spine
+2021-11-02,2021,11,2,Tuesday,2,0,0.0,true,false,date spine
+2021-11-03,2021,11,3,Wednesday,3,0,0.0,true,false,date spine
+2021-11-04,2021,11,4,Thursday,4,0,0.0,true,false,date spine
+2021-11-05,2021,11,5,Friday,5,0,0.0,true,false,date spine
+2021-11-06,2021,11,6,Saturday,6,0,0.0,true,false,date spine
+2021-11-07,2021,11,7,Sunday,0,0,0.0,true,false,date spine
+2021-11-08,2021,11,8,Monday,1,0,0.0,true,false,date spine
+2021-11-09,2021,11,9,Tuesday,2,0,0.0,true,false,date spine
+2021-11-10,2021,11,10,Wednesday,3,0,0.0,true,false,date spine
+2021-11-11,2021,11,11,Thursday,4,0,0.0,true,false,date spine
+2021-11-12,2021,11,12,Friday,5,0,0.0,true,false,date spine
+2021-11-13,2021,11,13,Saturday,6,0,0.0,true,false,date spine
+2021-11-14,2021,11,14,Sunday,0,0,0.0,true,false,date spine
+2021-11-15,2021,11,15,Monday,1,0,0.0,true,false,date spine
+2021-11-16,2021,11,16,Tuesday,2,0,0.0,true,false,date spine
+2021-11-17,2021,11,17,Wednesday,3,0,0.0,true,false,date spine
+2021-11-18,2021,11,18,Thursday,4,0,0.0,true,false,date spine
+2021-11-19,2021,11,19,Friday,5,0,0.0,true,false,date spine
+2021-11-20,2021,11,20,Saturday,6,0,0.0,true,false,date spine
+2021-11-21,2021,11,21,Sunday,0,0,0.0,true,false,date spine
+2021-11-22,2021,11,22,Monday,1,0,0.0,true,false,date spine
+2021-11-23,2021,11,23,Tuesday,2,0,0.0,true,false,date spine
+2021-11-24,2021,11,24,Wednesday,3,0,0.0,true,false,date spine
+2021-11-25,2021,11,25,Thursday,4,0,0.0,true,false,date spine
+2021-11-26,2021,11,26,Friday,5,0,0.0,true,false,date spine
+2021-11-27,2021,11,27,Saturday,6,0,0.0,true,false,date spine
+2021-11-28,2021,11,28,Sunday,0,0,0.0,true,false,date spine
+2021-11-29,2021,11,29,Monday,1,0,0.0,true,false,date spine
+2021-11-30,2021,11,30,Tuesday,2,0,0.0,true,false,date spine
+2021-12-01,2021,12,1,Wednesday,3,0,0.0,true,false,date spine
+2021-12-02,2021,12,2,Thursday,4,0,0.0,true,false,date spine
+2021-12-03,2021,12,3,Friday,5,0,0.0,true,false,date spine
+2021-12-04,2021,12,4,Saturday,6,0,0.0,true,false,date spine
+2021-12-05,2021,12,5,Sunday,0,0,0.0,true,false,date spine
+2021-12-06,2021,12,6,Monday,1,0,0.0,true,false,date spine
+2021-12-07,2021,12,7,Tuesday,2,0,0.0,true,false,date spine
+2021-12-08,2021,12,8,Wednesday,3,0,0.0,true,false,date spine
+2021-12-09,2021,12,9,Thursday,4,0,0.0,true,false,date spine
+2021-12-10,2021,12,10,Friday,5,0,0.0,true,false,date spine
+2021-12-11,2021,12,11,Saturday,6,0,0.0,true,false,date spine
+2021-12-12,2021,12,12,Sunday,0,0,0.0,true,false,date spine
+2021-12-13,2021,12,13,Monday,1,0,0.0,true,false,date spine
+2021-12-14,2021,12,14,Tuesday,2,0,0.0,true,false,date spine
+2021-12-15,2021,12,15,Wednesday,3,0,0.0,true,false,date spine
+2021-12-16,2021,12,16,Thursday,4,0,0.0,true,false,date spine
+2021-12-17,2021,12,17,Friday,5,0,0.0,true,false,date spine
+2021-12-18,2021,12,18,Saturday,6,0,0.0,true,false,date spine
+2021-12-19,2021,12,19,Sunday,0,0,0.0,true,false,date spine
+2021-12-20,2021,12,20,Monday,1,0,0.0,true,false,date spine
+2021-12-21,2021,12,21,Tuesday,2,0,0.0,true,false,date spine
+2021-12-22,2021,12,22,Wednesday,3,0,0.0,true,false,date spine
+2021-12-23,2021,12,23,Thursday,4,0,0.0,true,false,date spine
+2021-12-24,2021,12,24,Friday,5,0,0.0,true,false,date spine
+2021-12-25,2021,12,25,Saturday,6,0,0.0,true,true,date spine
+2021-12-26,2021,12,26,Sunday,0,0,0.0,true,false,date spine
+2021-12-27,2021,12,27,Monday,1,0,0.0,true,false,date spine
+2021-12-28,2021,12,28,Tuesday,2,0,0.0,true,false,date spine
+2021-12-29,2021,12,29,Wednesday,3,0,0.0,true,false,date spine
+2021-12-30,2021,12,30,Thursday,4,0,0.0,true,false,date spine
+2021-12-31,2021,12,31,Friday,5,0,0.0,true,false,date spine
+2022-01-01,2022,1,1,Saturday,6,0,0.0,false,false,date spine
+2022-01-02,2022,1,2,Sunday,0,0,0.0,false,false,date spine
+2022-01-03,2022,1,3,Monday,1,0,0.0,false,false,date spine
+2022-01-04,2022,1,4,Tuesday,2,0,0.0,false,false,date spine
 2022-01-05,2022,1,5,Wednesday,3,1,14.0,false,false,SS dump
-2022-01-06,2022,1,6,Thursday,4,0,0.0,false,false,
+2022-01-06,2022,1,6,Thursday,4,0,0.0,false,false,date spine
 2022-01-07,2022,1,7,Friday,5,1,5.0,false,false,SS dump
-2022-01-08,2022,1,8,Saturday,6,0,0.0,false,false,
-2022-01-09,2022,1,9,Sunday,0,0,0.0,false,false,
-2022-01-10,2022,1,10,Monday,1,0,0.0,false,false,
-2022-01-11,2022,1,11,Tuesday,2,0,0.0,false,false,
+2022-01-08,2022,1,8,Saturday,6,0,0.0,false,false,date spine
+2022-01-09,2022,1,9,Sunday,0,0,0.0,false,false,date spine
+2022-01-10,2022,1,10,Monday,1,0,0.0,false,false,date spine
+2022-01-11,2022,1,11,Tuesday,2,0,0.0,false,false,date spine
 2022-01-12,2022,1,12,Wednesday,3,1,0.0,false,false,SS dump
-2022-01-13,2022,1,13,Thursday,4,0,0.0,false,false,
+2022-01-13,2022,1,13,Thursday,4,0,0.0,false,false,date spine
 2022-01-14,2022,1,14,Friday,5,1,0.0,false,false,SS dump
 2022-01-15,2022,1,15,Saturday,6,1,0.0,false,false,SS dump
-2022-01-16,2022,1,16,Sunday,0,0,0.0,false,false,
-2022-01-17,2022,1,17,Monday,1,0,0.0,false,false,
-2022-01-18,2022,1,18,Tuesday,2,0,0.0,false,false,
+2022-01-16,2022,1,16,Sunday,0,0,0.0,false,false,date spine
+2022-01-17,2022,1,17,Monday,1,0,0.0,false,false,date spine
+2022-01-18,2022,1,18,Tuesday,2,0,0.0,false,false,date spine
 2022-01-19,2022,1,19,Wednesday,3,1,5.0,false,false,SS dump
-2022-01-20,2022,1,20,Thursday,4,0,0.0,false,false,
+2022-01-20,2022,1,20,Thursday,4,0,0.0,false,false,date spine
 2022-01-21,2022,1,21,Friday,5,1,0.0,false,false,SS dump
 2022-01-22,2022,1,22,Saturday,6,1,0.0,false,false,SS dump
-2022-01-23,2022,1,23,Sunday,0,0,0.0,false,false,
-2022-01-24,2022,1,24,Monday,1,0,0.0,false,false,
-2022-01-25,2022,1,25,Tuesday,2,0,0.0,false,false,
-2022-01-26,2022,1,26,Wednesday,3,0,0.0,false,false,
-2022-01-27,2022,1,27,Thursday,4,0,0.0,false,false,
-2022-01-28,2022,1,28,Friday,5,0,0.0,false,false,
+2022-01-23,2022,1,23,Sunday,0,0,0.0,false,false,date spine
+2022-01-24,2022,1,24,Monday,1,0,0.0,false,false,date spine
+2022-01-25,2022,1,25,Tuesday,2,0,0.0,false,false,date spine
+2022-01-26,2022,1,26,Wednesday,3,0,0.0,false,false,date spine
+2022-01-27,2022,1,27,Thursday,4,0,0.0,false,false,date spine
+2022-01-28,2022,1,28,Friday,5,0,0.0,false,false,date spine
 2022-01-29,2022,1,29,Saturday,6,1,15.0,false,false,SS dump
-2022-01-30,2022,1,30,Sunday,0,0,0.0,false,false,
-2022-01-31,2022,1,31,Monday,1,0,0.0,false,false,
-2022-02-01,2022,2,1,Tuesday,2,0,0.0,false,false,
+2022-01-30,2022,1,30,Sunday,0,0,0.0,false,false,date spine
+2022-01-31,2022,1,31,Monday,1,0,0.0,false,false,date spine
+2022-02-01,2022,2,1,Tuesday,2,0,0.0,false,false,date spine
 2022-02-02,2022,2,2,Wednesday,3,1,0.0,false,false,SS dump
-2022-02-03,2022,2,3,Thursday,4,0,0.0,false,false,
+2022-02-03,2022,2,3,Thursday,4,0,0.0,false,false,date spine
 2022-02-04,2022,2,4,Friday,5,1,0.0,false,false,SS dump
 2022-02-05,2022,2,5,Saturday,6,1,7.5,false,false,SS dump
-2022-02-06,2022,2,6,Sunday,0,0,0.0,false,false,
-2022-02-07,2022,2,7,Monday,1,0,0.0,false,false,
-2022-02-08,2022,2,8,Tuesday,2,0,0.0,false,false,
+2022-02-06,2022,2,6,Sunday,0,0,0.0,false,false,date spine
+2022-02-07,2022,2,7,Monday,1,0,0.0,false,false,date spine
+2022-02-08,2022,2,8,Tuesday,2,0,0.0,false,false,date spine
 2022-02-09,2022,2,9,Wednesday,3,1,0.0,false,false,SS dump
-2022-02-10,2022,2,10,Thursday,4,0,0.0,false,false,
+2022-02-10,2022,2,10,Thursday,4,0,0.0,false,false,date spine
 2022-02-11,2022,2,11,Friday,5,1,0.0,false,false,SS dump
 2022-02-12,2022,2,12,Saturday,6,1,9.0,false,false,SS dump
-2022-02-13,2022,2,13,Sunday,0,0,0.0,false,false,
-2022-02-14,2022,2,14,Monday,1,0,0.0,false,false,
-2022-02-15,2022,2,15,Tuesday,2,0,0.0,false,false,
+2022-02-13,2022,2,13,Sunday,0,0,0.0,false,false,date spine
+2022-02-14,2022,2,14,Monday,1,0,0.0,false,false,date spine
+2022-02-15,2022,2,15,Tuesday,2,0,0.0,false,false,date spine
 2022-02-16,2022,2,16,Wednesday,3,1,0.0,false,false,SS dump
-2022-02-17,2022,2,17,Thursday,4,0,0.0,false,false,
+2022-02-17,2022,2,17,Thursday,4,0,0.0,false,false,date spine
 2022-02-18,2022,2,18,Friday,5,1,0.0,false,false,SS dump
 2022-02-19,2022,2,19,Saturday,6,1,12.0,false,false,SS dump
-2022-02-20,2022,2,20,Sunday,0,0,0.0,false,false,
-2022-02-21,2022,2,21,Monday,1,0,0.0,false,false,
-2022-02-22,2022,2,22,Tuesday,2,0,0.0,false,false,
+2022-02-20,2022,2,20,Sunday,0,0,0.0,false,false,date spine
+2022-02-21,2022,2,21,Monday,1,0,0.0,false,false,date spine
+2022-02-22,2022,2,22,Tuesday,2,0,0.0,false,false,date spine
 2022-02-23,2022,2,23,Wednesday,3,1,0.0,false,false,SS dump
-2022-02-24,2022,2,24,Thursday,4,0,0.0,false,false,
+2022-02-24,2022,2,24,Thursday,4,0,0.0,false,false,date spine
 2022-02-25,2022,2,25,Friday,5,1,11.0,false,false,SS dump
 2022-02-26,2022,2,26,Saturday,6,1,0.0,false,false,SS dump
-2022-02-27,2022,2,27,Sunday,0,0,0.0,false,false,
-2022-02-28,2022,2,28,Monday,1,0,0.0,false,false,
-2022-03-01,2022,3,1,Tuesday,2,0,0.0,false,false,
+2022-02-27,2022,2,27,Sunday,0,0,0.0,false,false,date spine
+2022-02-28,2022,2,28,Monday,1,0,0.0,false,false,date spine
+2022-03-01,2022,3,1,Tuesday,2,0,0.0,false,false,date spine
 2022-03-02,2022,3,2,Wednesday,3,1,11.0,false,false,SS dump
-2022-03-03,2022,3,3,Thursday,4,0,0.0,false,false,
+2022-03-03,2022,3,3,Thursday,4,0,0.0,false,false,date spine
 2022-03-04,2022,3,4,Friday,5,1,1.0,false,false,SS dump
 2022-03-05,2022,3,5,Saturday,6,1,24.5,false,false,SS dump
-2022-03-06,2022,3,6,Sunday,0,0,0.0,false,false,
-2022-03-07,2022,3,7,Monday,1,0,0.0,false,false,
-2022-03-08,2022,3,8,Tuesday,2,0,0.0,false,false,
+2022-03-06,2022,3,6,Sunday,0,0,0.0,false,false,date spine
+2022-03-07,2022,3,7,Monday,1,0,0.0,false,false,date spine
+2022-03-08,2022,3,8,Tuesday,2,0,0.0,false,false,date spine
 2022-03-09,2022,3,9,Wednesday,3,1,12.0,false,false,SS dump
-2022-03-10,2022,3,10,Thursday,4,0,0.0,false,false,
+2022-03-10,2022,3,10,Thursday,4,0,0.0,false,false,date spine
 2022-03-11,2022,3,11,Friday,5,1,11.0,false,false,SS dump
 2022-03-12,2022,3,12,Saturday,6,1,18.0,false,false,SS dump
-2022-03-13,2022,3,13,Sunday,0,0,0.0,false,false,
-2022-03-14,2022,3,14,Monday,1,0,0.0,false,false,
-2022-03-15,2022,3,15,Tuesday,2,0,0.0,false,false,
+2022-03-13,2022,3,13,Sunday,0,0,0.0,false,false,date spine
+2022-03-14,2022,3,14,Monday,1,0,0.0,false,false,date spine
+2022-03-15,2022,3,15,Tuesday,2,0,0.0,false,false,date spine
 2022-03-16,2022,3,16,Wednesday,3,1,27.0,false,false,SS dump
-2022-03-17,2022,3,17,Thursday,4,0,0.0,false,false,
+2022-03-17,2022,3,17,Thursday,4,0,0.0,false,false,date spine
 2022-03-18,2022,3,18,Friday,5,1,28.0,false,false,SS dump
 2022-03-19,2022,3,19,Saturday,6,1,11.5,false,false,SS dump
-2022-03-20,2022,3,20,Sunday,0,0,0.0,false,false,
-2022-03-21,2022,3,21,Monday,1,0,0.0,false,false,
-2022-03-22,2022,3,22,Tuesday,2,0,0.0,false,false,
+2022-03-20,2022,3,20,Sunday,0,0,0.0,false,false,date spine
+2022-03-21,2022,3,21,Monday,1,0,0.0,false,false,date spine
+2022-03-22,2022,3,22,Tuesday,2,0,0.0,false,false,date spine
 2022-03-23,2022,3,23,Wednesday,3,1,24.0,false,false,SS dump
-2022-03-24,2022,3,24,Thursday,4,0,0.0,false,false,
+2022-03-24,2022,3,24,Thursday,4,0,0.0,false,false,date spine
 2022-03-25,2022,3,25,Friday,5,1,12.0,false,false,SS dump
 2022-03-26,2022,3,26,Saturday,6,1,19.0,false,false,SS dump
-2022-03-27,2022,3,27,Sunday,0,0,0.0,false,false,
-2022-03-28,2022,3,28,Monday,1,0,0.0,false,false,
-2022-03-29,2022,3,29,Tuesday,2,0,0.0,false,false,
+2022-03-27,2022,3,27,Sunday,0,0,0.0,false,false,date spine
+2022-03-28,2022,3,28,Monday,1,0,0.0,false,false,date spine
+2022-03-29,2022,3,29,Tuesday,2,0,0.0,false,false,date spine
 2022-03-30,2022,3,30,Wednesday,3,1,21.5,false,false,SS dump
-2022-03-31,2022,3,31,Thursday,4,0,0.0,false,false,
+2022-03-31,2022,3,31,Thursday,4,0,0.0,false,false,date spine
 2022-04-01,2022,4,1,Friday,5,1,17.0,false,false,SS dump
 2022-04-02,2022,4,2,Saturday,6,1,32.5,false,false,SS dump
-2022-04-03,2022,4,3,Sunday,0,0,0.0,false,false,
-2022-04-04,2022,4,4,Monday,1,0,0.0,false,false,
-2022-04-05,2022,4,5,Tuesday,2,0,0.0,false,false,
+2022-04-03,2022,4,3,Sunday,0,0,0.0,false,false,date spine
+2022-04-04,2022,4,4,Monday,1,0,0.0,false,false,date spine
+2022-04-05,2022,4,5,Tuesday,2,0,0.0,false,false,date spine
 2022-04-06,2022,4,6,Wednesday,3,1,21.0,false,false,SS dump
-2022-04-07,2022,4,7,Thursday,4,0,0.0,false,false,
+2022-04-07,2022,4,7,Thursday,4,0,0.0,false,false,date spine
 2022-04-08,2022,4,8,Friday,5,1,18.0,false,false,SS dump
 2022-04-09,2022,4,9,Saturday,6,1,19.5,false,false,SS dump
-2022-04-10,2022,4,10,Sunday,0,0,0.0,false,false,
-2022-04-11,2022,4,11,Monday,1,0,0.0,false,false,
-2022-04-12,2022,4,12,Tuesday,2,0,0.0,false,false,
+2022-04-10,2022,4,10,Sunday,0,0,0.0,false,false,date spine
+2022-04-11,2022,4,11,Monday,1,0,0.0,false,false,date spine
+2022-04-12,2022,4,12,Tuesday,2,0,0.0,false,false,date spine
 2022-04-13,2022,4,13,Wednesday,3,1,37.5,false,false,SS dump
-2022-04-14,2022,4,14,Thursday,4,0,0.0,false,false,
+2022-04-14,2022,4,14,Thursday,4,0,0.0,false,false,date spine
 2022-04-15,2022,4,15,Friday,5,2,65.0,false,false,SS dump
 2022-04-16,2022,4,16,Saturday,6,2,73.5,false,false,SS dump
-2022-04-17,2022,4,17,Sunday,0,0,0.0,false,false,
-2022-04-18,2022,4,18,Monday,1,0,0.0,false,false,
-2022-04-19,2022,4,19,Tuesday,2,0,0.0,false,false,
+2022-04-17,2022,4,17,Sunday,0,0,0.0,false,false,date spine
+2022-04-18,2022,4,18,Monday,1,0,0.0,false,false,date spine
+2022-04-19,2022,4,19,Tuesday,2,0,0.0,false,false,date spine
 2022-04-20,2022,4,20,Wednesday,3,2,49.0,false,false,SS dump
-2022-04-21,2022,4,21,Thursday,4,0,0.0,false,false,
+2022-04-21,2022,4,21,Thursday,4,0,0.0,false,false,date spine
 2022-04-22,2022,4,22,Friday,5,1,34.0,false,false,SS dump
 2022-04-23,2022,4,23,Saturday,6,1,27.0,false,false,SS dump
-2022-04-24,2022,4,24,Sunday,0,0,0.0,false,false,
-2022-04-25,2022,4,25,Monday,1,0,0.0,false,false,
-2022-04-26,2022,4,26,Tuesday,2,0,0.0,false,false,
+2022-04-24,2022,4,24,Sunday,0,0,0.0,false,false,date spine
+2022-04-25,2022,4,25,Monday,1,0,0.0,false,false,date spine
+2022-04-26,2022,4,26,Tuesday,2,0,0.0,false,false,date spine
 2022-04-27,2022,4,27,Wednesday,3,1,23.0,false,false,SS dump
-2022-04-28,2022,4,28,Thursday,4,0,0.0,false,false,
+2022-04-28,2022,4,28,Thursday,4,0,0.0,false,false,date spine
 2022-04-29,2022,4,29,Friday,5,1,28.0,false,false,SS dump
 2022-04-30,2022,4,30,Saturday,6,1,16.0,false,false,SS dump
 2022-05-01,2022,5,1,Sunday,0,1,43.5,false,false,SS dump
-2022-05-02,2022,5,2,Monday,1,0,0.0,false,false,
-2022-05-03,2022,5,3,Tuesday,2,0,0.0,false,false,
+2022-05-02,2022,5,2,Monday,1,0,0.0,false,false,date spine
+2022-05-03,2022,5,3,Tuesday,2,0,0.0,false,false,date spine
 2022-05-04,2022,5,4,Wednesday,3,1,17.0,false,false,SS dump
-2022-05-05,2022,5,5,Thursday,4,0,0.0,false,false,
+2022-05-05,2022,5,5,Thursday,4,0,0.0,false,false,date spine
 2022-05-06,2022,5,6,Friday,5,1,28.0,false,false,SS dump
 2022-05-07,2022,5,7,Saturday,6,1,25.0,false,false,SS dump
 2022-05-08,2022,5,8,Sunday,0,1,23.0,false,false,SS dump
-2022-05-09,2022,5,9,Monday,1,0,0.0,false,false,
-2022-05-10,2022,5,10,Tuesday,2,0,0.0,false,false,
+2022-05-09,2022,5,9,Monday,1,0,0.0,false,false,date spine
+2022-05-10,2022,5,10,Tuesday,2,0,0.0,false,false,date spine
 2022-05-11,2022,5,11,Wednesday,3,1,22.0,false,false,SS dump
-2022-05-12,2022,5,12,Thursday,4,0,0.0,false,false,
+2022-05-12,2022,5,12,Thursday,4,0,0.0,false,false,date spine
 2022-05-13,2022,5,13,Friday,5,1,26.0,false,false,SS dump
 2022-05-14,2022,5,14,Saturday,6,1,18.0,false,false,SS dump
 2022-05-15,2022,5,15,Sunday,0,1,19.0,false,false,SS dump
-2022-05-16,2022,5,16,Monday,1,0,0.0,false,false,
-2022-05-17,2022,5,17,Tuesday,2,0,0.0,false,false,
+2022-05-16,2022,5,16,Monday,1,0,0.0,false,false,date spine
+2022-05-17,2022,5,17,Tuesday,2,0,0.0,false,false,date spine
 2022-05-18,2022,5,18,Wednesday,3,1,22.5,false,false,SS dump
-2022-05-19,2022,5,19,Thursday,4,0,0.0,false,false,
+2022-05-19,2022,5,19,Thursday,4,0,0.0,false,false,date spine
 2022-05-20,2022,5,20,Friday,5,1,28.0,false,false,SS dump
 2022-05-21,2022,5,21,Saturday,6,1,23.0,false,false,SS dump
 2022-05-22,2022,5,22,Sunday,0,1,26.0,false,false,SS dump
-2022-05-23,2022,5,23,Monday,1,0,0.0,false,false,
-2022-05-24,2022,5,24,Tuesday,2,0,0.0,false,false,
+2022-05-23,2022,5,23,Monday,1,0,0.0,false,false,date spine
+2022-05-24,2022,5,24,Tuesday,2,0,0.0,false,false,date spine
 2022-05-25,2022,5,25,Wednesday,3,1,21.0,false,false,SS dump
-2022-05-26,2022,5,26,Thursday,4,0,0.0,false,false,
+2022-05-26,2022,5,26,Thursday,4,0,0.0,false,false,date spine
 2022-05-27,2022,5,27,Friday,5,1,34.0,false,false,SS dump
 2022-05-28,2022,5,28,Saturday,6,1,21.0,false,false,SS dump
 2022-05-29,2022,5,29,Sunday,0,1,29.0,false,false,SS dump
-2022-05-30,2022,5,30,Monday,1,0,0.0,false,false,
-2022-05-31,2022,5,31,Tuesday,2,0,0.0,false,false,
+2022-05-30,2022,5,30,Monday,1,0,0.0,false,false,date spine
+2022-05-31,2022,5,31,Tuesday,2,0,0.0,false,false,date spine
 2022-06-01,2022,6,1,Wednesday,3,1,24.5,false,false,SS dump
-2022-06-02,2022,6,2,Thursday,4,0,0.0,false,false,
+2022-06-02,2022,6,2,Thursday,4,0,0.0,false,false,date spine
 2022-06-03,2022,6,3,Friday,5,1,23.5,false,false,SS dump
 2022-06-04,2022,6,4,Saturday,6,1,39.5,false,false,SS dump
 2022-06-05,2022,6,5,Sunday,0,1,27.0,false,false,SS dump
-2022-06-06,2022,6,6,Monday,1,0,0.0,false,false,
-2022-06-07,2022,6,7,Tuesday,2,0,0.0,false,false,
+2022-06-06,2022,6,6,Monday,1,0,0.0,false,false,date spine
+2022-06-07,2022,6,7,Tuesday,2,0,0.0,false,false,date spine
 2022-06-08,2022,6,8,Wednesday,3,1,22.0,false,false,SS dump
-2022-06-09,2022,6,9,Thursday,4,0,0.0,false,false,
+2022-06-09,2022,6,9,Thursday,4,0,0.0,false,false,date spine
 2022-06-10,2022,6,10,Friday,5,1,42.0,false,false,SS dump
 2022-06-11,2022,6,11,Saturday,6,1,27.0,false,false,SS dump
 2022-06-12,2022,6,12,Sunday,0,1,41.0,false,false,SS dump
-2022-06-13,2022,6,13,Monday,1,0,0.0,false,false,
-2022-06-14,2022,6,14,Tuesday,2,0,0.0,false,false,
+2022-06-13,2022,6,13,Monday,1,0,0.0,false,false,date spine
+2022-06-14,2022,6,14,Tuesday,2,0,0.0,false,false,date spine
 2022-06-15,2022,6,15,Wednesday,3,1,30.0,false,false,SS dump
-2022-06-16,2022,6,16,Thursday,4,0,0.0,false,false,
+2022-06-16,2022,6,16,Thursday,4,0,0.0,false,false,date spine
 2022-06-17,2022,6,17,Friday,5,1,34.0,false,false,SS dump
 2022-06-18,2022,6,18,Saturday,6,1,22.0,false,false,SS dump
 2022-06-19,2022,6,19,Sunday,0,1,22.0,false,false,SS dump
-2022-06-20,2022,6,20,Monday,1,0,0.0,false,false,
-2022-06-21,2022,6,21,Tuesday,2,0,0.0,false,false,
+2022-06-20,2022,6,20,Monday,1,0,0.0,false,false,date spine
+2022-06-21,2022,6,21,Tuesday,2,0,0.0,false,false,date spine
 2022-06-22,2022,6,22,Wednesday,3,1,37.0,false,false,SS dump
-2022-06-23,2022,6,23,Thursday,4,0,0.0,false,false,
+2022-06-23,2022,6,23,Thursday,4,0,0.0,false,false,date spine
 2022-06-24,2022,6,24,Friday,5,1,32.0,false,false,SS dump
 2022-06-25,2022,6,25,Saturday,6,1,25.0,false,false,SS dump
 2022-06-26,2022,6,26,Sunday,0,1,23.0,false,false,SS dump
-2022-06-27,2022,6,27,Monday,1,0,0.0,false,false,
-2022-06-28,2022,6,28,Tuesday,2,0,0.0,false,false,
+2022-06-27,2022,6,27,Monday,1,0,0.0,false,false,date spine
+2022-06-28,2022,6,28,Tuesday,2,0,0.0,false,false,date spine
 2022-06-29,2022,6,29,Wednesday,3,1,56.0,false,false,SS dump
 2022-06-30,2022,6,30,Thursday,4,1,23.0,false,false,SS dump
 2022-07-01,2022,7,1,Friday,5,1,24.0,false,false,SS dump
 2022-07-02,2022,7,2,Saturday,6,1,20.0,false,false,SS dump
 2022-07-03,2022,7,3,Sunday,0,1,14.0,false,false,SS dump
 2022-07-04,2022,7,4,Monday,1,1,4.0,false,false,SS dump
-2022-07-05,2022,7,5,Tuesday,2,0,0.0,false,false,
+2022-07-05,2022,7,5,Tuesday,2,0,0.0,false,false,date spine
 2022-07-06,2022,7,6,Wednesday,3,2,43.5,false,false,SS dump
-2022-07-07,2022,7,7,Thursday,4,0,0.0,false,false,
+2022-07-07,2022,7,7,Thursday,4,0,0.0,false,false,date spine
 2022-07-08,2022,7,8,Friday,5,1,33.5,false,false,SS dump
 2022-07-09,2022,7,9,Saturday,6,1,41.0,false,false,SS dump
 2022-07-10,2022,7,10,Sunday,0,1,16.5,false,false,SS dump
 2022-07-11,2022,7,11,Monday,1,1,29.0,false,false,SS dump
-2022-07-12,2022,7,12,Tuesday,2,0,0.0,false,false,
+2022-07-12,2022,7,12,Tuesday,2,0,0.0,false,false,date spine
 2022-07-13,2022,7,13,Wednesday,3,1,26.0,false,false,SS dump
-2022-07-14,2022,7,14,Thursday,4,0,0.0,false,false,
+2022-07-14,2022,7,14,Thursday,4,0,0.0,false,false,date spine
 2022-07-15,2022,7,15,Friday,5,1,29.0,false,false,SS dump
 2022-07-16,2022,7,16,Saturday,6,1,37.0,false,false,SS dump
 2022-07-17,2022,7,17,Sunday,0,1,15.0,false,false,SS dump
 2022-07-18,2022,7,18,Monday,1,1,15.0,false,false,SS dump
-2022-07-19,2022,7,19,Tuesday,2,0,0.0,false,false,
+2022-07-19,2022,7,19,Tuesday,2,0,0.0,false,false,date spine
 2022-07-20,2022,7,20,Wednesday,3,1,43.5,false,false,SS dump
-2022-07-21,2022,7,21,Thursday,4,0,0.0,false,false,
+2022-07-21,2022,7,21,Thursday,4,0,0.0,false,false,date spine
 2022-07-22,2022,7,22,Friday,5,1,31.0,false,false,SS dump
 2022-07-23,2022,7,23,Saturday,6,1,32.5,false,false,SS dump
 2022-07-24,2022,7,24,Sunday,0,1,12.0,false,false,SS dump
 2022-07-25,2022,7,25,Monday,1,1,26.0,false,false,SS dump
-2022-07-26,2022,7,26,Tuesday,2,0,0.0,false,false,
-2022-07-27,2022,7,27,Wednesday,3,0,0.0,false,false,
+2022-07-26,2022,7,26,Tuesday,2,0,0.0,false,false,date spine
+2022-07-27,2022,7,27,Wednesday,3,0,0.0,false,false,date spine
 2022-07-28,2022,7,28,Thursday,4,1,31.0,false,false,SS dump
 2022-07-29,2022,7,29,Friday,5,1,34.0,false,false,SS dump
 2022-07-30,2022,7,30,Saturday,6,1,34.5,false,false,SS dump
 2022-07-31,2022,7,31,Sunday,0,1,15.0,false,false,SS dump
 2022-08-01,2022,8,1,Monday,1,1,23.0,false,false,SS dump
-2022-08-02,2022,8,2,Tuesday,2,0,0.0,false,false,
+2022-08-02,2022,8,2,Tuesday,2,0,0.0,false,false,date spine
 2022-08-03,2022,8,3,Wednesday,3,1,34.0,false,false,SS dump
-2022-08-04,2022,8,4,Thursday,4,0,0.0,false,false,
+2022-08-04,2022,8,4,Thursday,4,0,0.0,false,false,date spine
 2022-08-05,2022,8,5,Friday,5,1,36.5,false,false,SS dump
 2022-08-06,2022,8,6,Saturday,6,1,39.0,false,false,SS dump
 2022-08-07,2022,8,7,Sunday,0,1,25.0,false,false,SS dump
 2022-08-08,2022,8,8,Monday,1,1,34.5,false,false,SS dump
-2022-08-09,2022,8,9,Tuesday,2,0,0.0,false,false,
+2022-08-09,2022,8,9,Tuesday,2,0,0.0,false,false,date spine
 2022-08-10,2022,8,10,Wednesday,3,1,36.0,false,false,SS dump
-2022-08-11,2022,8,11,Thursday,4,0,0.0,false,false,
+2022-08-11,2022,8,11,Thursday,4,0,0.0,false,false,date spine
 2022-08-12,2022,8,12,Friday,5,2,55.5,false,false,SS dump
 2022-08-13,2022,8,13,Saturday,6,1,26.5,false,false,SS dump
 2022-08-14,2022,8,14,Sunday,0,1,28.0,false,false,SS dump
 2022-08-15,2022,8,15,Monday,1,1,29.0,false,false,SS dump
-2022-08-16,2022,8,16,Tuesday,2,0,0.0,false,false,
+2022-08-16,2022,8,16,Tuesday,2,0,0.0,false,false,date spine
 2022-08-17,2022,8,17,Wednesday,3,1,51.0,false,false,SS dump
-2022-08-18,2022,8,18,Thursday,4,0,0.0,false,false,
+2022-08-18,2022,8,18,Thursday,4,0,0.0,false,false,date spine
 2022-08-19,2022,8,19,Friday,5,1,40.5,false,false,SS dump
 2022-08-20,2022,8,20,Saturday,6,1,32.0,false,false,SS dump
 2022-08-21,2022,8,21,Sunday,0,1,17.0,false,false,SS dump
 2022-08-22,2022,8,22,Monday,1,1,18.0,false,false,SS dump
-2022-08-23,2022,8,23,Tuesday,2,0,0.0,false,false,
+2022-08-23,2022,8,23,Tuesday,2,0,0.0,false,false,date spine
 2022-08-24,2022,8,24,Wednesday,3,1,30.5,false,false,SS dump
-2022-08-25,2022,8,25,Thursday,4,0,0.0,false,false,
+2022-08-25,2022,8,25,Thursday,4,0,0.0,false,false,date spine
 2022-08-26,2022,8,26,Friday,5,2,58.0,false,false,SS dump
 2022-08-27,2022,8,27,Saturday,6,1,32.0,false,false,SS dump
 2022-08-28,2022,8,28,Sunday,0,1,20.0,false,false,SS dump
 2022-08-29,2022,8,29,Monday,1,1,37.0,false,false,SS dump
-2022-08-30,2022,8,30,Tuesday,2,0,0.0,false,false,
+2022-08-30,2022,8,30,Tuesday,2,0,0.0,false,false,date spine
 2022-08-31,2022,8,31,Wednesday,3,1,32.0,false,false,SS dump
-2022-09-01,2022,9,1,Thursday,4,0,0.0,false,false,
+2022-09-01,2022,9,1,Thursday,4,0,0.0,false,false,date spine
 2022-09-02,2022,9,2,Friday,5,2,54.0,false,false,SS dump
 2022-09-03,2022,9,3,Saturday,6,1,30.0,false,false,SS dump
 2022-09-04,2022,9,4,Sunday,0,1,36.0,false,false,SS dump
-2022-09-05,2022,9,5,Monday,1,0,0.0,false,false,
+2022-09-05,2022,9,5,Monday,1,0,0.0,false,false,date spine
 2022-09-06,2022,9,6,Tuesday,2,1,45.0,false,false,SS dump
 2022-09-07,2022,9,7,Wednesday,3,1,44.0,false,false,SS dump
-2022-09-08,2022,9,8,Thursday,4,0,0.0,false,false,
+2022-09-08,2022,9,8,Thursday,4,0,0.0,false,false,date spine
 2022-09-09,2022,9,9,Friday,5,1,32.0,false,false,SS dump
 2022-09-10,2022,9,10,Saturday,6,2,46.0,false,false,SS dump
 2022-09-11,2022,9,11,Sunday,0,2,41.0,false,false,SS dump
 2022-09-12,2022,9,12,Monday,1,1,41.5,false,false,SS dump
-2022-09-13,2022,9,13,Tuesday,2,0,0.0,false,false,
+2022-09-13,2022,9,13,Tuesday,2,0,0.0,false,false,date spine
 2022-09-14,2022,9,14,Wednesday,3,1,34.0,false,false,SS dump
 2022-09-15,2022,9,15,Thursday,4,1,18.0,false,false,SS dump
 2022-09-16,2022,9,16,Friday,5,1,30.0,false,false,SS dump
@@ -1724,12 +1724,12 @@ tour_date,tour_year,tour_month,tour_day,day_name,day_of_week,num_guides,headcoun
 2022-09-19,2022,9,19,Monday,1,1,45.5,false,false,SS dump
 2022-09-20,2022,9,20,Tuesday,2,1,31.0,false,false,SS dump
 2022-09-21,2022,9,21,Wednesday,3,1,41.0,false,false,SS dump
-2022-09-22,2022,9,22,Thursday,4,0,0.0,false,false,
+2022-09-22,2022,9,22,Thursday,4,0,0.0,false,false,date spine
 2022-09-23,2022,9,23,Friday,5,1,25.0,false,false,SS dump
 2022-09-24,2022,9,24,Saturday,6,1,48.5,false,false,SS dump
 2022-09-25,2022,9,25,Sunday,0,1,31.0,false,false,SS dump
 2022-09-26,2022,9,26,Monday,1,1,41.0,false,false,SS dump
-2022-09-27,2022,9,27,Tuesday,2,0,0.0,false,false,
+2022-09-27,2022,9,27,Tuesday,2,0,0.0,false,false,date spine
 2022-09-28,2022,9,28,Wednesday,3,1,51.0,false,false,SS dump
 2022-09-29,2022,9,29,Thursday,4,1,30.0,false,false,SS dump
 2022-09-30,2022,9,30,Friday,5,1,30.5,false,false,SS dump
@@ -1749,7 +1749,7 @@ tour_date,tour_year,tour_month,tour_day,day_name,day_of_week,num_guides,headcoun
 2022-10-14,2022,10,14,Friday,5,1,38.5,false,false,SS dump
 2022-10-15,2022,10,15,Saturday,6,1,37.0,false,false,SS dump
 2022-10-16,2022,10,16,Sunday,0,1,38.5,false,false,SS dump
-2022-10-17,2022,10,17,Monday,1,0,0.0,false,false,
+2022-10-17,2022,10,17,Monday,1,0,0.0,false,false,date spine
 2022-10-18,2022,10,18,Tuesday,2,1,34.0,false,false,SS dump
 2022-10-19,2022,10,19,Wednesday,3,1,28.0,false,false,SS dump
 2022-10-20,2022,10,20,Thursday,4,1,34.0,false,false,SS dump
@@ -1818,7 +1818,7 @@ tour_date,tour_year,tour_month,tour_day,day_name,day_of_week,num_guides,headcoun
 2022-12-22,2022,12,22,Thursday,4,2,76.0,false,false,SS dump
 2022-12-23,2022,12,23,Friday,5,2,58.0,false,false,SS dump
 2022-12-24,2022,12,24,Saturday,6,2,58.0,false,false,SS dump
-2022-12-25,2022,12,25,Sunday,0,0,0.0,false,true,
+2022-12-25,2022,12,25,Sunday,0,0,0.0,false,true,date spine
 2022-12-26,2022,12,26,Monday,1,3,84.0,false,false,SS dump
 2022-12-27,2022,12,27,Tuesday,2,3,119.5,false,false,SS dump
 2022-12-28,2022,12,28,Wednesday,3,3,99.0,false,false,SS dump
@@ -2183,7 +2183,7 @@ tour_date,tour_year,tour_month,tour_day,day_name,day_of_week,num_guides,headcoun
 2023-12-22,2023,12,22,Friday,5,1,106.5,false,false,all_bookings_raw
 2023-12-23,2023,12,23,Saturday,6,1,72.5,false,false,all_bookings_raw
 2023-12-24,2023,12,24,Sunday,0,1,84.5,false,false,all_bookings_raw
-2023-12-25,2023,12,25,Monday,1,0,0.0,false,true,
+2023-12-25,2023,12,25,Monday,1,0,0.0,false,true,date spine
 2023-12-26,2023,12,26,Tuesday,2,1,77.0,false,false,all_bookings_raw
 2023-12-27,2023,12,27,Wednesday,3,1,130.5,false,false,all_bookings_raw
 2023-12-28,2023,12,28,Thursday,4,1,107.0,false,false,all_bookings_raw
@@ -2549,7 +2549,7 @@ tour_date,tour_year,tour_month,tour_day,day_name,day_of_week,num_guides,headcoun
 2024-12-22,2024,12,22,Sunday,0,1,43.0,false,false,all_bookings_raw
 2024-12-23,2024,12,23,Monday,1,1,84.0,false,false,all_bookings_raw
 2024-12-24,2024,12,24,Tuesday,2,1,61.0,false,false,all_bookings_raw
-2024-12-25,2024,12,25,Wednesday,3,0,0.0,false,true,
+2024-12-25,2024,12,25,Wednesday,3,0,0.0,false,true,date spine
 2024-12-26,2024,12,26,Thursday,4,1,73.0,false,false,all_bookings_raw
 2024-12-27,2024,12,27,Friday,5,1,78.0,false,false,all_bookings_raw
 2024-12-28,2024,12,28,Saturday,6,1,130.0,false,false,all_bookings_raw
@@ -2914,7 +2914,7 @@ tour_date,tour_year,tour_month,tour_day,day_name,day_of_week,num_guides,headcoun
 2025-12-22,2025,12,22,Monday,1,1,87.5,false,false,all_bookings_raw
 2025-12-23,2025,12,23,Tuesday,2,1,47.0,false,false,all_bookings_raw
 2025-12-24,2025,12,24,Wednesday,3,1,73.0,false,false,all_bookings_raw
-2025-12-25,2025,12,25,Thursday,4,0,0.0,false,true,
+2025-12-25,2025,12,25,Thursday,4,0,0.0,false,true,date spine
 2025-12-26,2025,12,26,Friday,5,1,122.5,false,false,all_bookings_raw
 2025-12-27,2025,12,27,Saturday,6,1,105.5,false,false,all_bookings_raw
 2025-12-28,2025,12,28,Sunday,0,1,99.5,false,false,all_bookings_raw

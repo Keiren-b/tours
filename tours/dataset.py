@@ -1,29 +1,23 @@
 from pathlib import Path
-
-from loguru import logger
+import pandas as pd
+import logging
 from tqdm import tqdm
-import typer
-
-from tours.config import PROCESSED_DATA_DIR, RAW_DATA_DIR
-
-app = typer.Typer()
+from tours import config
 
 
-@app.command()
-def main(
-    # ---- REPLACE DEFAULT PATHS AS APPROPRIATE ----
-    input_path: Path = RAW_DATA_DIR / "dataset.csv",
-    output_path: Path = PROCESSED_DATA_DIR / "dataset.csv",
-    # ----------------------------------------------
-):
-    # ---- REPLACE THIS WITH YOUR OWN CODE ----
-    logger.info("Processing dataset...")
-    for i in tqdm(range(10), total=10):
-        if i == 5:
-            logger.info("Something happened for iteration 5.")
-    logger.success("Processing dataset complete.")
-    # -----------------------------------------
 
 
-if __name__ == "__main__":
-    app()
+def load_clean_data():
+    df = pd.read_csv(
+        config.PROCESSED_DATA_DIR / "morning.csv",
+        parse_dates=[config.DATE_COL],
+    )
+    df = df.sort_values(config.DATE_COL).set_index(config.DATE_COL, drop=True)
+    return df.asfreq("D")
+
+def cutoff_series(df):
+    df = df.loc[:config.CUTOFF_DATE]
+    assert df.index.max() == config.CUTOFF_DATE, f"data ends {df.index.max()}, expected {config.CUTOFF_DATE}"    
+    return df
+
+

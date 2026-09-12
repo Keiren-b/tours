@@ -9,6 +9,10 @@ a prediciton model for walking tour attendance
 ## Project Organization
 REPLACE THIS FOLDER STRUCTURE
 
+config.py — settings. Paths, split dates, seasonal periods, forecast horizons, the guide capacity. No logic, no functions, just values. The rule: if you catch yourself typing a date or a filepath anywhere else, it belongs here. Everything imports it; it imports nothing.
+
+data.py — get the series into memory in a usable shape. Read the parquet or CSV your SQL produced, parse dates, set a proper daily index, pull out the target column. Also the guards: assert there are no missing days or duplicates. It does not clean — cleaning already happened in SQL.
+
 splits.py — cut history into pieces. The three-way train/validation/test cut, and the rolling-origin folds for backtesting. Plus assert_no_leakage, which checks every fold's training window ends before its evaluation window starts. Small file, disproportionately important.
 
 models.py — the candidates, all behind one interface: fit(history) then predict(horizon). Naive, seasonal naive, ARIMA. Plus the registry mapping names to model recipes. This is the file both entry points share, which is why it's central.
@@ -22,7 +26,6 @@ plots.py — figures. Forecast vs actual, error by horizon, the seasonal decompo
 run_comparison.py — entry point one. Load, split, loop over models and folds calling evaluate, write the results file. Has main(). This is the experiment.
 
 run_forecast.py — entry point two, written after you've picked a winner. Load everything up to today, fit the chosen model, forecast the next 30 days, write out the numbers and the guide counts. This is the product.
-
 
 ```
 ├── LICENSE            <- Open-source license if one is chosen
