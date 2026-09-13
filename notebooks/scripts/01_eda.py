@@ -34,7 +34,7 @@ import plotly.express as px
 # %%
 df = dataset.load_clean_data()
 df = dataset.cutoff_series(df)
-df.head()
+train, val, split = dataset.split_data(df)
 
 # %%
 df.describe()
@@ -191,3 +191,56 @@ fig1.show()
 # Yearly pattern
 fig2 = px.line(result.seasonal["seasonal_365"], title="Yearly seasonality")
 fig2.show()
+
+# %%
+#  def naive_forecast(train_df, forecast_index):
+#     last_value = train_df["headcount"].iloc[-1]
+#     logger.info("Naive forecast: last value = %s", last_value)
+#     return pd.Series(last_value, index=forecast_index)
+
+train_df, val_df, test_df = split_data(df)
+
+# naive_model_val = naive_forecast(train_df=train_df, forecast_index=val_df.index)
+# naive_model_test = naive_forecast(train_df=train_df, forecast_index=test.index)
+
+
+
+# %%
+# def seasonal_forecast(df, forecast_index, offset):
+#     """Predicts each date's value using the value at (date - offset).
+    
+#     offset: a pd.DateOffset, e.g. pd.DateOffset(years=1) for yearly 
+#             seasonality or pd.DateOffset(weeks=1) for weekly seasonality.
+#     """
+#     prior_dates = forecast_index - offset
+#     return pd.Series(df.reindex(prior_dates).values, index=forecast_index)
+
+# yearly_naive_seasonal_model_val = seasonal_forecast(
+#     df=df["headcount"],
+#     forecast_index=val_df.index,
+#     offset=pd.DateOffset(years=1),
+# )
+
+# # Weekly seasonality
+# weekly_naive_model_val = seasonal_forecast(
+#     df=df["headcount"],
+#     forecast_index=val_df.index,
+#     offset=pd.DateOffset(weeks=1),
+# )
+
+# yearly_naive_seasonal_model_val
+
+# %%
+# train_df['headcount'].shift(365)
+
+# %%
+import numpy as np
+from tours.models import naive_forecast, seasonal_forecast
+from tours.evaluate import mae
+
+val_naive = naive_forecast(train_df, val_df.index)
+seasonal_7 = seasonal_forecast(df, val_df.index, offset=pd.DateOffset(days=7),target_col="headcount")
+
+print(f'naive: {mae(val_naive, val_df["headcount"])} \n seasonal 7 day {mae(seasonal_7,val_df["headcount"])}')
+
+# val_naive
