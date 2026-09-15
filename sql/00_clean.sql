@@ -309,7 +309,7 @@ SELECT * FROM (VALUES
     (2027, DATE '2027-05-28', DATE '2027-06-19')
 ) AS t(vivid_year, vivid_start, vivid_end);
 
-CREATE OR REPLACE TABLE all_years_morning AS
+CREATE OR REPLACE TABLE tours_daily AS
 SELECT
     s.date_day                  AS tour_date,
     YEAR(s.date_day)            AS tour_year,
@@ -319,17 +319,21 @@ SELECT
     DAYOFWEEK(s.date_day)       AS day_of_week,
     COALESCE(m.num_guides, 0)   AS num_guides,
     COALESCE(m.headcount, 0)    AS headcount,
-    s.date_day BETWEEN DATE '2020-03-23' AND DATE '2021-12-31' AS covid_flag,
+    CASE 
+        WHEN s.date_day BETWEEN DATE '2020-03-23' AND DATE '2022-10-17' THEN 'covid'
+        WHEN s.date_day < '2020-03-23' THEN 'pre_covid'
+        ELSE 'post_covid'
+    END AS covid_flag,
     MONTH(s.date_day) = 12 AND DAY(s.date_day) = 25 AS xmas_flag,
     COALESCE(m.source, 'date spine')                AS source
 FROM date_spine s
 LEFT JOIN all_years_morning m ON m.tour_date = s.date_day
 ORDER BY s.date_day;
 
-SELECT * FROM all_years_morning WHERE tour_date = DATE('2023-04-20');
-SELECT * FROM all_years_morning;
+SELECT * FROM tours_daily WHERE tour_date = DATE('2023-04-20');
+SELECT * FROM tours_daily;
 
-COPY all_years_morning TO 'data/processed/morning.csv' (HEADER, DELIMITER ',');
+COPY tours_daily TO 'data/processed/morning.csv' (HEADER, DELIMITER ',');
 
 CREATE or REPLACE TABLE weather_hourly AS
 SELECT * FROM read_xlsx(

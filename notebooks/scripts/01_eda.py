@@ -21,14 +21,18 @@ import sys
 from pathlib import Path
 import datetime as dt
 import pandas as pd
-from tours import config
+from tours import config, dataset
 import numpy as np
 from statsmodels.tsa.seasonal import seasonal_decompose
+import plotly.graph_objects as go
+from plotly.subplots import make_subplots
+import plotly.express as px
+
 
 
 # %%
-from tours import dataset
-import plotly.express as px
+
+
 
 
 # %%
@@ -47,9 +51,87 @@ fig = px.line(df["headcount"],title="Number of Attendees Jan 2018 - Aug 2026")
 fig.show()
 
 # %% [markdown]
-# Looks like there is a yearly seasonal pattern, and possibly a weekly one too.
-# Spikes around Christmas new year, secondary spike around April/May? 
-# Also weekly seasonality?
+# ## Whole Series Observation
+#
+# * There is a break from March 2020 to the beginning of 2022 that covers the covid period. Tours weren't running in this period so we don't have a complete series from 2018 onwards. Either we need to train only on the post-covid period or use a model that can account for this break in the time-series data
+#
+# * Spikes always occur around the chiristmas/New Year holiday
+#
+# * There appears to be a yearly seasonal effect. Highs in the summer period and lows in the winter period. Also secondary peaks around Mar/April for some years
+#
+#
+
+# %%
+fig = px.line(df[df["tour_year"]==2025]["headcount"],title="Number of Attendees 2025")
+fig.show()
+
+# %%
+order = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+# drop covid period and christmas
+df_drop = df[(df["covid_flag"]==False) & (df["xmas_flag"]==False)]
+fig = px.box(
+    df_drop,
+    x=df_drop.index.day_name(),
+    y="headcount",
+    category_orders={"x": order},
+    labels={"x": "weekday"},
+    title="Attendance by day of week excl covid & xmas",
+)
+fig.show()
+
+day_of_week_sd = df_drop.groupby(by="day_name")["headcount"].std()
+day_of_week_mean = df_drop.groupby(by="day_name")["headcount"].mean()
+day_of_week_stats = pd.DataFrame({"Standard Deviation":day_of_week_sd, "Mean": day_of_week_mean}).reindex(order)
+day_of_week_stats
+
+# %% [markdown]
+# ## Weekly Seasonality
+#
+# * There is a small weekly seasonality present in the data. We can see that weekends consistently show a smaller number of attendees.
+
+# %%
+df["rolling_mean_7d"] = df["headcount"].rolling("7D", min_periods=7).mean()
+df["rolling_mean_30d"] = df["headcount"].rolling("30D", min_periods=30).mean()
+
+fig = px.line(df[["rolling_mean_7d", "rolling_mean_30d"]],title="Number of Attendees Rolling Means")
+fig.update_traces(opacity=0.35, line_width=1, selector=dict(name="headcount"))
+fig.update_traces(line_width=2.5, selector=dict(name="rolling_mean_30d"))
+fig.show()
+
+# %% [markdown]
+# ## When does the series recover in 2022?
+
+# %%
+fig = px.line(df[df["tour_year"]==2022]["headcount"],title="Number of Attendees 2022")
+fig.show()
+
+zero_days = pd.Series(df[(df["headcount"]==0) & (df["tour_year"]==2022)].index)
+print(zero_days)
+
+
+# %% [markdown]
+# * Excluding Christmas, 2022 had 135 days where the tour didn't run or attendance was zero. 
+# * It only gets to a more consistent pattern after 17 October
+# * If we are really conservative, we can cut the series to run only from 17 Oct 2022 to end of series
+# * further exploration at this point will be based on the post Oct 17 2022 period
+
+# %% [markdown]
+# ## Seasonal Decomposition
+
+# %%
+result = seasonal_decompose(df["headcount"], model='additive', period=365)
+
+fig = make_subplots(rows=3, cols=1, shared_xaxes=True, 
+                     subplot_titles=("Trend", "Seasonal (yearly)", "Residual"))
+
+fig.add_trace(go.Scatter(x=result.trend.index, y=result.trend, name="Trend"), row=1, col=1)
+fig.add_trace(go.Scatter(x=result.seasonal.index, y=result.seasonal, name="Seasonality"), row=2, col=1)
+fig.add_trace(go.Scatter(x=result.resid.index, y=result.resid, name="Residual"), row=3, col=1)
+
+fig.update_layout(height=700, width=1000, title_text = "Yearly Seasonality")
+fig.show()
+
+
 
 # %%
 num_rows = df.shape[0]
@@ -86,25 +168,6 @@ train, val, test = split_data(df)
 train.head()
 val.head()
 test.head()
-
-
-# %%
-from statsmodels.tsa.seasonal import seasonal_decompose
-from plotly.subplots import make_subplots
-import plotly.graph_objects as go
-
-result = seasonal_decompose(df["headcount"], model='additive', period=365)
-
-fig = make_subplots(rows=3, cols=1, shared_xaxes=True, 
-                     subplot_titles=("Trend", "Seasonal (yearly)", "Residual"))
-
-fig.add_trace(go.Scatter(x=result.trend.index, y=result.trend, name="Trend"), row=1, col=1)
-fig.add_trace(go.Scatter(x=result.seasonal.index, y=result.seasonal, name="Seasonality"), row=2, col=1)
-fig.add_trace(go.Scatter(x=result.resid.index, y=result.resid, name="Residual"), row=3, col=1)
-
-fig.update_layout(height=700, width=1000, title_text = "Yearly Seasonality")
-fig.show()
-
 
 
 # %%

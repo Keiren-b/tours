@@ -1,6 +1,7 @@
 import pandas as pd
 import logging
 
+
 logger = logging.getLogger(__name__)
 
 
@@ -18,4 +19,5 @@ def seasonal_forecast(df, forecast_index, offset, target_col="headcount"):
     prior_dates = forecast_index - offset
     return pd.Series(df[target_col].reindex(prior_dates).values, index=forecast_index)
 
-
+def arima():
+    model = ARIMA
