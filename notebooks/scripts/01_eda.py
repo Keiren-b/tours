@@ -252,46 +252,9 @@ post_covid_df_count = post_covid_df.reset_index(names="date")[["date","headcount
 post_covid_df_count["date"] = pd.to_datetime(post_covid_df_count["date"])
 
 
-train_df = post_covid_df_count.rename(columns={"date": "ds", "headcount": "y"})
-train_df["unique_id"] = "store_001"
-train_df = train_df[["unique_id", "ds", "y"]]
-
-# %%
-from statsforecast import StatsForecast
-from statsforecast.models import (
-    AutoARIMA,
-    AutoETS,
-    AutoCES,
-    SeasonalNaive
-)
-
-# StatsForecast expects a specific DataFrame format:
-# columns: unique_id, ds (timestamp), y (target)
-# train_df = post_covid_df_count.reset_index().rename(columns={
-#     "date": "ds",
-#     "headcount": "y"
-# })
+# train_df = post_covid_df_count.rename(columns={"date": "ds", "headcount": "y"})
 # train_df["unique_id"] = "store_001"
-# print(train_df)
-# Define models to compare
-models = [
-    AutoARIMA(season_length=7),    # Weekly seasonality
-    AutoETS(season_length=7),       # Exponential smoothing
-    AutoCES(season_length=7),       # Complex exponential smoothing
-    SeasonalNaive(season_length=7)  # Baseline
-]
-
-# Fit and forecast
-sf = StatsForecast(
-    models=models,
-    freq="D",    # Daily frequency
-    n_jobs=-1    # Use all CPU cores
-)
-
-sf.fit(train_df)
-forecasts = sf.predict(h=30, level=[90])  # 30-day forecast with 90% CI
-
-print(forecasts.head())
+# train_df = train_df[["unique_id", "ds", "y"]]
 
 # %%
 H = 30      
@@ -338,14 +301,14 @@ MODELS = {
 }
 
 # %%
-m = len(post_covid_df)
-n = len(post_covid_df[post_covid_df["tour_year"]==2026])
-print(f'There are {m} rows in the post covid dataset\nThere are {n} in 2026\nUse {m-n} rows for training')
+# m = len(post_covid_df)
+# n = len(post_covid_df[post_covid_df["tour_year"]==2026])
+# print(f'There are {m} rows in the post covid dataset\nThere are {n} in 2026\nUse {m-n} rows for training')
 
-INITAL_WINDOW = m-n
+INITAL_WINDOW = 365
 RANGE = range(1,31)
 STEP_LENGTH = 30
-GAP = 7
+# GAP = 7
 
 cv = ExpandingWindowSplitter(
     fh=RANGE,
@@ -414,11 +377,41 @@ by_month = df.groupby(['model', 'month']).abs_err.mean().unstack('model')
 by_month
 
 # %%
-# by horizon: how fast does accuracy decay over the 30 days?
-h = (cv_results["ds"] - cv_results["cutoff"]).dt.days
-print(abs_err.groupby(h).mean())
+pc = post_covid_df.copy()
+pc['year']  = pc.index.year
+pc['month'] = pc.index.month
 
-# by fold: is the winner consistent, or driven by one window?
-print(abs_err.groupby(cv_results["cutoff"]).mean())
+pivot = pc.pivot_table(index='month', columns='year',
+                       values='headcount', aggfunc='mean').round(1)
+print(pivot)
 
-print(abs_err.mean() / abs_err["SeasonalNaive"].mean())
+# %%
+yoy = (pivot[2026] / pivot[2025]).round(3)
+diff = (pivot[2026] - pivot[2025]).round(1)
+print(pd.DataFrame({'ratio': yoy, 'difference': diff}))
+
+# %%
+pc['doy'] = pc.index.dayofyear
+fig = px.line(pc[pc.year >= 2023], x='doy', y='headcount', color='year')
+fig.show()
+
+# %%
+mstl = MSTL(post_covid_df['headcount'], periods=(7, 365)).fit()
+px.line(mstl.trend, title='Deseasonalised level').show()
+
+# %%
+ops = pc[~pc.xmas_flag].groupby('year').agg(
+    days=('headcount', 'size'),
+    zero_days=('headcount', lambda s: (s == 0).sum()),
+    mean_all=('headcount', 'mean'),
+    mean_operating=('headcount', lambda s: s[s > 0].mean()),
+)
+print(ops)
+
+# %%
+results = pd.DataFrame(rows)     # instead of df = ...
+results['abs_err'] = (results.actual - results.pred).abs()
+results['err'] = results.actual - results.pred
+
+by_cutoff = results.groupby(['model', results.date.dt.to_period('M')]).err.mean().unstack('model')
+by_cutoff.plot(title='Mean error (actual − pred) by test month')
