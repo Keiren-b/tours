@@ -317,3 +317,15 @@
 2026-09-17 10:37:26 [INFO] __main__: Train df runs from 2018-01-01 00:00:00 to 2023-12-31 00:00:00
 2026-09-17 10:37:26 [INFO] __main__: Val df runs from 2024-01-01 00:00:00 to 2025-04-30 00:00:00
 2026-09-17 10:37:26 [INFO] __main__: Test df runs from 2025-05-01 00:00:00 to 2026-08-01 00:00:00
+2026-09-17 11:29:59 [INFO] tours.dataset: Train df runs from 2018-01-01 00:00:00 to 2023-12-31 00:00:00
+2026-09-17 11:29:59 [INFO] tours.dataset: Val df runs from 2024-01-01 00:00:00 to 2025-04-30 00:00:00
+2026-09-17 11:29:59 [INFO] tours.dataset: Test df runs from 2025-05-01 00:00:00 to 2026-08-01 00:00:00
+2026-09-17 11:30:00 [INFO] __main__: Train df runs from 2018-01-01 00:00:00 to 2023-12-31 00:00:00
+2026-09-17 11:30:00 [INFO] __main__: Val df runs from 2024-01-01 00:00:00 to 2025-04-30 00:00:00
+2026-09-17 11:30:00 [INFO] __main__: Test df runs from 2025-05-01 00:00:00 to 2026-08-01 00:00:00
+2026-09-17 11:30:45 [INFO] tours.dataset: Train df runs from 2018-01-01 00:00:00 to 2023-12-31 00:00:00
+2026-09-17 11:30:45 [INFO] tours.dataset: Val df runs from 2024-01-01 00:00:00 to 2025-04-30 00:00:00
+2026-09-17 11:30:45 [INFO] tours.dataset: Test df runs from 2025-05-01 00:00:00 to 2026-08-01 00:00:00
+2026-09-17 11:30:46 [INFO] __main__: Train df runs from 2018-01-01 00:00:00 to 2023-12-31 00:00:00
+2026-09-17 11:30:46 [INFO] __main__: Val df runs from 2024-01-01 00:00:00 to 2025-04-30 00:00:00
+2026-09-17 11:30:46 [INFO] __main__: Test df runs from 2025-05-01 00:00:00 to 2026-08-01 00:00:00

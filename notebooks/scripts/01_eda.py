@@ -34,6 +34,11 @@ from statsforecast import StatsForecast
 from sktime.forecasting.model_selection import ExpandingWindowSplitter
 
 
+from statsmodels.tsa.statespace.sarimax import SARIMAX
+from sklearn.model_selection import TimeSeriesSplit
+from pmdarima import auto_arima
+
+
 # %%
 
 
@@ -289,28 +294,124 @@ forecasts = sf.predict(h=30, level=[90])  # 30-day forecast with 90% CI
 print(forecasts.head())
 
 # %%
+H = 30      
+
+def fit_naive(y_train):
+    last_day = y_train.values[-1]
+    return np.tile(last_day, int(np.ceil(H)))[:H]
+
+def fit_7d_seasonal_naive(y_train):
+    last_week = y_train.values[-7:]
+    return np.tile(last_week, int(np.ceil(H / 7)))[:H]
+
+def fit_365d_seasonal_naive(y_train):
+    last_year = y_train.values[-365:]
+    return np.tile(last_year, int(np.ceil(H / 365)))[:H]
+
+def fit_sarima(y_train):
+    model = SARIMAX(
+        y_train,
+        order=(1, 1, 1),
+        seasonal_order=(1, 1, 1, 7),
+    ).fit(disp=False)
+    return model.forecast(steps=H).values
+
+
+def fit_autoarima(y_train):
+    model = auto_arima(
+        y_train,
+        seasonal=True,
+        m=7,
+        stepwise=True,
+        suppress_warnings=True,
+        error_action='ignore',
+    )
+    return model.predict(n_periods=H)
+
+
+MODELS = {    
+    'naive':                fit_naive,
+    'seasonal_7d_naive':    fit_7d_seasonal_naive,
+    'seasonal_365d_naive':  fit_365d_seasonal_naive,
+    'sarima':               fit_sarima,
+    'auto_arima':           fit_autoarima,
+}
+
+# %%
 m = len(post_covid_df)
 n = len(post_covid_df[post_covid_df["tour_year"]==2026])
 print(f'There are {m} rows in the post covid dataset\nThere are {n} in 2026\nUse {m-n} rows for training')
 
+INITAL_WINDOW = m-n
+RANGE = range(1,31)
+STEP_LENGTH = 30
+GAP = 7
+
 cv = ExpandingWindowSplitter(
-    fh=range(1, 31),
-    initial_window=730,
-    step_length=30,
+    fh=RANGE,
+    initial_window=INITAL_WINDOW,
+    step_length=STEP_LENGTH,
 )
 
+series = post_covid_df["headcount"]
+rows = []
+
+for fold, (train_idx, test_idx) in enumerate(cv.split(series)):
+    y_train = series.iloc[train_idx]
+    y_test  = series.iloc[test_idx]
+
+    # naive benchmark for MASE, computed once per fold
+    denom = np.mean(np.abs(y_train.values[7:] - y_train.values[:-7]))
+
+    for name, fit_fn in MODELS.items():
+        try:
+            preds = fit_fn(y_train)
+        except Exception as e:
+            print(f"fold {fold}, {name} failed: {e}")
+            continue
+
+        for h in range(H):
+            rows.append({
+                'fold': fold,
+                'model': name,
+                'h': h + 1,
+                'date': y_test.index[h],
+                'actual': y_test.iloc[h],
+                'pred': preds[h],
+                'denom': denom,
+            })
+
+df = pd.DataFrame(rows)
+df['abs_err'] = (df.actual - df.pred).abs()
+df['err'] = df.actual - df.pred
+
 # %%
-x = cv_results.groupby("unique_id")
+per_fold = df.groupby(['model', 'fold']).agg(
+    mae=('abs_err', 'mean'),
+    bias=('err', 'mean'),
+    denom=('denom', 'first'),
+).reset_index()
+
+per_fold['mase'] = per_fold.mae / per_fold.denom
+
+summary = per_fold.groupby('model').agg(
+    mase=('mase', 'mean'),
+    mase_sd=('mase', 'std'),
+    mae=('mae', 'mean'),
+    bias=('bias', 'mean'),
+).sort_values('mase')
+
+print(summary)
 
 
 # %%
-model_cols = ["AutoARIMA", "AutoETS", "CES", "SeasonalNaive"]
+by_horizon = df.groupby(['model', 'h']).abs_err.mean().unstack('model')
+by_horizon.plot()
 
-errors = cv_results[model_cols].sub(cv_results["y"], axis=0)
-abs_err = errors.abs()
-
-# headline: one number per model
-print(abs_err.mean().sort_values())
+# %%
+df['month'] = df.date.dt.month
+by_month = df.groupby(['model', 'month']).abs_err.mean().unstack('model')
+by_month
 
 # %%
 # by horizon: how fast does accuracy decay over the 30 days?
