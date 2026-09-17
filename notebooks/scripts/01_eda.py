@@ -23,11 +23,15 @@ import datetime as dt
 import pandas as pd
 from tours import config, dataset
 import numpy as np
-from statsmodels.tsa.seasonal import seasonal_decompose
+from statsmodels.tsa.seasonal import seasonal_decompose, MSTL
+from statsmodels.tsa.stattools import adfuller
+from statsmodels.graphics.tsaplots import plot_acf, plot_pacf
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import plotly.express as px
 
+from statsforecast import StatsForecast
+from sktime.forecasting.model_selection import ExpandingWindowSplitter
 
 
 # %%
@@ -68,7 +72,7 @@ fig.show()
 # %%
 order = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
 # drop covid period and christmas
-df_drop = df[(df["covid_flag"]==False) & (df["xmas_flag"]==False)]
+df_drop = df[(df["covid_flag"]!="covid") & (df["xmas_flag"]==False)]
 fig = px.box(
     df_drop,
     x=df_drop.index.day_name(),
@@ -87,7 +91,7 @@ day_of_week_stats
 # %% [markdown]
 # ## Weekly Seasonality
 #
-# * There is a small weekly seasonality present in the data. We can see that weekends consistently show a smaller number of attendees.
+# * There is also weekly seasonality present in the data. We can see that weekends consistently show a smaller number of attendees.
 
 # %%
 df["rolling_mean_7d"] = df["headcount"].rolling("7D", min_periods=7).mean()
@@ -119,19 +123,87 @@ print(zero_days)
 # ## Seasonal Decomposition
 
 # %%
-result = seasonal_decompose(df["headcount"], model='additive', period=365)
+post_covid_df = df[df["covid_flag"]=="post_covid"]
+result = seasonal_decompose(post_covid_df["headcount"], model='additive', period=365)
 
-fig = make_subplots(rows=3, cols=1, shared_xaxes=True, 
-                     subplot_titles=("Trend", "Seasonal (yearly)", "Residual"))
+fig = make_subplots(rows=4, cols=1, shared_xaxes=True, 
+                     subplot_titles=("Headcount", "Trend", "Seasonal (yearly)", "Residual"))
 
-fig.add_trace(go.Scatter(x=result.trend.index, y=result.trend, name="Trend"), row=1, col=1)
-fig.add_trace(go.Scatter(x=result.seasonal.index, y=result.seasonal, name="Seasonality"), row=2, col=1)
-fig.add_trace(go.Scatter(x=result.resid.index, y=result.resid, name="Residual"), row=3, col=1)
+fig.add_trace(go.Scatter(x=post_covid_df.index, y=post_covid_df["headcount"] , name="Headcount"), row=1, col=1)
+fig.add_trace(go.Scatter(x=result.trend.index, y=result.trend, name="Trend"), row=2, col=1)
+fig.add_trace(go.Scatter(x=result.seasonal.index, y=result.seasonal, name="Seasonality"), row=3, col=1)
+fig.add_trace(go.Scatter(x=result.resid.index, y=result.resid, name="Residual"), row=4, col=1)
 
-fig.update_layout(height=700, width=1000, title_text = "Yearly Seasonality")
+fig.update_layout(height=1200, width=1000, title_text = "Yearly Seasonality Post Covid")
+fig.update_xaxes(showticklabels=True)
 fig.show()
 
 
+
+# %%
+# post_covid_df.loc[post_covid_df["xmas_flag"], "headcount"] = np.nan
+# post_covid_df["headcount"] = post_covid_df["headcount"].ffill()
+
+mstl_result = MSTL(post_covid_df["headcount"], periods=(7,365)).fit()
+mstl_result.seasonal["seasonal_7"]
+
+fig = make_subplots(rows=5, cols=1, shared_xaxes=True, 
+                     subplot_titles=("Headcount", "Trend", "Seasonal (7)", "Seasonal (365)", "Residual"))
+
+fig.add_trace(go.Scatter(x=post_covid_df.index, y=post_covid_df["headcount"] , name="Headcount"), row=1, col=1)
+fig.add_trace(go.Scatter(x=mstl_result.trend.index, y=mstl_result.trend, name="Trend"), row=2, col=1)
+fig.add_trace(go.Scatter(x=mstl_result.seasonal.index, y=mstl_result.seasonal["seasonal_7"], name="Seasonal 7"), row=3, col=1)
+fig.add_trace(go.Scatter(x=mstl_result.seasonal.index, y=mstl_result.seasonal["seasonal_365"], name="Seasonal 365"), row=4, col=1)
+fig.add_trace(go.Scatter(x=mstl_result.resid.index, y=mstl_result.resid, name="Residual"), row=5, col=1)
+
+fig.update_layout(height=1200, width=1000, title_text = "MSTL Seasonality Post Covid")
+fig.update_xaxes(showticklabels=True)
+fig.show()
+
+                   
+
+# %%
+import matplotlib.pyplot as plt
+
+fig, axes = plt.subplots(2, 2, figsize=(14, 5))
+
+plot_acf(post_covid_df["headcount"].dropna(), lags=40, ax=axes[0][0])
+axes[0][0].set_title("Headcount ACF")
+
+plot_pacf(post_covid_df["headcount"].dropna(), lags=40, method="ywm", ax=axes[0][1])
+axes[0][1].set_title("Headcount PACF")
+
+plot_acf(mstl_result.resid.dropna(), lags=40, ax=axes[1][0])
+axes[1][0].set_title("MSTL Residual ACF")
+
+plot_pacf(mstl_result.resid.dropna(), lags=40, method="ywm", ax=axes[1][1])
+axes[1][1].set_title("MSTL Residual PACF")
+
+plt.tight_layout()
+plt.show()
+
+
+
+
+# %%
+pre_covid_df = df[df["covid_flag"]=="pre_covid"]
+result = seasonal_decompose(pre_covid_df["headcount"], model='additive', period=7)
+
+fig = make_subplots(rows=4, cols=1, shared_xaxes=True, 
+                     subplot_titles=("Headcount", "Trend", "Seasonal (yearly)", "Residual"))
+
+fig.add_trace(go.Scatter(x=pre_covid_df.index, y=pre_covid_df["headcount"] , name="Headcount"), row=1, col=1)
+fig.add_trace(go.Scatter(x=result.trend.index, y=result.trend, name="Trend"), row=2, col=1)
+fig.add_trace(go.Scatter(x=result.seasonal.index, y=result.seasonal, name="Seasonality"), row=3, col=1)
+fig.add_trace(go.Scatter(x=result.resid.index, y=result.resid, name="Residual"), row=4, col=1)
+
+fig.update_layout(height=1200, width=1000, title_text = "Yearly Seasonality Pre Covid")
+fig.update_xaxes(showticklabels=True)
+fig.show()
+
+
+# %%
+px.line(pre_covid_df["headcount"])
 
 # %%
 num_rows = df.shape[0]
@@ -171,139 +243,81 @@ test.head()
 
 
 # %%
-from statsmodels.tsa.seasonal import MSTL
+post_covid_df_count = post_covid_df.reset_index(names="date")[["date","headcount"]]
+post_covid_df_count["date"] = pd.to_datetime(post_covid_df_count["date"])
 
-mstl = MSTL(df["headcount"], periods=[7, 365])
-result = mstl.fit()
 
-fig = make_subplots(rows=4, cols=1, shared_xaxes=True,
-                     subplot_titles=("Trend", "Seasonal (weekly)", "Seasonal (yearly)", "Residual"))
-
-fig.add_trace(go.Scatter(x=result.trend.index, y=result.trend, name="Trend"), row=1, col=1)
-fig.add_trace(go.Scatter(x=result.seasonal.index, y=result.seasonal["seasonal_7"], name="Weekly"), row=2, col=1)
-fig.add_trace(go.Scatter(x=result.seasonal.index, y=result.seasonal["seasonal_365"], name="Yearly"), row=3, col=1)
-fig.add_trace(go.Scatter(x=result.resid.index, y=result.resid, name="Residual"), row=4, col=1)
-
-fig.update_layout(height=1200, width=1000, title_text="MSTL Decomposition (weekly + yearly)")
-fig.show()
+train_df = post_covid_df_count.rename(columns={"date": "ds", "headcount": "y"})
+train_df["unique_id"] = "store_001"
+train_df = train_df[["unique_id", "ds", "y"]]
 
 # %%
-fig_zoom = go.Figure()
-fig_zoom = make_subplots(rows=2, cols=1, shared_xaxes=True,
-                     subplot_titles=("Trend", "Seasonal (weekly)", "Seasonal (yearly)", "Residual"))
-fig_zoom.add_trace(go.Scatter(
-    x=result.seasonal.index[:180],
-    y=result.seasonal["seasonal_7"].iloc[:180],
-    mode="lines",
-    name = "1st 180 days"
-    
-))
-fig_zoom.add_trace(go.Scatter(
-    x=result.seasonal.index[-180:],
-    y=result.seasonal["seasonal_7"].iloc[-180:],
-    mode="lines"
-))
-fig_zoom.update_layout(title="Weekly seasonality (zoomed, first 180 days)")
-fig_zoom.show()
-
-# %%
-import pandas as pd
-import plotly.express as px
-
-year_mth_avg = df.groupby(["tour_year", "tour_month"])["headcount"].mean().reset_index()
-
-# Make sure month order is correct (1-12), not alphabetical
-year_mth_avg = year_mth_avg.sort_values(["tour_year", "tour_month"])
-
-fig = px.line(
-    year_mth_avg,
-    x="tour_month",
-    y="headcount",
-    color="tour_year",  # <-- one line per year
-    markers=True
+from statsforecast import StatsForecast
+from statsforecast.models import (
+    AutoARIMA,
+    AutoETS,
+    AutoCES,
+    SeasonalNaive
 )
 
-fig.update_xaxes(
-    tickmode="array",
-    tickvals=list(range(1, 13)),
-    ticktext=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
+# StatsForecast expects a specific DataFrame format:
+# columns: unique_id, ds (timestamp), y (target)
+# train_df = post_covid_df_count.reset_index().rename(columns={
+#     "date": "ds",
+#     "headcount": "y"
+# })
+# train_df["unique_id"] = "store_001"
+# print(train_df)
+# Define models to compare
+models = [
+    AutoARIMA(season_length=7),    # Weekly seasonality
+    AutoETS(season_length=7),       # Exponential smoothing
+    AutoCES(season_length=7),       # Complex exponential smoothing
+    SeasonalNaive(season_length=7)  # Baseline
+]
+
+# Fit and forecast
+sf = StatsForecast(
+    models=models,
+    freq="D",    # Daily frequency
+    n_jobs=-1    # Use all CPU cores
 )
 
-fig.update_layout(
-    title="Seasonal pattern by year",
-    xaxis_title="Month",
-    yaxis_title="Average headcount",
-    legend_title="Year"
+sf.fit(train_df)
+forecasts = sf.predict(h=30, level=[90])  # 30-day forecast with 90% CI
+
+print(forecasts.head())
+
+# %%
+m = len(post_covid_df)
+n = len(post_covid_df[post_covid_df["tour_year"]==2026])
+print(f'There are {m} rows in the post covid dataset\nThere are {n} in 2026\nUse {m-n} rows for training')
+
+cv = ExpandingWindowSplitter(
+    fh=range(1, 31),
+    initial_window=730,
+    step_length=30,
 )
 
-fig.show()
-
 # %%
-from statsmodels.tsa.seasonal import MSTL
-import plotly.express as px
-
-df["headcount"] = df["headcount"].fillna(0)  # or .interpolate(), depending on what missing means
-
-mstl = MSTL(df["headcount"], periods=[7, 365])
-result = mstl.fit()
-
-# Weekly pattern
-fig1 = px.line(result.seasonal["seasonal_7"].iloc[:60], title="Weekly seasonality (first 60 days)")
-fig1.show()
-
-# Yearly pattern
-fig2 = px.line(result.seasonal["seasonal_365"], title="Yearly seasonality")
-fig2.show()
-
-# %%
-#  def naive_forecast(train_df, forecast_index):
-#     last_value = train_df["headcount"].iloc[-1]
-#     logger.info("Naive forecast: last value = %s", last_value)
-#     return pd.Series(last_value, index=forecast_index)
-
-train_df, val_df, test_df = split_data(df)
-
-# naive_model_val = naive_forecast(train_df=train_df, forecast_index=val_df.index)
-# naive_model_test = naive_forecast(train_df=train_df, forecast_index=test.index)
-
+x = cv_results.groupby("unique_id")
 
 
 # %%
-# def seasonal_forecast(df, forecast_index, offset):
-#     """Predicts each date's value using the value at (date - offset).
-    
-#     offset: a pd.DateOffset, e.g. pd.DateOffset(years=1) for yearly 
-#             seasonality or pd.DateOffset(weeks=1) for weekly seasonality.
-#     """
-#     prior_dates = forecast_index - offset
-#     return pd.Series(df.reindex(prior_dates).values, index=forecast_index)
+model_cols = ["AutoARIMA", "AutoETS", "CES", "SeasonalNaive"]
 
-# yearly_naive_seasonal_model_val = seasonal_forecast(
-#     df=df["headcount"],
-#     forecast_index=val_df.index,
-#     offset=pd.DateOffset(years=1),
-# )
+errors = cv_results[model_cols].sub(cv_results["y"], axis=0)
+abs_err = errors.abs()
 
-# # Weekly seasonality
-# weekly_naive_model_val = seasonal_forecast(
-#     df=df["headcount"],
-#     forecast_index=val_df.index,
-#     offset=pd.DateOffset(weeks=1),
-# )
-
-# yearly_naive_seasonal_model_val
+# headline: one number per model
+print(abs_err.mean().sort_values())
 
 # %%
-# train_df['headcount'].shift(365)
+# by horizon: how fast does accuracy decay over the 30 days?
+h = (cv_results["ds"] - cv_results["cutoff"]).dt.days
+print(abs_err.groupby(h).mean())
 
-# %%
-import numpy as np
-from tours.models import naive_forecast, seasonal_forecast
-from tours.evaluate import mae
+# by fold: is the winner consistent, or driven by one window?
+print(abs_err.groupby(cv_results["cutoff"]).mean())
 
-val_naive = naive_forecast(train_df, val_df.index)
-seasonal_7 = seasonal_forecast(df, val_df.index, offset=pd.DateOffset(days=7),target_col="headcount")
-
-print(f'naive: {mae(val_naive, val_df["headcount"])} \n seasonal 7 day {mae(seasonal_7,val_df["headcount"])}')
-
-# val_naive
+print(abs_err.mean() / abs_err["SeasonalNaive"].mean())
