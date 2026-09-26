@@ -250,7 +250,8 @@ test.head()
 # %%
 post_covid_df_count = post_covid_df.reset_index(names="date")[["date","headcount"]]
 post_covid_df_count["date"] = pd.to_datetime(post_covid_df_count["date"])
-
+post_covid_df.loc[post_covid_df["xmas_flag"]]["headcount"] = np.nan
+print(post_covid_df[post_covid_df["tour_month"]==12].head(200))
 
 # train_df = post_covid_df_count.rename(columns={"date": "ds", "headcount": "y"})
 # train_df["unique_id"] = "store_001"
@@ -305,7 +306,7 @@ MODELS = {
 # n = len(post_covid_df[post_covid_df["tour_year"]==2026])
 # print(f'There are {m} rows in the post covid dataset\nThere are {n} in 2026\nUse {m-n} rows for training')
 
-INITAL_WINDOW = 365
+INITAL_WINDOW = 806
 RANGE = range(1,31)
 STEP_LENGTH = 30
 # GAP = 7

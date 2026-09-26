@@ -148,7 +148,7 @@ FROM read_xlsx(
     range       = 'W3:AD',
     all_varchar = true
 )
-WHERE W IS NOT NULL;
+WHERE W IS NOT NULL AND (DATE '1899-12-30' + TRY_CAST(W AS INTEGER)) < DATE '2022-10-11';
 
 
 
@@ -163,31 +163,31 @@ SELECT * from year_2022;
 -- Dates only go to 31 Oct in this table. 
 -- Will join with another table that lists all dates to Aug 2026 at end of this process
 
-CREATE OR REPLACE TABLE year_2023 AS
-SELECT
-    DATE '1899-12-30' + TRY_CAST(AF AS INTEGER) AS tour_date,
-    AG AS tour_type,
-    AH AS guide,
-    CASE lower(trim(AI))
-        WHEN 'yes' THEN TRUE
-        WHEN 'no'  THEN FALSE
-    END AS needed,
-    COALESCE(TRY_CAST(AJ AS DOUBLE), 0) + COALESCE(TRY_CAST(AK AS DOUBLE), 0) * 0.5 AS headcount_per_group,
-    'SS dump' AS source
-    --TRY_CAST(AJ AS INTEGER) AS headcount_per_group_start_adult,
-    --TRY_CAST(AK AS INTEGER) AS headcount_per_group_start_child,
-    --TRY_CAST(AL AS INTEGER) AS headcount_per_group_end_adult,
-    --TRY_CAST(AM AS INTEGER) AS headcount_per_group_end_child,
-FROM read_xlsx(
-    'data/raw/numbers_raw.xlsx',
-    header      = false,
-    sheet       = 'SS Info dump',
-    range       = 'AF3:AM',
-    all_varchar = true
-)
-WHERE AF IS NOT NULL;
+-- CREATE OR REPLACE TABLE year_2023 AS
+-- SELECT
+--     DATE '1899-12-30' + TRY_CAST(AF AS INTEGER) AS tour_date,
+--     AG AS tour_type,
+--     AH AS guide,
+--     CASE lower(trim(AI))
+--         WHEN 'yes' THEN TRUE
+--         WHEN 'no'  THEN FALSE
+--     END AS needed,
+--     COALESCE(TRY_CAST(AJ AS DOUBLE), 0) + COALESCE(TRY_CAST(AK AS DOUBLE), 0) * 0.5 AS headcount_per_group,
+--     'SS dump' AS source
+--     --TRY_CAST(AJ AS INTEGER) AS headcount_per_group_start_adult,
+--     --TRY_CAST(AK AS INTEGER) AS headcount_per_group_start_child,
+--     --TRY_CAST(AL AS INTEGER) AS headcount_per_group_end_adult,
+--     --TRY_CAST(AM AS INTEGER) AS headcount_per_group_end_child,
+-- FROM read_xlsx(
+--     'data/raw/numbers_raw.xlsx',
+--     header      = false,
+--     sheet       = 'SS Info dump',
+--     range       = 'AF3:AM',
+--     all_varchar = true
+-- )
+-- WHERE AF IS NOT NULL;
 
-SELECT * from year_2023;
+-- SELECT * from year_2023;
 
 -------------------------------------------------
 -- pull data from source listing tours to aug 26
@@ -204,12 +204,18 @@ FROM read_xlsx('data/raw/all_bookings_raw_22on.xlsx',
 header = true,
 all_varchar = true);
 
+----
+--This table contains 2 "Tiers" which inconsistently contain values for adult and child. 
+--All the adults count as 1 but the children should count as 0.5
+
 CREATE OR REPLACE TABLE raw_22on AS
 WITH src AS (
     SELECT
         DATE '1899-12-30' + TRY_CAST("Valid For Date" AS INTEGER) AS tour_date,
         TRY_CAST("Tier 1 Size" AS INTEGER) AS tier1,
-        TRY_CAST("Tier 2 Size" AS INTEGER) AS tier2
+        TRY_CAST("Tier 2 Size" AS INTEGER) AS tier2,
+        "Tier 1 Name" AS tier1_name,
+        "Tier 2 Name" AS tier2_name
     FROM read_xlsx('data/raw/all_bookings_raw_22on.xlsx', header = true, all_varchar = true)
     WHERE Product = 'Sydney Sights'
           AND ROUND(TRY_CAST("Valid For Time" AS DOUBLE) * 1440) = 630
@@ -219,12 +225,18 @@ SELECT
     'Sydney Sights 10:30am' AS tour_type,
     CAST(NULL AS VARCHAR)   AS guide,
     TRUE                    AS needed,
-    SUM(tier1) + 0.5 * SUM(COALESCE(tier2, 0)) AS headcount_per_group,
+    SUM(
+        COALESCE(tier1, 0) * CASE WHEN lower(tier1_name) = 'adult' THEN 1.0 ELSE 0.5 END
+      + COALESCE(tier2, 0) * CASE WHEN lower(tier2_name) = 'adult' THEN 1.0 ELSE 0.5 END
+    ) AS headcount_per_group,
     'all_bookings_raw'      AS source
 FROM src
-WHERE tour_date > (SELECT MAX(tour_date) FROM year_2023)
-  AND tour_date <= DATE '2026-08-31'
+-- WHERE tour_date > (SELECT MAX(tour_date) FROM year_2023)
+--   AND tour_date <= DATE '2026-08-31'
+WHERE tour_date <= DATE '2026-08-31'
 GROUP BY ALL;
+
+SELECT * from raw_22on;
 
 SELECT MAX(tour_date) FROM year_2023;
 SELECT MIN(tour_date), MAX(tour_date), COUNT(*) FROM raw_22on;
@@ -243,8 +255,8 @@ SELECT * FROM year_2020
 UNION ALL BY NAME
 SELECT * FROM year_2022
 UNION ALL BY NAME
-SELECT * FROM year_2023
-UNION ALL BY NAME
+-- SELECT * FROM year_2023
+-- UNION ALL BY NAME
 SELECT * FROM raw_22on
 ORDER BY tour_date;
 
@@ -259,19 +271,19 @@ ORDER BY tour_date;
 SELECT * from all_years;
 
 
-SELECT * 
-FROM all_years_ss_dump;
+-- SELECT * 
+-- FROM all_years
 
-SELECT tour_date, SUM(headcount_per_group)
-FROM all_years_ss_dump
-WHERE tour_type = 'Sydney Sights 10:30am'
-GROUP BY tour_date;
+-- SELECT tour_date, SUM(headcount_per_group)
+-- FROM all_years
+-- WHERE tour_type = 'Sydney Sights 10:30am'
+-- GROUP BY tour_date;
 
 
-SELECT DISTINCT tour_type
-FROM all_years_ss_dump;
+-- SELECT DISTINCT tour_type
+-- FROM all_years
 
-SELECT count(*) FROM all_years_ss_dump WHERE needed IS NOT TRUE;
+-- SELECT count(*) FROM all_years WHERE needed IS NOT TRUE;
 -----------------------------------------------------
 -- multiple tours run per day, need to separate out
 -- values for NO TOUR need to be dropped
@@ -355,24 +367,34 @@ SELECT MAX(tour_date) AS latest_date FROM all_years_morning;
 
 SELECT * FROM all_years_morning;
 
-CREATE OR REPLACE TABLE o_2022 AS
-SELECT
-    DATE '1899-12-30' + TRY_CAST(W AS INTEGER) AS tour_date,
-    X AS tour_type,
-    SUM(COALESCE(TRY_CAST(AA AS DOUBLE), 0) + COALESCE(TRY_CAST(AB AS DOUBLE), 0) * 0.5) AS headcount,
-    'SS dump' AS source   
-    --TRY_CAST(AB AS INTEGER) AS headcount_per_group_start_child,
-    --TRY_CAST(AC AS INTEGER) AS headcount_per_group_end_adult,
-    --TRY_CAST(AD AS INTEGER) AS headcount_per_group_end_child,
-FROM read_xlsx(
-    'data/raw/numbers_raw.xlsx',
-    header      = false,
-    sheet       = 'SS Info dump',
-    range       = 'W3:AD',
-    all_varchar = true
+WITH spine2 AS (
+    SELECT CAST(generate_series AS DATE) as date_day
+    FROM generate_series(DATE '2022-01-01', DATE '2023-12-31', INTERVAL 1 DAY)
+),
+year22_23 AS (
+    SELECT tour_date, sum(headcount_per_group) AS headcount
+    FROM year_2022
+    GROUP BY 1
+    UNION ALL BY NAME
+    SELECT tour_date, sum(headcount_per_group) AS headcount
+    FROM year_2023
+    GROUP BY 1
+),
+raw2223 AS (
+    SELECT tour_date, SUM(headcount_per_group) AS headcount
+    FROM raw_22on
+    GROUP BY 1
 )
-WHERE W IS NOT NULL and lower(trim(Z)) IN ('yes', 'scheduled?') and lower(trim(X)) = 'sydney sights 10:30am'
-GROUP BY DATE '1899-12-30' + TRY_CAST(W AS INTEGER), X; 
+SELECT
+    s.date_day,
+    d.headcount AS dump_headcount,
+    e.headcount AS raw_headcount
+FROM spine2 s
+LEFT JOIN year22_23 d ON s.date_day = d.tour_date
+LEFT JOIN raw2223 e ON s.date_day = e.tour_date
+ORDER BY s.date_day;
 
-
-SELECT * from o_2022;
+-- the raw dataset has consistent entries from 11 Oct 2022 so I will switch to rely on that source from that day on
+-- SELECT * FROM year_2022
+-- UNION ALL BY NAME
+-- SELECT * FROM year_2023
