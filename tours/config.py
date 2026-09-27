@@ -38,6 +38,11 @@ POST_COVID_START = pd.Timestamp("2022-10-18")
 DEV_RANGE = [POST_COVID_START, pd.Timestamp("2026-01-31")]
 TEST_RANGE = [pd.Timestamp("2026-02-01"), CUTOFF_DATE]
 
+# rolling-origin cross-validation within the dev period
+FORECAST_HORIZON = 30  # days forecast from each origin
+CV_INITIAL_WINDOW = 806  # days in the first training window
+CV_STEP = 30  # days the origin moves forward each fold
+
 LOG_DIR = PROJECT_ROOT / "logs"
 LOG_DIR.mkdir(exist_ok=True)
 

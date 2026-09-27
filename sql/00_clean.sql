@@ -325,6 +325,7 @@ SELECT * FROM (VALUES
 ) AS t(vivid_year, vivid_start, vivid_end);
 
 CREATE OR REPLACE TABLE tours_daily AS
+WITH daily AS (
 SELECT
     s.date_day                  AS tour_date,
     YEAR(s.date_day)            AS tour_year,
@@ -354,7 +355,13 @@ SELECT
     COALESCE(m.source, 'date spine')                AS source
 FROM date_spine s
 LEFT JOIN all_years_morning m ON m.tour_date = s.date_day
-ORDER BY s.date_day;
+)
+-- closed days have no attendance to measure, so headcount is NULL rather than 0
+SELECT * REPLACE (
+    CASE WHEN operating_status = 'closed' THEN NULL ELSE headcount END AS headcount
+)
+FROM daily
+ORDER BY tour_date;
 
 SELECT * FROM tours_daily WHERE tour_date = DATE('2023-04-20');
 SELECT * FROM tours_daily;

@@ -1,1 +1,3 @@
 data/raw
+# model comparison outputs
+results/
