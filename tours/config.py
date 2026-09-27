@@ -31,6 +31,7 @@ DATE_COL = "tour_date"
 START_DATE = pd.Timestamp("2018-01-01")
 CUTOFF_DATE = pd.Timestamp("2026-08-01")
 
+COVID_START = pd.Timestamp("2020-03-23")
 POST_COVID_START = pd.Timestamp("2022-10-18")
 
 # development: all model comparison and tuning (cross-validation folds live in here)
