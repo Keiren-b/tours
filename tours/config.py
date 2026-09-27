@@ -51,9 +51,9 @@ FOURIER_ORIGIN = pd.Timestamp("2018-01-01")
 
 # monthly forecast (run_forecast.py) - trains on everything up to the latest day in the data
 FORECAST_MODEL = "prophet"  # best in the model comparison
-GUIDE_CAPACITY = (
-    40  # people per guide; estimated from 2018-2020 guide counts, confirm with the business
-)
+# people at which each extra guide is added: under 36 = 1 guide, 36-59 = 2, 60-83 = 3,
+# 84-109 = 4, 110-137 = 5, 138+ = 6
+GUIDE_THRESHOLDS = [36, 60, 84, 110, 138]
 CLOSED_DATES = []  # extra known closures, e.g. ["2026-12-31"]; Christmas Day is always closed
 MAX_FORECAST_DAYS = 62  # models were tested 30 days ahead; beyond ~2 months, don't trust it
 DROP_WARNING_RATIO = 0.6  # warn if the last 4 weeks are below 60% of the same weeks last year

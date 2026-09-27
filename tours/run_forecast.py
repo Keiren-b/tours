@@ -29,8 +29,8 @@ def is_closed(dates):
 
 
 def guides_for(people, closed):
-    """Guides to roster: enough for the people forecast, at least one on open days."""
-    guides = np.ceil(people / config.GUIDE_CAPACITY).clip(lower=1)
+    """Guides to roster from the business's split points; 0 on closed days."""
+    guides = 1 + np.searchsorted(config.GUIDE_THRESHOLDS, people, side="right")
     return np.where(closed, 0, guides).astype(int)
 
 
