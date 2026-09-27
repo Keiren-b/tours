@@ -7,6 +7,7 @@ from prophet import Prophet
 from statsforecast.models import MSTL, AutoARIMA, AutoETS
 from statsmodels.tsa.statespace.sarimax import SARIMAX
 
+from tours import config
 from tours.features import calendar_features, lag_features
 
 logger = logging.getLogger(__name__)
@@ -69,6 +70,11 @@ def fit_mstl(y_train, horizon):
     return model.fit(y_train.to_numpy(dtype=float)).predict(h=horizon)["mean"]
 
 
+def pre_covid_flag(dates):
+    """1 before covid: that era's source counted attendance, later ones count bookings."""
+    return (dates < config.COVID_START).astype(float)
+
+
 def fit_lightgbm(y_train, horizon):
     """Gradient-boosted trees on calendar features and past values.
 
@@ -78,12 +84,13 @@ def fit_lightgbm(y_train, horizon):
     dates = y_train.index.append(future_dates(y_train, horizon))
     y_all = y_train.reindex(dates)  # future days are NaN
     X = pd.concat([calendar_features(dates), lag_features(y_all, min_lag=horizon)], axis=1).assign(
-        day_of_week=dates.dayofweek
+        day_of_week=dates.dayofweek, pre_covid=pre_covid_flag(dates)
     )
     model = lgb.LGBMRegressor(
         n_estimators=300, learning_rate=0.05, num_leaves=15, min_child_samples=20, verbose=-1
     )
-    model.fit(X.loc[y_train.index], y_train)
+    known = y_train.notna().to_numpy()  # long history has a missing covid period
+    model.fit(X.iloc[: len(y_train)][known], y_train[known])
     return model.predict(X.iloc[len(y_train) :])
 
 
@@ -97,8 +104,11 @@ def prophet_holidays(years):
     return pd.DataFrame(days, columns=["holiday", "ds"]).assign(ds=lambda d: pd.to_datetime(d.ds))
 
 
-def fit_prophet(y_train, horizon):
-    """Trend + weekly and yearly seasonality + Christmas/New Year holidays."""
+def prophet_forecast(y_train, horizon):
+    """Trend + weekly and yearly seasonality + Christmas/New Year holidays.
+
+    Returns yhat plus yhat_lower / yhat_upper, an 80% range for each day.
+    """
     years = range(y_train.index[0].year, y_train.index[-1].year + 2)
     model = Prophet(
         weekly_seasonality=True,
@@ -106,9 +116,20 @@ def fit_prophet(y_train, horizon):
         daily_seasonality=False,
         holidays=prophet_holidays(years),
     )
-    model.fit(pd.DataFrame({"ds": y_train.index, "y": y_train.to_numpy()}))
+    history = pd.DataFrame({"ds": y_train.index, "y": y_train.to_numpy()}).dropna()
     future = pd.DataFrame({"ds": future_dates(y_train, horizon)})
-    return model.predict(future)["yhat"].to_numpy()
+    if (
+        history.ds.min() < config.COVID_START
+    ):  # long history: let the pre-covid era have its own level
+        model.add_regressor("pre_covid")
+        history["pre_covid"] = pre_covid_flag(history.ds)
+        future["pre_covid"] = 0.0
+    model.fit(history)
+    return model.predict(future)[["yhat", "yhat_lower", "yhat_upper"]]
+
+
+def fit_prophet(y_train, horizon):
+    return prophet_forecast(y_train, horizon)["yhat"].to_numpy()
 
 
 MODELS = {
@@ -124,8 +145,14 @@ MODELS = {
     "prophet": fit_prophet,
 }
 
+# Same models, but trained on everything from 2018 (see dataset.long_history)
+LONG_HISTORY_MODELS = {
+    "lightgbm_2018": fit_lightgbm,
+    "prophet_2018": fit_prophet,
+}
+
 
 def forecast(name, y_train, horizon):
     """Fit model `name` on y_train and return a dated Series of predictions."""
-    preds = MODELS[name](y_train, horizon)
+    preds = {**MODELS, **LONG_HISTORY_MODELS}[name](y_train, horizon)
     return pd.Series(np.asarray(preds), index=future_dates(y_train, horizon))

@@ -29,8 +29,9 @@ FIGURES_DIR = REPORTS_DIR / "figures"
 
 DATE_COL = "tour_date"
 START_DATE = pd.Timestamp("2018-01-01")
-CUTOFF_DATE = pd.Timestamp("2026-08-01")
+CUTOFF_DATE = pd.Timestamp("2026-08-01")  # fixed end for the model comparison (reproducible)
 
+COVID_START = pd.Timestamp("2020-03-23")
 POST_COVID_START = pd.Timestamp("2022-10-18")
 
 # development: all model comparison and tuning (cross-validation folds live in here)
@@ -48,8 +49,19 @@ YEAR_LENGTH = 365.25
 FOURIER_K = 4  # sine/cosine pairs: more = wigglier yearly shape
 FOURIER_ORIGIN = pd.Timestamp("2018-01-01")
 
+# monthly forecast (run_forecast.py) - trains on everything up to the latest day in the data
+FORECAST_MODEL = "prophet"  # best in the model comparison
+# people at which each extra guide is added: under 36 = 1 guide, 36-59 = 2, 60-83 = 3,
+# 84-109 = 4, 110-137 = 5, 138+ = 6
+GUIDE_THRESHOLDS = [36, 60, 84, 110, 138]
+CLOSED_DATES = []  # extra known closures, e.g. ["2026-12-31"]; Christmas Day is always closed
+MAX_FORECAST_DAYS = 62  # models were tested 30 days ahead; beyond ~2 months, don't trust it
+DROP_WARNING_RATIO = 0.6  # warn if the last 4 weeks are below 60% of the same weeks last year
+FORECASTS_DIR = PROJECT_ROOT / "forecasts"
+
 LOG_DIR = PROJECT_ROOT / "logs"
 LOG_DIR.mkdir(exist_ok=True)
+
 
 def setup_logging(level=logging.INFO):
     root = logging.getLogger()
@@ -71,5 +83,6 @@ def setup_logging(level=logging.INFO):
 
     root.addHandler(console_handler)
     root.addHandler(file_handler)
+
 
 setup_logging()
