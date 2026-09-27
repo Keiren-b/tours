@@ -1,3 +1,4 @@
+import holidays
 import numpy as np
 import pandas as pd
 
@@ -7,15 +8,35 @@ from tours import config
 # so they can be built for the forecast days as well as the training days.
 
 
+def nsw_holidays(years):
+    """NSW public holidays from the `holidays` package, split into two groups.
+
+    easter: Good Friday to Easter Monday.
+    public_holiday: every other NSW public holiday (Australia Day, Anzac Day,
+    King's Birthday, Labour Day, observed days), leaving out Christmas, Boxing
+    Day and New Year's Day, which have their own flags.
+    """
+    groups = {"easter": [], "public_holiday": []}
+    for day, name in holidays.Australia(subdiv="NSW", years=years).items():
+        if "Easter" in name or "Good Friday" in name:
+            groups["easter"].append(pd.Timestamp(day))
+        elif not any(word in name for word in ("Christmas", "Boxing", "New Year")):
+            groups["public_holiday"].append(pd.Timestamp(day))
+    return groups
+
+
 def holiday_flags(dates):
-    """0/1 columns for the Christmas and New Year effects."""
+    """0/1 columns for Christmas, New Year, Easter and other NSW public holidays."""
     month, day = dates.month, dates.day
+    nsw = nsw_holidays(range(dates.min().year, dates.max().year + 1))
     return pd.DataFrame(
         {
             "xmas_day": (month == 12) & (day == 25),
             # 26 Dec to 2 Jan is the peak, except New Year's Day itself which is quiet
             "new_year_period": ((month == 12) & (day >= 26)) | ((month == 1) & (day == 2)),
             "new_years_day": (month == 1) & (day == 1),
+            "easter": dates.isin(nsw["easter"]),
+            "public_holiday": dates.isin(nsw["public_holiday"]),
         },
         index=dates,
     ).astype(float)

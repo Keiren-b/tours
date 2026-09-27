@@ -8,7 +8,7 @@ from statsforecast.models import MSTL, AutoARIMA, AutoETS
 from statsmodels.tsa.statespace.sarimax import SARIMAX
 
 from tours import config
-from tours.features import calendar_features, lag_features
+from tours.features import calendar_features, lag_features, nsw_holidays
 
 logger = logging.getLogger(__name__)
 logging.getLogger("cmdstanpy").setLevel(logging.WARNING)  # prophet's backend is chatty
@@ -101,6 +101,8 @@ def prophet_holidays(years):
         days.append(("new_years_day", f"{year}-01-01"))
         days += [("new_year_period", f"{year}-12-{d}") for d in range(26, 32)]
         days.append(("new_year_period", f"{year}-01-02"))
+    for label, dates in nsw_holidays(years).items():  # easter, public_holiday
+        days += [(label, d) for d in dates]
     return pd.DataFrame(days, columns=["holiday", "ds"]).assign(ds=lambda d: pd.to_datetime(d.ds))
 
 
