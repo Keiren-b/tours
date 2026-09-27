@@ -57,10 +57,20 @@ create_environment:
 #################################################################################
 
 
-## Make dataset
-.PHONY: data
-data: requirements
-	$(PYTHON_INTERPRETER) tours/dataset.py
+## Compare every model on the development period (writes results/)
+.PHONY: compare
+compare:
+	$(PYTHON_INTERPRETER) -m tours.run_comparison
+
+## Forecast through the end of next month (writes forecasts/)
+.PHONY: forecast
+forecast:
+	$(PYTHON_INTERPRETER) -m tours.run_forecast
+
+## Redraw the Prophet forecast-vs-actual chart from the latest comparison
+.PHONY: plots
+plots:
+	$(PYTHON_INTERPRETER) -m tours.plots
 
 
 #################################################################################
