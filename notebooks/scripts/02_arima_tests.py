@@ -25,7 +25,7 @@ import matplotlib as plt
 # %%
 df = dataset.load_clean_data()
 df = dataset.cutoff_series(df)
-train, val, split = dataset.split_data(df)
+dev, test = dataset.split_data(df)
 
 # %% [markdown]
 # Before testing an ARIMA model, I need to see if the time series is stationary to determine the differencing term. If the series is stationary then no differencing term is needed and d=0 in the model parameters. I'll do this using the augmented Dickey-Fuller test.

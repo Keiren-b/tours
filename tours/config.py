@@ -31,9 +31,12 @@ DATE_COL = "tour_date"
 START_DATE = pd.Timestamp("2018-01-01")
 CUTOFF_DATE = pd.Timestamp("2026-08-01")
 
-TRAIN_RANGE = [START_DATE, "2023-12-31"]
-VAL_RANGE = ["2024-01-01", "2025-04-30"]
-TEST_RANGE = ["2025-05-01", CUTOFF_DATE]
+POST_COVID_START = pd.Timestamp("2022-10-18")
+
+# development: all model comparison and tuning (cross-validation folds live in here)
+# test: held back, used once on the final chosen model
+DEV_RANGE = [POST_COVID_START, pd.Timestamp("2026-01-31")]
+TEST_RANGE = [pd.Timestamp("2026-02-01"), CUTOFF_DATE]
 
 LOG_DIR = PROJECT_ROOT / "logs"
 LOG_DIR.mkdir(exist_ok=True)
