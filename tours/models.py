@@ -2,7 +2,7 @@ import logging
 
 import numpy as np
 import pandas as pd
-from pmdarima import auto_arima
+from statsforecast.models import AutoARIMA
 from statsmodels.tsa.statespace.sarimax import SARIMAX
 
 logger = logging.getLogger(__name__)
@@ -34,15 +34,8 @@ def fit_sarima(y_train, horizon):
 
 
 def fit_autoarima(y_train, horizon):
-    model = auto_arima(
-        y_train.to_numpy(),
-        seasonal=True,
-        m=7,
-        stepwise=True,
-        suppress_warnings=True,
-        error_action="ignore",
-    )
-    return np.asarray(model.predict(n_periods=horizon))
+    model = AutoARIMA(season_length=7).fit(y_train.to_numpy(dtype=float))
+    return model.predict(h=horizon)["mean"]
 
 
 MODELS = {
