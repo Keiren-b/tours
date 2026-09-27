@@ -49,6 +49,10 @@ YEAR_LENGTH = 365.25
 FOURIER_K = 4  # sine/cosine pairs: more = wigglier yearly shape
 FOURIER_ORIGIN = pd.Timestamp("2018-01-01")
 
+# NSW school holidays (Eastern division), used as a feature by arimax, lightgbm and prophet
+SCHOOL_HOLIDAYS_FILE = EXTERNAL_DATA_DIR / "nsw_school_holidays.csv"
+USE_SCHOOL_HOLIDAYS = True
+
 # monthly forecast (run_forecast.py) - trains on everything up to the latest day in the data
 FORECAST_MODEL = "prophet"  # best in the model comparison
 # people at which each extra guide is added: under 36 = 1 guide, 36-59 = 2, 60-83 = 3,

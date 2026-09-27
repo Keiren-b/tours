@@ -1,7 +1,12 @@
+from functools import cache
+import logging
+
 import numpy as np
 import pandas as pd
 
 from tours import config
+
+logger = logging.getLogger(__name__)
 
 # Exogenous (external) features: things known in advance for any date,
 # so they can be built for the forecast days as well as the training days.
@@ -35,8 +40,44 @@ def fourier_terms(dates, period=config.YEAR_LENGTH, k=config.FOURIER_K):
     return pd.DataFrame(cols, index=dates)
 
 
+@cache
+def school_holiday_periods():
+    """(start, end) of each NSW school holiday, widened to the weekends either side.
+
+    The file lists the Department of Education's Monday-Friday dates; families
+    travel on the weekends around them, so a Monday/Tuesday start moves back to
+    the Saturday before and a Thursday/Friday end forward to the Sunday after.
+    """
+    periods = pd.read_csv(config.SCHOOL_HOLIDAYS_FILE, parse_dates=["start", "end"])
+    start = periods["start"] - pd.to_timedelta(
+        np.where(periods["start"].dt.dayofweek <= 1, periods["start"].dt.dayofweek + 2, 0),
+        unit="D",
+    )
+    end = periods["end"] + pd.to_timedelta(
+        np.where(periods["end"].dt.dayofweek.isin([3, 4]), 6 - periods["end"].dt.dayofweek, 0),
+        unit="D",
+    )
+    return tuple(zip(start, end))
+
+
+def school_holiday_flag(dates):
+    """1 on NSW school holiday days (weekends either side included), else 0."""
+    periods = school_holiday_periods()
+    if dates.max() > periods[-1][1]:
+        logger.warning(
+            "School holiday dates run out after %s: add later years", periods[-1][1].date()
+        )
+    flag = np.zeros(len(dates))
+    for start, end in periods:
+        flag[(dates >= start) & (dates <= end)] = 1.0
+    return pd.Series(flag, index=dates, name="school_holiday")
+
+
 def calendar_features(dates):
-    return pd.concat([holiday_flags(dates), fourier_terms(dates)], axis=1)
+    parts = [holiday_flags(dates), fourier_terms(dates)]
+    if config.USE_SCHOOL_HOLIDAYS:
+        parts.append(school_holiday_flag(dates))
+    return pd.concat(parts, axis=1)
 
 
 def lag_features(y, min_lag):

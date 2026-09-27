@@ -8,7 +8,7 @@ from statsforecast.models import MSTL, AutoARIMA, AutoETS
 from statsmodels.tsa.statespace.sarimax import SARIMAX
 
 from tours import config
-from tours.features import calendar_features, lag_features
+from tours.features import calendar_features, lag_features, school_holiday_flag
 
 logger = logging.getLogger(__name__)
 logging.getLogger("cmdstanpy").setLevel(logging.WARNING)  # prophet's backend is chatty
@@ -124,6 +124,10 @@ def prophet_forecast(y_train, horizon):
         model.add_regressor("pre_covid")
         history["pre_covid"] = pre_covid_flag(history.ds)
         future["pre_covid"] = 0.0
+    if config.USE_SCHOOL_HOLIDAYS:
+        model.add_regressor("school_holiday")
+        history["school_holiday"] = school_holiday_flag(pd.DatetimeIndex(history.ds)).to_numpy()
+        future["school_holiday"] = school_holiday_flag(pd.DatetimeIndex(future.ds)).to_numpy()
     model.fit(history)
     return model.predict(future)[["yhat", "yhat_lower", "yhat_upper"]]
 
