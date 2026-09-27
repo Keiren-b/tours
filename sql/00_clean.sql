@@ -325,6 +325,7 @@ SELECT * FROM (VALUES
 ) AS t(vivid_year, vivid_start, vivid_end);
 
 CREATE OR REPLACE TABLE tours_daily AS
+WITH daily AS (
 SELECT
     s.date_day                  AS tour_date,
     YEAR(s.date_day)            AS tour_year,
@@ -340,10 +341,27 @@ SELECT
         ELSE 'post_covid'
     END AS covid_flag,
     MONTH(s.date_day) = 12 AND DAY(s.date_day) = 25 AS xmas_flag,
+    -- headcount 0 can mean closed or nobody came, so record which:
+    -- closed = xmas day, or no row in the source data during covid / 2022 (tour didn't run)
+    -- unknown = no row in the source data outside those periods
+    CASE
+        WHEN MONTH(s.date_day) = 12 AND DAY(s.date_day) = 25 THEN 'closed'
+        WHEN m.tour_date IS NULL
+             AND (s.date_day BETWEEN DATE '2020-03-23' AND DATE '2022-10-17'
+                  OR YEAR(s.date_day) = 2022) THEN 'closed'
+        WHEN m.tour_date IS NULL THEN 'unknown'
+        ELSE 'open'
+    END AS operating_status,
     COALESCE(m.source, 'date spine')                AS source
 FROM date_spine s
 LEFT JOIN all_years_morning m ON m.tour_date = s.date_day
-ORDER BY s.date_day;
+)
+-- closed days have no attendance to measure, so headcount is NULL rather than 0
+SELECT * REPLACE (
+    CASE WHEN operating_status = 'closed' THEN NULL ELSE headcount END AS headcount
+)
+FROM daily
+ORDER BY tour_date;
 
 SELECT * FROM tours_daily WHERE tour_date = DATE('2023-04-20');
 SELECT * FROM tours_daily;

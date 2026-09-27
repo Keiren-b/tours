@@ -47,7 +47,7 @@ from pmdarima import auto_arima
 # %%
 df = dataset.load_clean_data()
 df = dataset.cutoff_series(df)
-train, val, split = dataset.split_data(df)
+dev, test = dataset.split_data(df)
 
 # %%
 df.describe()

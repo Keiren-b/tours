@@ -27,7 +27,8 @@ def bias(preds, actuals):
 def mase(preds, actuals, train_series, season_length=1):
     """MAE scaled by the in-sample naive MAE. <1 beats the baseline."""
     p, a = _align(preds, actuals)
-    naive_errors = np.abs(np.diff(train_series.dropna().to_numpy(), n=season_length))
+    # lag difference on the dated series, so missing (closed) days drop out without shifting the lag
+    naive_errors = train_series.diff(season_length).abs().dropna()
     return float(np.abs(a - p).mean() / naive_errors.mean())
 
 
