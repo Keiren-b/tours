@@ -311,19 +311,6 @@ SELECT r.ts::DATE AS date_day
 FROM (SELECT MIN(tour_date) AS lo, MAX(tour_date) AS hi FROM all_years_morning) b,
      range(b.lo, b.hi + INTERVAL 1 DAY, INTERVAL 1 DAY) r(ts);
 
-CREATE OR REPLACE TABLE vivid AS
-SELECT * FROM (VALUES
-    (2018, DATE '2018-05-25', DATE '2018-06-16'),
-    (2019, DATE '2019-05-24', DATE '2019-06-15'),
-    -- 2020 and 2021 cancelled: deliberately absent
-    (2022, DATE '2022-05-27', DATE '2022-06-18'),
-    (2023, DATE '2023-05-26', DATE '2023-06-17'),
-    (2024, DATE '2024-05-24', DATE '2024-06-15'),
-    (2025, DATE '2025-05-23', DATE '2025-06-14'),
-    (2026, DATE '2026-05-22', DATE '2026-06-13'),
-    (2027, DATE '2027-05-28', DATE '2027-06-19')
-) AS t(vivid_year, vivid_start, vivid_end);
-
 CREATE OR REPLACE TABLE tours_daily AS
 WITH daily AS (
 SELECT
