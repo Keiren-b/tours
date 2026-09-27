@@ -29,7 +29,10 @@ FIGURES_DIR = REPORTS_DIR / "figures"
 
 DATE_COL = "tour_date"
 START_DATE = pd.Timestamp("2018-01-01")
-CUTOFF_DATE = pd.Timestamp("2026-08-01")  # fixed end for the model comparison (reproducible)
+# last complete day of data: the bookings file was exported on this day, so later days only
+# hold bookings made in advance. Update it whenever a new export arrives.
+DATA_END = pd.Timestamp("2026-08-24")
+CUTOFF_DATE = DATA_END  # end of the data used by the model comparison
 
 COVID_START = pd.Timestamp("2020-03-23")
 POST_COVID_START = pd.Timestamp("2022-10-18")

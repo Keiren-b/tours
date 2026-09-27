@@ -12,8 +12,15 @@ def load_clean_data():
         config.PROCESSED_DATA_DIR / "morning.csv",
         parse_dates=[config.DATE_COL],
     )
-    df = df.sort_values(config.DATE_COL).set_index(config.DATE_COL, drop=True)
-    return df.asfreq("D")
+    df = df.sort_values(config.DATE_COL).set_index(config.DATE_COL, drop=True).asfreq("D")
+    # days after the export only hold bookings made in advance, not real numbers: never use them
+    if df.index.max() > config.DATA_END:
+        logger.info(
+            "Dropping %s to %s: after DATA_END (the data export date), so incomplete",
+            (config.DATA_END + pd.Timedelta(days=1)).date(),
+            df.index.max().date(),
+        )
+    return df.loc[: config.DATA_END]
 
 
 def cutoff_series(df):
@@ -52,8 +59,8 @@ def long_history(df):
 
 
 def latest_date(df):
-    """Last day with a recorded headcount."""
-    return df["headcount"].last_valid_index()
+    """Last day with a recorded headcount (never after config.DATA_END; see load_clean_data)."""
+    return min(df["headcount"].last_valid_index(), config.DATA_END)
 
 
 def check_data(df):
