@@ -104,8 +104,11 @@ def prophet_holidays(years):
     return pd.DataFrame(days, columns=["holiday", "ds"]).assign(ds=lambda d: pd.to_datetime(d.ds))
 
 
-def fit_prophet(y_train, horizon):
-    """Trend + weekly and yearly seasonality + Christmas/New Year holidays."""
+def prophet_forecast(y_train, horizon):
+    """Trend + weekly and yearly seasonality + Christmas/New Year holidays.
+
+    Returns yhat plus yhat_lower / yhat_upper, an 80% range for each day.
+    """
     years = range(y_train.index[0].year, y_train.index[-1].year + 2)
     model = Prophet(
         weekly_seasonality=True,
@@ -122,7 +125,11 @@ def fit_prophet(y_train, horizon):
         history["pre_covid"] = pre_covid_flag(history.ds)
         future["pre_covid"] = 0.0
     model.fit(history)
-    return model.predict(future)["yhat"].to_numpy()
+    return model.predict(future)[["yhat", "yhat_lower", "yhat_upper"]]
+
+
+def fit_prophet(y_train, horizon):
+    return prophet_forecast(y_train, horizon)["yhat"].to_numpy()
 
 
 MODELS = {

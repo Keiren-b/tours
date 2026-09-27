@@ -51,6 +51,32 @@ def long_history(df):
     return y
 
 
+def latest_date(df):
+    """Last day with a recorded headcount."""
+    return df["headcount"].last_valid_index()
+
+
+def check_data(df):
+    """Stop on broken data; warn when recent bookings look unusually low."""
+    assert df.index.is_unique, "duplicate dates in the data"
+    assert (df.index.to_series().diff().dropna() == pd.Timedelta(days=1)).all(), "gap in the dates"
+    if "operating_status" in df.columns:
+        missing = df.index[df["headcount"].isna() & (df["operating_status"] != "closed")]
+        assert missing.empty, f"no headcount on open days: {list(missing.date)[:10]}"
+
+    last = df.index[-1]
+    recent = df["headcount"].loc[last - pd.Timedelta(days=27) : last].mean()
+    year_ago = df["headcount"].loc[
+        last - pd.Timedelta(days=27 + 364) : last - pd.Timedelta(days=364)
+    ]
+    if year_ago.notna().any() and recent < config.DROP_WARNING_RATIO * year_ago.mean():
+        logger.warning(
+            "Last 4 weeks average %.1f a day vs %.1f a year earlier: check the data is complete",
+            recent,
+            year_ago.mean(),
+        )
+
+
 def split_data(df):
     dev_df = df.loc[config.DEV_RANGE[0] : config.DEV_RANGE[1]]
     test_df = df.loc[config.TEST_RANGE[0] : config.TEST_RANGE[1]]
