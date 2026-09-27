@@ -67,7 +67,7 @@ compare:
 forecast:
 	$(PYTHON_INTERPRETER) -m tours.run_forecast
 
-## Redraw the Prophet forecast-vs-actual chart from the latest comparison
+## Draw forecast-vs-actual charts for every model in the latest comparison (reports/figures/models/)
 .PHONY: plots
 plots:
 	$(PYTHON_INTERPRETER) -m tours.plots

@@ -48,7 +48,8 @@ forecast a month ahead so guides can be rostered.
   and writes the scores and predictions to `results/`.
 - **run_forecast.py**: the product. Trains the chosen model (Prophet) on all data up to the
   latest day and forecasts the next month, with guides needed, to `forecasts/`.
-- **plots.py**: figures, e.g. a model's forecasts against actual bookings.
+- **plots.py**: plotly charts of each model's forecasts against actual bookings, saved to
+  `reports/figures/models/` as `.html` (interactive) and `.png`.
 
 ## How to run
 
@@ -59,4 +60,6 @@ forecast a month ahead so guides can be rostered.
    `python -m tours.run_comparison prophet lightgbm`.
 4. Forecast: `make forecast`. Options: `--until 2026-10-31`, `--as-of 2026-07-31`,
    `--model lightgbm`.
-5. Chart: `make plots`, or `python -m tours.plots lightgbm` for another model.
+5. Charts: `make plots` draws one chart per model from the latest comparison run, or
+   `python -m tours.plots prophet lightgbm` for just those. PNG export needs Chrome; if it
+   isn't found, run `plotly_get_chrome` once (the `.html` charts are saved either way).
