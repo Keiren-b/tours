@@ -6,7 +6,6 @@ results/
 forecasts/
 logs/*.log
 notebooks/*.html
-!notebooks/SIT742_2026T2_A2_35.html
 
 
 # Mac OS-specific storage files
