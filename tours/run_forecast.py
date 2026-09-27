@@ -37,6 +37,8 @@ def guides_for(people, closed):
 def main(as_of=None, until=None, model=config.FORECAST_MODEL):
     df = load_clean_data()
     last = pd.Timestamp(as_of) if as_of else latest_date(df)
+    if last > config.DATA_END:
+        raise ValueError(f"--as-of {last.date()} is after DATA_END {config.DATA_END.date()}")
     df = df.loc[:last]
     check_data(df)
 
