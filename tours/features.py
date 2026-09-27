@@ -9,17 +9,20 @@ from tours import config
 
 
 def nsw_holidays(years):
-    """NSW public holidays from the `holidays` package, split into two groups.
+    """NSW public holidays from the `holidays` package, split into three groups.
 
     easter: Good Friday to Easter Monday.
+    pre_easter: the Wednesday and Thursday before Good Friday, already busy as people travel.
     public_holiday: every other NSW public holiday (Australia Day, Anzac Day,
     King's Birthday, Labour Day, observed days), leaving out Christmas, Boxing
     Day and New Year's Day, which have their own flags.
     """
-    groups = {"easter": [], "public_holiday": []}
+    groups = {"easter": [], "pre_easter": [], "public_holiday": []}
     for day, name in holidays.Australia(subdiv="NSW", years=years).items():
         if "Easter" in name or "Good Friday" in name:
             groups["easter"].append(pd.Timestamp(day))
+            if "Good Friday" in name:
+                groups["pre_easter"] += [pd.Timestamp(day) - pd.Timedelta(days=n) for n in (2, 1)]
         elif not any(word in name for word in ("Christmas", "Boxing", "New Year")):
             groups["public_holiday"].append(pd.Timestamp(day))
     return groups
@@ -35,7 +38,10 @@ def holiday_flags(dates):
             # 26 Dec to 2 Jan is the peak, except New Year's Day itself which is quiet
             "new_year_period": ((month == 12) & (day >= 26)) | ((month == 1) & (day == 2)),
             "new_years_day": (month == 1) & (day == 1),
+            # 3-5 Jan: still well above normal as the holiday peak tails off
+            "new_year_tail": (month == 1) & (day >= 3) & (day <= 5),
             "easter": dates.isin(nsw["easter"]),
+            "pre_easter": dates.isin(nsw["pre_easter"]),
             "public_holiday": dates.isin(nsw["public_holiday"]),
         },
         index=dates,
