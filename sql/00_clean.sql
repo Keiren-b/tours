@@ -233,7 +233,7 @@ SELECT
 FROM src
 -- WHERE tour_date > (SELECT MAX(tour_date) FROM year_2023)
 --   AND tour_date <= DATE '2026-08-31'
-WHERE tour_date <= DATE '2026-08-31'
+WHERE tour_date >= DATE '2022-10-11' AND tour_date <= DATE '2026-08-31'
 GROUP BY ALL;
 
 SELECT * from raw_22on;
@@ -302,6 +302,9 @@ source
 FROM all_years
 WHERE tour_type = 'Sydney Sights 10:30am' AND needed IS TRUE
 GROUP BY tour_date, source;
+
+SELECT * FROM all_years_morning;
+
 
 CREATE OR REPLACE TABLE date_spine AS
 SELECT r.ts::DATE AS date_day
