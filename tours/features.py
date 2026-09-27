@@ -40,10 +40,24 @@ def calendar_features(dates):
 
 
 def lag_features(y, min_lag):
-    """Past headcounts, only from at least `min_lag` days back.
+    """Past-headcount features for the LightGBM model (models.fit_lightgbm).
 
-    With min_lag = forecast horizon, every forecast day only uses values that
-    were already known on the forecast origin, so there's no leakage.
+    Only LightGBM uses these. The ARIMA/ETS/MSTL/Prophet models learn from the
+    series' own past internally, so they don't need lag columns.
+
+    Every feature looks at least `min_lag` days back. fit_lightgbm passes
+    min_lag = forecast horizon (30), so even the last forecast day only uses
+    values known on the forecast origin (the last day of data): no leakage.
+
+    Columns, with min_lag = 30:
+        lag_35           headcount 35 days earlier (same weekday, 5 weeks ago)
+        lag_42           headcount 42 days earlier (same weekday, 6 weeks ago)
+        lag_364          headcount 364 days earlier (same weekday, about a year ago)
+        rolling_mean_28  average of the 28 days ending 30 days earlier (recent level)
+
+    The weekly lags are rounded up to a whole number of weeks so each day is
+    compared with the same weekday. Early rows with nothing that far back are
+    NaN, which LightGBM handles on its own.
     """
     first_weekly = int(np.ceil(min_lag / 7) * 7)  # same weekday, far enough back
     return pd.DataFrame(
